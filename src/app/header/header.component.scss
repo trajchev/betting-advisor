@@ -1,0 +1,22 @@
+.branding {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav {
+    ul {
+        list-style-type: none;
+        li {
+            display: inline-block;
+            a {
+                font-size: .8rem;
+                color: #bcdeff;
+                text-decoration: none;
+                padding: 1rem;
+            }
+            .menu-active {
+                color: #fff;
+            }
+        }
+    }
+}
