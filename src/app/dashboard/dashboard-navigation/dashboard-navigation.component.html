@@ -1,14 +1,15 @@
-<div class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-teal" *ngIf="showSidebar">
-  <button class="w3-button dashboard-close-button" (click)="onClose()">&#10094;</button>
-  <nav class="dashboard-nav">
-    <ul>
-      <li>
-          <a routerLink="/dashboard" class="w3-bar-item w3-button w3-hover-none w3-text-white w3-hover-text-black" routerLinkActive="menu-active">Dashboard</a>
-      </li>
-      <li>
-          <a routerLink="/profile" class="w3-bar-item w3-button w3-hover-none w3-text-white w3-hover-text-black" routerLinkActive="menu-active">Profile</a>
-      </li>
-    </ul>
-  </nav>
+<div class="w3-row">
+  <div class="nav-wrapper">
+    <div class="w3-container w3-quarter"></div>
+    <div class="w3-container w3-half">
+      <nav class="navigation">
+        <ul>
+          <li class="active"><a href="#">Dashboard</a></li>
+          <li><a href="#">My Tickets</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="w3-container w3-quarter"></div>
+  </div>
 </div>
-<button class="w3-button w3-teal" (click)="onOpen()">&#10095;</button>

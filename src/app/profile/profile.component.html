@@ -1,32 +1,40 @@
 <app-dashboard-navigation></app-dashboard-navigation>
-<div class="w3-container">
-  <div class="w3-quarter">
-    <div class="w3-card w3-white">
+<div class="w3-row">
+  <div class="w3-container w3-quarter"></div>
+  <div class="w3-container w3-quarter">
+    <div class="profile-image-container">
       <img src="https://www.w3schools.com/w3css/img_avatar3.png" alt="Person">
-      <div class="w3-container w3-center">
-        <h4><strong>Ivan</strong></h4>
-        <p>Ivan's short bio</p>
-      </div>
     </div>
-  </div>
-  <div class="w3-quarter">
-    <div class="w3-container">
-      <h4 class="w3-center"><strong>Tickets</strong></h4>
-      <div class="w3-card w3-white w3-container w3-margin-bottom">
-        Ticket 1
-      </div>
-      <div class="w3-card w3-white w3-container w3-margin-bottom">
-        Ticket 1
-      </div>
-      <div class="w3-card w3-white w3-container w3-margin-bottom">
-        Add ticket
-      </div>
-      <a href="#" class="w3-center tickets-link">All Tickets</a>
+    <h1 class="h5 w3-center">Ivan Trajchev</h1>
+    <div class="w3-card card">
+      <p>Username <span class="w3-text-white">Ivanche</span></p>
+      <p>Email <span class="w3-text-white">ivan@yahoo.com</span></p>
+      <p>Password <span class="w3-text-white">***</span></p>
+      <p>Joined <span class="w3-text-white">21.12.2012 13:34</span></p>
     </div>
+    <a mat-stroked-button class="width-full" color="primary">Edit</a>
   </div>
-  <div class="w3-half">
-    <div class="w3-container">
-      <h4 class="w3-center"><strong>Your wins graph graph</strong></h4>
+  <div class="w3-container w3-quarter card-col">
+    <h2 class="h5 w3-center">Latest Tickets</h2>
+    <div class="w3-card card">
+      <p class="w3-text-white w3-center">Chelsea<span>1</span>:<span>3</span>Arsenal</p>
+      <p>15.03.2017 <span class="w3-right">20:00</span></p>
+      <p>Chelsea Football Field</p>
+      <p>London, UK</p>
     </div>
+    <div class="w3-card card">
+      <p class="w3-text-white w3-center">Chelsea<span>1</span>:<span>3</span>Arsenal</p>
+      <p>15.03.2017 <span class="w3-right">20:00</span></p>
+      <p>Chelsea Football Field</p>
+      <p>London, UK</p>
+    </div>
+    <div class="w3-card card">
+      <p class="w3-text-white w3-center">Chelsea<span>1</span>:<span>3</span>Arsenal</p>
+      <p>15.03.2017 <span class="w3-right">20:00</span></p>
+      <p>Chelsea Football Field</p>
+      <p>London, UK</p>
+    </div>
+    <a mat-stroked-button class="width-full" color="primary">See All</a>
   </div>
+  <div class="w3-container w3-quarter"></div>
 </div>

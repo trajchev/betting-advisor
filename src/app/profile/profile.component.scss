@@ -1,8 +1,44 @@
-img {
-    max-width: 100%;
-}
-
 .tickets-link {
     display: block;
     text-align: center;
+}
+
+.profile-image-container {
+    width: 20rem;
+    max-width: 100%;
+    border-radius: 10rem;
+    padding: 1rem;
+    background: linear-gradient(#2b54d6, #2bb7df) no-repeat;
+    margin: 2rem auto;
+
+    img {
+        max-width: 100%;
+        border-radius: 10rem;
+    }
+}
+
+.h5 {
+    color: #2b7fda;
+}
+
+.card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: linear-gradient( to right, #0f1726, #141f33, #0f1726) no-repeat;
+
+    p {
+        color: #36507f;
+    }
+
+    span {
+        padding: 0 1rem;
+    }
+}
+
+.width-full {
+    width: 100%;
+}
+
+.card-col {
+    padding: 2rem 0;
 }
