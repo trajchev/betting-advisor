@@ -1,0 +1,12 @@
+<div class="w3-container">
+  <form class="form-info" id="login-form" [formGroup]="loginUserForm" (ngSubmit)="onUserLogin()">
+    <mat-form-field>
+      <input formControlName="userName" matInput placeholder="Username" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="password" matInput placeholder="Password" required>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" [disabled]="!loginUserForm.valid">Login</button>
+    <a mat-button routerLink=".">Forgot password?</a>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+<div class="w3-container">
+  <form class="form-info" id="register-form" [formGroup]="registerUserForm" (ngSubmit)="onUserRegister()">
+    <mat-form-field>
+      <input formControlName="userName" matInput placeholder="Username" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="email" matInput placeholder="Email" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="password" matInput placeholder="Password" required>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" [disabled]="!registerUserForm.valid">Register</button>
+  </form>
+</div>
