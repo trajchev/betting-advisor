@@ -1,0 +1,16 @@
+// Forms
+
+::ng-deep .mat-form-field {
+    .mat-input-element {
+        color: white;
+    }
+    .mat-form-field-label {
+        color: #777;
+    }
+    .mat-form-field-underline {
+        background-color: #132433;
+    }
+    .mat-form-field-ripple {
+        background-color: white;
+    }
+}

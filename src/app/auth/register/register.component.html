@@ -10,5 +10,6 @@
       <input formControlName="password" matInput placeholder="Password" required>
     </mat-form-field>
     <button type="submit" mat-raised-button color="primary" [disabled]="!registerUserForm.valid">Register</button>
+    <div class="auth-helper">Already have an account? <a routerLink="/login">Login</a></div>
   </form>
 </div>

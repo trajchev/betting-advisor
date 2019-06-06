@@ -28,6 +28,7 @@
             ],
             "styles": [
               "./node_modules/w3-css/w3.css",
+              "src/app/material.theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
