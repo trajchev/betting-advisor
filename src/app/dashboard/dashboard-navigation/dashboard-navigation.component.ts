@@ -7,19 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardNavigationComponent implements OnInit {
 
-  showSidebar = false;
-
   constructor() { }
 
   ngOnInit() {
-  }
-
-  onOpen() {
-    this.showSidebar = true;
-  }
-
-  onClose() {
-    this.showSidebar = false;
   }
 
 }

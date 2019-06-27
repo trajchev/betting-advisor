@@ -1,0 +1,20 @@
+<app-dashboard-navigation></app-dashboard-navigation>
+
+<div class="w3-row">
+  <div class="w3-container w3-quarter"></div>
+
+  <div class="w3-container w3-half card-col">
+    <div class="w3-card card w3-half" *ngFor="let ticket of tickets" routerLink="/ticket">
+      <p class="w3-text-white w3-center">
+        {{ticket.team_home}}
+        <span>{{ticket.team_home_result}}</span>:<span>{{ticket.team_away_result}}</span>
+        {{ticket.team_away}}
+      </p>
+      <p>{{ticket.game_date}}<span class="w3-right">{{ticket.game_time}}</span></p>
+      <p>{{ticket.game_field}}</p>
+      <p>{{ticket.game_location}}</p>
+    </div>
+  </div>
+
+  <div class="w3-container w3-quarter"></div>
+</div>

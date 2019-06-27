@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TicketsService } from '../service/tickets.service';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  tickets;
+  user;
+
+  constructor(public ticketService: TicketsService, public userService: UserService) { }
 
   ngOnInit() {
+    this.showTickets();
+    this.user = this.userService.getUser();
+  }
+
+  showTickets() {
+    return this.ticketService.getTickets()
+      .subscribe((data) => {
+        this.tickets = data;
+      });
   }
 
 }
