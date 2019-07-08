@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError, pipe } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 const options = {
   headers: new HttpHeaders({
@@ -13,8 +14,6 @@ const options = {
   providedIn: 'root'
 })
 export class LeagueService {
-
-  apiKey = 'cec3bab91a164e702a135a505dbbae59';
 
   apiURL = 'https://api.the-odds-api.com/v3';
   // private tickets: Ticket[] = [];
@@ -30,9 +29,7 @@ export class LeagueService {
 
   getLeagues(): Observable<any> {
     return this.http
-      .get(this.apiURL + '/sports/?apiKey=' + this.apiKey
-        // this.apiURL + '/sport/?apiKey=' + this.apiKey
-      )
+      .get(`${this.apiURL}/sports/?apiKey=${environment.apiKey}`)
       .pipe(
         map(response => {
           return response;
@@ -45,9 +42,7 @@ export class LeagueService {
 
   getOdds(sport): Observable<any> {
     return this.http
-      .get(this.apiURL + '/odds/?sport=' + sport + '&region=uk' + '&apiKey=' + this.apiKey
-        // this.apiURL + '/sport/?apiKey=' + this.apiKey
-      )
+      .get(`${this.apiURL}/odds/?sport=${sport}&region=uk&apiKey=${environment.apiKey}`)
       .pipe(
         map(response => {
           return response;
