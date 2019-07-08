@@ -44,3 +44,4 @@ Thumbs.db
 
 # Sensitive Data
 connection-data.js
+/src/environments/environment.ts
