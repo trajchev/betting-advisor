@@ -5,12 +5,12 @@
     <div class="profile-image-container">
       <img src="https://www.w3schools.com/w3css/img_avatar3.png" alt="Person">
     </div>
-    <h1 class="h5 w3-center">{{user.firstName}} {{user.lastName}}</h1>
+    <h1 class="h5 w3-center">{{user.first_name}} {{user.last_name}}</h1>
     <div class="w3-card card">
       <p>Username <span class="w3-text-white">{{user.username}}</span></p>
       <p>Email <span class="w3-text-white">{{user.email}}</span></p>
-      <p>Password <span class="w3-text-white">{{user.password}}</span></p>
-      <p>Joined <span class="w3-text-white">{{user.joined}}</span></p>
+      <p>Password <span class="w3-text-white">***</span></p>
+      <p>Joined <span class="w3-text-white">{{user.dateAdded}}</span></p>
     </div>
     <a mat-stroked-button class="width-full" color="primary">Edit</a>
   </div>

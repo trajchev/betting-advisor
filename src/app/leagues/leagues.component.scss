@@ -1,0 +1,30 @@
+.tickets-link {
+    display: block;
+    text-align: center;
+}
+
+.h5 {
+    color: #2b7fda;
+}
+
+.card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: linear-gradient( to right, #0f1726, #141f33, #0f1726) no-repeat;
+
+    p {
+        color: #36507f;
+    }
+
+    span {
+        padding: 0 1rem;
+    }
+}
+
+.width-full {
+    width: 100%;
+}
+
+.card-col {
+    padding: 2rem 0;
+}

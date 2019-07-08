@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  apiURL = 'http://localhost:3000/api';
 
   user = {
     firstName: 'Ivan',
@@ -11,12 +16,33 @@ export class UserService {
     username: 'Ivanche',
     email: 'ivan@yahoo.com',
     password: '***',
-    joined: new Date().getFullYear()
+    dateAdded: new Date()
   };
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getUser() {
-    return this.user;
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
+  getUsers(): Observable<any> {
+    return this.http.get(this.apiURL + '/users')
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+  handleError(error) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = error.error.message;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
   }
 }

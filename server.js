@@ -1,39 +1,28 @@
-const express = require('express');
-const mysql = require('mysql2');
+const http = require('http');
+const debug = require("debug")("node-angular");
+const bodyParser = require('body-parser');
 
-const connect = require('./connection-data');
+const app = require('./server/app');
+const ticketsRoutes = require('./server/routes/tickets');
+const normalizePort = require('./server/utils/normalize-port');
+const onError = require('./server/utils/error-handling');
 
-const app = express();
+const port = normalizePort(process.env.PORT || 3000);
 
-let tickets = [];
+app.set('port', port);
 
-const pool = mysql.createPool(connect);
+const server = http.createServer(app);
 
-pool.query("SELECT * FROM tickets", (err, rows, fields)=> {
-    if(err) {
-        throw err;
-    } else { 
-        getTickets(rows);
-    }
-});
-
-let getTickets = value => {
-    tickets = value;
-    return tickets;
+const onListening = () => {
+    const addr = server.address();
+    const bind = typeof addr === 'string' ? 'pipe' + addr : 'port' + port;
+    debug('Listening on ', bind);
 }
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(ticketsRoutes)
 
-app.get('/tickets', (req, res)=> {
-    res.json(tickets);
-});
-
-const port = 3000;
-
-app.listen(port, ()=> {
-    console.log('Server is running');
-});
+server.on('error', onError);
+server.on('listening', onListening);
+server.listen(port);

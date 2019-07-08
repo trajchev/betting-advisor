@@ -1,0 +1,19 @@
+<app-dashboard-navigation></app-dashboard-navigation>
+
+<div class="w3-row">
+  <div class="w3-container w3-quarter"></div>
+
+  <div class="w3-container w3-half card-col">
+    <div class="w3-card card w3-half" *ngFor="let odd of odds" routerLink="/ticket">
+      <p class="h5 w3-text-white w3-center">
+        {{odd.sport_key}}
+      </p>
+      <p>Booker <span class="w3-right">{{odd.sport_nice}}</span></p>
+      <p>{{odd.commence_time}}</p>
+      <p *ngFor="let team of odd.teams">{{team}}</p>
+      <p *ngFor="let site of odd.sites">{{site.site_nice}}</p>
+    </div>
+  </div>
+
+  <div class="w3-container w3-quarter"></div>
+</div>

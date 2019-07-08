@@ -8,6 +8,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { TicketComponent } from './tickets/ticket/ticket.component';
+import { LeaguesComponent } from './leagues/leagues.component';
+import { OddsComponent } from './leagues/odds/odds.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'tickets', component: TicketsComponent },
   { path: 'ticket', component: TicketComponent },
+  { path: 'leagues', component: LeaguesComponent },
+  { path: 'odds', component: OddsComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

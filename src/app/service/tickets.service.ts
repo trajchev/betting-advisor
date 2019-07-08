@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { Ticket } from '../tickets/ticket/ticket.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TicketsService {
 
-  apiURL = 'http://localhost:3000';
-  ticketsUrl = 'http://localhost:3000/tickets';
+  apiURL = 'http://localhost:3000/api';
+  private tickets: Ticket[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +20,8 @@ export class TicketsService {
     })
   };
 
-  getTickets(): Observable<any> {
-    return this.http.get(this.apiURL + '/tickets')
+  getTickets() {
+    return this.http.get<Ticket[]>(this.apiURL + '/tickets')
     .pipe(
       retry(1),
       catchError(this.handleError)

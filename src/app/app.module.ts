@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { TicketComponent } from './tickets/ticket/ticket.component';
+import { LeaguesComponent } from './leagues/leagues.component';
+import { OddsComponent } from './leagues/odds/odds.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { TicketComponent } from './tickets/ticket/ticket.component';
     RegisterComponent,
     PageNotFoundComponent,
     TicketsComponent,
-    TicketComponent
+    TicketComponent,
+    LeaguesComponent,
+    OddsComponent
   ],
   imports: [
     BrowserModule,
