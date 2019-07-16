@@ -11,14 +11,15 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardNavigationComponent } from './dashboard/dashboard-navigation/dashboard-navigation.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { TicketComponent } from './tickets/ticket/ticket.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { OddsComponent } from './leagues/odds/odds.component';
+import { LeagueComponent } from './leagues/league/league.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { OddsComponent } from './leagues/odds/odds.component';
     TicketsComponent,
     TicketComponent,
     LeaguesComponent,
-    OddsComponent
+    OddsComponent,
+    LeagueComponent
   ],
   imports: [
     BrowserModule,

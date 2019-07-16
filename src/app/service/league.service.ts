@@ -31,9 +31,16 @@ export class LeagueService {
     return this.http
       .get(`${this.apiURL}/sports/?apiKey=${environment.apiKey}`)
       .pipe(
-        map(response => {
-          return response;
-        }),
+        catchError(error => {
+          return [];
+        })
+      );
+  }
+
+  getLeague(sport): Observable<any> {
+    return this.http
+      .get(`${this.apiURL}/odds/?sport=${sport}&region=uk&apiKey=${environment.apiKey}`)
+      .pipe(
         catchError(error => {
           return [];
         })
@@ -44,9 +51,6 @@ export class LeagueService {
     return this.http
       .get(`${this.apiURL}/odds/?sport=${sport}&region=uk&apiKey=${environment.apiKey}`)
       .pipe(
-        map(response => {
-          return response;
-        }),
         catchError(error => {
           return [];
         })

@@ -4,12 +4,8 @@
   <div class="w3-container w3-quarter"></div>
 
   <div class="w3-container w3-half card-col">
-    <div class="w3-card card w3-half" *ngFor="let sport of sports" 
-    routerLink="/league/{{sport.key}}">
-      <p class="h5 w3-text-white w3-center">
-        {{sport.title}}
-      </p>
-      <p>{{sport.group}}</p>
+    <div class="w3-card card w3-half" *ngFor="let game of games">
+      <p class="h5 w3-text-white w3-center" *ngFor="let team of game.teams">{{team}}</p>
     </div>
   </div>
 

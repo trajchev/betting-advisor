@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LeagueService } from 'src/app/service/league.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-odds',
@@ -9,11 +10,13 @@ import { LeagueService } from 'src/app/service/league.service';
 export class OddsComponent implements OnInit {
 
   odds;
+  sport;
 
-  constructor(private leagueService: LeagueService) { }
+  constructor(private leagueService: LeagueService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.odds = this.getOdds('mma_mixed_martial_arts');
+    this.sport = this.route.snapshot.paramMap.get('sport');
+    this.odds = this.getOdds(this.sport);
   }
 
   getOdds(league) {
