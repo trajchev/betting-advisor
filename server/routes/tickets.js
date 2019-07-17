@@ -13,12 +13,14 @@ let getData = value => {
     return records;
 }
 
+// Handle single ticket route
 router.post('/api/ticket', (req, res, next) => {
     const ticket = req.body;
     console.log(ticket);
     res.status(201).json(ticket);
 });
 
+// handle delete (single) ticket route
 router.delete('/:id', (req, res, next) => {
     console.log(req.params.id);
     pool.query("DELETE * FROM tickets WHERE id = " +  req.params.id, (err, rows, fields)=> {
@@ -31,11 +33,13 @@ router.delete('/:id', (req, res, next) => {
     res.status(200).json({message: "ticket deleted"});
 });
 
+// Handle single ticket view route
 router.put('/:id', (res, req, next) => {
     console.log(req.params.id);
     res.status(200).json({message: "ticket updated"});
 });
 
+// handle all tickets view route
 router.get('/api/tickets', (req, res)=> {
     pool.query("SELECT * FROM tickets", (err, rows, fields)=> {
         if(err) {

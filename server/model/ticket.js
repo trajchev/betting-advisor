@@ -6,6 +6,7 @@ const app = express();
 
 let tickets = [];
 
+// Create mysql pool since its more efficient than basic query
 const pool = mysql.createPool(connect);
 const selectQuery = "SELECT * FROM tickets";
 
@@ -16,6 +17,7 @@ async function getTickets() {
     return rows;
 }
 
+// Export the /tickets route with the tickets data as a response on it
 module.exports = app.get('/tickets', (req, res)=> {
     res.json(tickets);
 });
