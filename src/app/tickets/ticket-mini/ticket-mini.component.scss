@@ -1,0 +1,19 @@
+.card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: linear-gradient( to right, #0f1726, #141f33, #0f1726) no-repeat;
+
+    p {
+        color: #36507f;
+    }
+
+    span {
+        padding: 0 1rem;
+    }
+}
+
+.ticket {
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+}

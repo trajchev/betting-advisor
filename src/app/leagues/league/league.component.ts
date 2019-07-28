@@ -16,15 +16,14 @@ export class LeagueComponent implements OnInit {
 
   ngOnInit() {
     this.league = this.route.snapshot.paramMap.get('league');
-    this.getLeague(this.league);
+    this.games = this.getLeague(this.league);
   }
 
   getLeague(league) {
     this.leagueService.getLeague(league).subscribe(res => {
       this.games = res.data;
-      console.log(this.games);
+      // console.log(this.games);
       return this.games;
     });
   }
-
 }

@@ -20,6 +20,7 @@ import { TicketComponent } from './tickets/ticket/ticket.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { OddsComponent } from './leagues/odds/odds.component';
 import { LeagueComponent } from './leagues/league/league.component';
+import { TicketMiniComponent } from './tickets/ticket-mini/ticket-mini.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LeagueComponent } from './leagues/league/league.component';
     TicketComponent,
     LeaguesComponent,
     OddsComponent,
-    LeagueComponent
+    LeagueComponent,
+    TicketMiniComponent,
   ],
   imports: [
     BrowserModule,
