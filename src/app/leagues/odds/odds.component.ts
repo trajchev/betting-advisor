@@ -15,8 +15,8 @@ export class OddsComponent implements OnInit {
   constructor(private leagueService: LeagueService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.sport = this.route.snapshot.paramMap.get('sport');
-    this.odds = this.getOdds(this.sport);
+    // this.sport = this.route.snapshot.paramMap.get('sport');
+    // this.odds = this.getOdds(this.sport);
   }
 
   getOdds(league) {

@@ -15,8 +15,8 @@ export class LeagueComponent implements OnInit {
   constructor(private leagueService: LeagueService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.league = this.route.snapshot.paramMap.get('league');
-    this.games = this.getLeague(this.league);
+    // this.league = this.route.snapshot.paramMap.get('league');
+    // this.games = this.getLeague(this.league);
   }
 
   getLeague(league) {

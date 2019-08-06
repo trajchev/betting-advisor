@@ -14,7 +14,7 @@ export class LeaguesComponent implements OnInit {
   constructor(private leagueService: LeagueService) { }
 
   ngOnInit() {
-    this.sports = this.getLeagues();
+    // this.sports = this.getLeagues();
   }
 
   getLeagues() {
