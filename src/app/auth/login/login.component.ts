@@ -20,4 +20,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  onUserLogin() {
+    const username = this.loginUserForm.value.userName;
+    const password = this.loginUserForm.value.password;
+    console.log(`The user ${username} has attempted to login with password ${password}`);
+    this.loginUserForm.reset();
+  }
+
 }

@@ -19,4 +19,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+  onUserRegister() {
+    const username = this.registerUserForm.value.userName;
+    const email = this.registerUserForm.value.email;
+    const password = this.registerUserForm.value.password;
+
+    console.log(`User ${username} with email: ${email}, has requested to signup with password ${password}`);
+    this.registerUserForm.reset();
+  }
+
 }
