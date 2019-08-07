@@ -1,7 +1,5 @@
-const debug = require("debug")("node-angular");
 const bodyParser = require('body-parser');
 
-// Local modules
 const app = require('./server/app');
 const ticketsRoutes = require('./server/routes/tickets');
 
@@ -12,6 +10,6 @@ app.set('port', port);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(ticketsRoutes)
+app.use('/api', ticketsRoutes)
 
 app.listen(port);
