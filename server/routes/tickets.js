@@ -21,7 +21,7 @@ router.post('/api/ticket', (req, res, next) => {
 });
 
 // handle delete (single) ticket route
-router.delete('/:id', (req, res, next) => {
+router.delete('api/tickets/:id', (req, res, next) => {
     console.log(req.params.id);
     pool.query("DELETE * FROM tickets WHERE id = " +  req.params.id, (err, rows, fields)=> {
         if(err) {
@@ -34,7 +34,7 @@ router.delete('/:id', (req, res, next) => {
 });
 
 // Handle single ticket view route
-router.put('/:id', (res, req, next) => {
+router.put('api/tickets/:id', (res, req, next) => {
     console.log(req.params.id);
     res.status(200).json({message: "ticket updated"});
 });
