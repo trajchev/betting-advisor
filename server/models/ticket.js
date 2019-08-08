@@ -1,23 +1,44 @@
-const express = require('express');
-const mysql = require('mysql2');
-const connect = require('../../connection-data');
+const Sequilize = require('sequelize');
 
-const app = express();
+const sequelize = require('../utils/db');
 
-let tickets = [];
+const Ticket = sequelize.define(
+    'ticket', {
+        id: {
+            type: Sequilize.INTEGER,
+            autoIncrement: true,
+            allowNull: false,
+            primaryKey: true
+        },
+        team_home: {
+            type: Sequilize.STRING,
+            allowNull: false,
+        },
+        team_away: {
+            type: Sequilize.STRING,
+            allowNull: false,
+        },
+        team_home_odds: {
+            type: Sequilize.DECIMAL,
+            allowNull: false
+        },
+        team_away_odds: {
+            type: Sequilize.DECIMAL,
+            allowNull: false
+        },
+        game_field: {
+            type: Sequilize.STRING,
+            allowNull: false
+        },
+        game_location: {
+            type: Sequilize.STRING,
+            allowNull: false
+        },
+        game_time: {
+            type: Sequilize.STRING,
+            allowNull: false
+        }
+    }     
+);
 
-// Create mysql pool since its more efficient than basic query
-const pool = mysql.createPool(connect);
-const selectQuery = "SELECT * FROM tickets";
-
-async function getTickets() {
-    const promisePool = pool.promise();
-    const [rows,fields] = await promisePool.query(selectQuery);
-    console.log(rows);
-    return rows;
-}
-
-// Export the /tickets route with the tickets data as a response on it
-module.exports = app.get('/tickets', (req, res)=> {
-    res.json(tickets);
-});
+module.exports = Ticket;
