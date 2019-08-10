@@ -1,21 +1,28 @@
-const users = [];
+const Sequilize = require('sequelize');
 
-module.exports = class User {
-    constructor(username, email, password, userImage) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.userImage = userImage;
-    }
+const sequelize = require('../utils/db');
 
-    // Save ticket to database
-    save() {
-        products.push(this);
-    }
+const User = sequelize.define(
+    'user', {
+        id: {
+            type: Sequilize.INTEGER,
+            autoIncrement: true,
+            allowNull: false,
+            primaryKey: true
+        },
+        username: {
+            type: Sequilize.STRING,
+            allowNull: false,
+        },
+        email: {
+            type: Sequilize.STRING,
+            allowNull: false,
+        },
+        password: {
+            type: Sequilize.STRING,
+            allowNull: false,
+        }
+    }     
+);
 
-    // Call the fetchAll method on the User class itself by making it static
-    static fetchAll() {
-        return this.products;
-    }
-    
-}
+module.exports = User;

@@ -19,11 +19,11 @@ const Ticket = sequelize.define(
             allowNull: false,
         },
         team_home_odds: {
-            type: Sequilize.DECIMAL,
+            type: Sequilize.DOUBLE(10, 2),
             allowNull: false
         },
         team_away_odds: {
-            type: Sequilize.DECIMAL,
+            type: Sequilize.DOUBLE(10, 2),
             allowNull: false
         },
         game_field: {
