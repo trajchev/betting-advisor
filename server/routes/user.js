@@ -1,32 +1,24 @@
 const express = require('express');
 const { body } = require('express-validator');
 
-const userModel = require('../models/user');
+const User = require('../models/user');
 const userController = require('../controllers/user');
 
 const router = express.Router();
 
-// handle all tickets view route
-// router.post('/user', userController.getTickets);
-
 router.put(
-    '/signup',(req, res, next) => {
-        console.log('==================== Request =======================');
-        console.log(req.body);
-        next();
-    },
+    '/signup',
     [
     body('email')
       .isEmail()
-      .withMessage('Please enter a valid email.')
-      .custom((value, { req }) => {
-        return userModel.fetchOne({ email: value }).then(userDoc => {
-          if (userDoc) {
+      .normalizeEmail()
+      .custom(value => {
+        return User.findAll({ where: { email: value }}).then(user => {
+          if (user.length > 0) {
             return Promise.reject('E-Mail address already exists!');
           }
         });
-    })
-    .normalizeEmail(),
+    }),
     body('password')
         .trim()
         .isLength({min: 5}),
@@ -38,6 +30,6 @@ router.put(
     userController.signup
 );
 
-// router.post('/login', userController.login);
+router.post('/login', userController.login);
 
 module.exports = router;
