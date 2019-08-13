@@ -38,9 +38,9 @@ export class AuthService {
     return this.authStatusListener.asObservable();
   }
 
-  createUser(email: string, password: string) {
-    const authData: Auth = { email: email, password: password };
-    this.http.post(BACKEND_URL + '/signup', authData).subscribe(
+  createUser(username: string, email: string, password: string) {
+    const authData: Auth = { username: username, email: email, password: password };
+    this.http.put(`${BACKEND_URL}/user/signup`, authData).subscribe(
       () => {
         this.router.navigate(['/']);
       },
@@ -51,9 +51,9 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    const authData: Auth = { email: email, password: password };
+    const authData = {email: email, password: password };
     this.http
-      .post<{ token: string; expiresIn: number; userId: string }>(
+      .post<{ token: string; expiresIn: number; userId: number }>(
         BACKEND_URL + '/login',
         authData
       )
@@ -65,7 +65,7 @@ export class AuthService {
             const expiresInDuration = response.expiresIn;
             this.setAuthTimer(expiresInDuration);
             this.isAuthenticated = true;
-            this.userId = response.userId;
+            this.userId = response.userId.toFixed();
             this.authStatusListener.next(true);
             const now = new Date();
             const expirationDate = new Date(
@@ -92,7 +92,7 @@ export class AuthService {
     if (expiresIn > 0) {
       this.token = authInfo.token;
       this.isAuthenticated = true;
-      this.userId = authInfo.userId;
+      this.userId = authInfo.userId.toFixed();
       this.setAuthTimer(expiresIn / 1000);
       this.authStatusListener.next(true);
     }

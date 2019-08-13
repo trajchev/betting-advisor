@@ -42,9 +42,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.authService.login(username, password);
 
-
+    console.log(this.loginUserForm);
     console.log(`The user ${username} has attempted to login with password ${password}`);
-    this.loginUserForm.reset();
+    // this.loginUserForm.reset();
   }
 
 }

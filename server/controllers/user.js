@@ -6,6 +6,7 @@ const User = require('../models/user');
 
 // Signup
 module.exports.signup = (req, res, next) => {
+    // Check for errors in the request
     const errors = validationResult(req);
 
     if(!errors.isEmpty()) {
@@ -14,8 +15,9 @@ module.exports.signup = (req, res, next) => {
     const password = req.body.password;
     const username = req.body.username;
     const email = req.body.email;
+    // Hash the password and save the user with the email and username
     bcrypt
-        .hash(password, 12)
+        .hash(password, 10)
         .then(hashedPass => {
             const user = new User({
                 username: username,
@@ -25,12 +27,14 @@ module.exports.signup = (req, res, next) => {
             return user.save();
         })
         .then(result => {
+            // Return the ID for the created user for future use
             res.status(201).json({ message: 'User successfully created', userId: result.dataValues.id});
         })
         .catch(err => {
             if (!err.statusCode) {
                 err.statusCode = 500;
             }
+            res.status(500).json({error: err});
             next(err);
         });
 }
@@ -41,15 +45,17 @@ module.exports.login = (req, res, next) => {
     const password = req.body.password;
     let loadedUser;
 
-    User.findAll({ where: { email: email }}).then(user => {
-
-        if (user.length < 0) {
+    // Check if a user with the entered email exists
+    User.findAll({ where: { email: email }}).then(users => {
+        // user is an array with the users satisfying our criteria
+        if (users.length < 0) {
             const error = new Error('A user with this email could not be found.');
             error.statusCode = 401;
             throw error;
         }
-        loadedUser = user;
-        return bcrypt.compare(password, user[0].dataValues.password);
+        loadedUser = users[0];
+        // compare the 
+        return bcrypt.compare(password, loadedUser.dataValues.password);
     })
     .then(isEqual => {
         if (!isEqual) {
@@ -57,14 +63,7 @@ module.exports.login = (req, res, next) => {
             error.statusCode = 401;
             throw error;
         }
-        const token = jwt.sign(
-            {
-                email: loadedUser.email,
-                userId: loadedUser.id
-            },
-            'Betwisor',
-            {expiresIn: '1h'}
-        );
+        const token = jwt.sign({email: loadedUser.email, userId: loadedUser.id}, 'Betwisor', {expiresIn: '1h'});
 
         res.status(200).json({token: token, userId: loadedUser.id});
     })
