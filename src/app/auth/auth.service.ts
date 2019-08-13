@@ -54,11 +54,12 @@ export class AuthService {
     const authData = {email: email, password: password };
     this.http
       .post<{ token: string; expiresIn: number; userId: number }>(
-        BACKEND_URL + '/login',
+        BACKEND_URL + '/user/login',
         authData
       )
       .subscribe(
         response => {
+          console.log(response);
           const token = response.token;
           this.token = token;
           if (token) {
@@ -71,7 +72,6 @@ export class AuthService {
             const expirationDate = new Date(
               now.getTime() + expiresInDuration * 1000
             );
-            console.log(expirationDate);
             this.saveAuthData(token, expirationDate, this.userId);
             this.router.navigate(['/']);
           }

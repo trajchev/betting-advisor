@@ -1,10 +1,11 @@
 <mat-toolbar color="primary">
   <span><a class="branding" routerLink="/">BA</a></span>
 
-  <!-- <nav layout-align="center end">
+  <nav layout-align="center end">
     <ul>
-      <li><a routerLink="/" routerLinkActive="menu-active">Home</a></li>
+      <li *ngIf="!isUserAuthenticated"><a routerLink="/login" routerLinkActive="menu-active">Login</a></li>
+      <li *ngIf="isUserAuthenticated"><button (click)="onLogout()">Logout</button></li>
     </ul>
-  </nav> -->
+  </nav>
 
 </mat-toolbar>

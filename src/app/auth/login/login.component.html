@@ -1,7 +1,8 @@
 <div class="w3-container">
+  <app-dashboard-navigation></app-dashboard-navigation>
   <form class="form-info" id="login-form" [formGroup]="loginUserForm" (ngSubmit)="onUserLogin()" autocomplete="on">
     <mat-form-field>
-      <input type="text" formControlName="userName" matInput placeholder="Username" minlength="6" autocomplete="on" required>
+      <input type="email" formControlName="email" matInput placeholder="Email" minlength="6" autocomplete="on" required>
     </mat-form-field>
     <mat-form-field>
       <input type="password" formControlName="password" matInput placeholder="Password" minlength="8" required>

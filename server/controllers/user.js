@@ -43,6 +43,7 @@ module.exports.signup = (req, res, next) => {
 module.exports.login = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
+    const hourInSeconds = 60 * 60 ;
     let loadedUser;
 
     // Check if a user with the entered email exists
@@ -58,14 +59,16 @@ module.exports.login = (req, res, next) => {
         return bcrypt.compare(password, loadedUser.dataValues.password);
     })
     .then(isEqual => {
+        // Check if entered pass and pass in db do not match
         if (!isEqual) {
             const error = new Error('Wrong password!');
             error.statusCode = 401;
             throw error;
         }
+        // If passwords match, create the token and send it as JSON
         const token = jwt.sign({email: loadedUser.email, userId: loadedUser.id}, 'Betwisor', {expiresIn: '1h'});
 
-        res.status(200).json({token: token, userId: loadedUser.id});
+        res.status(200).json({token: token, userId: loadedUser.id, expiresIn: hourInSeconds});
     })
     .catch(err => {
         if (!err.statusCode) {

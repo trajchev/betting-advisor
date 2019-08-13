@@ -11,23 +11,25 @@ import { TicketComponent } from './tickets/ticket/ticket.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { OddsComponent } from './leagues/odds/odds.component';
 import { LeagueComponent } from './leagues/league/league.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'tickets', component: TicketsComponent },
-  { path: 'ticket', component: TicketComponent },
-  { path: 'league/:league', component: LeagueComponent },
-  { path: 'leagues', component: LeaguesComponent },
-  { path: 'odds/:sport', component: OddsComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  },
+  { path: 'tickets', component: TicketsComponent, canActivate: [AuthGuard]  },
+  { path: 'ticket', component: TicketComponent, canActivate: [AuthGuard]  },
+  { path: 'league/:league', component: LeagueComponent, canActivate: [AuthGuard]  },
+  { path: 'leagues', component: LeaguesComponent, canActivate: [AuthGuard]  },
+  { path: 'odds/:sport', component: OddsComponent, canActivate: [AuthGuard]  },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

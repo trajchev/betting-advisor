@@ -1,31 +1,18 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
-
-    const authHeader = req.get('Authorization');
-
-    if(!authHeader) {
-        const error = new Error('Not Authenticated');
-        error.statusCode = 401;
-        throw error;
-    }
-
-    const token = jwt.authHeader.split(' ')[1];
-    let decodedToken;
-
+    
+    // Verify the token using the salt ('Betwisor')
     try {
-        decodedToken = jwt.verify(token, 'Betwisor');
+        // Get the Authorization header
+        const authHeader = req.get('Authorization');
+
+        // Retrieve the jwt from the header, it's the secon param, the first id 'Bearer'
+        const token = authHeader.split(' ')[1];
+        jwt.verify(token, 'Betwisor');
+        next();
     } catch (err) {
-        err.statusCode = 500;
+        res.status(401).json({message: 'Authentication failed'});
         throw err;
     }
-
-    if (!decodedToken) {
-        const error = new Error('Not Authenticated');
-        error.statusCode = 401;
-        throw error;
-    }
-
-    req.id = decodedToken.id;
-    next();
 }

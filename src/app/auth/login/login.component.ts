@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   private authStatusSub: Subscription;
 
   loginUserForm = new FormGroup({
-    userName: new FormControl(''),
+    email: new FormControl(''),
     password: new FormControl('')
   });
 
@@ -34,16 +34,16 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onUserLogin() {
-    const username = this.loginUserForm.value.userName;
+    const email = this.loginUserForm.value.email;
     const password = this.loginUserForm.value.password;
-    if (!username || !password) {
+    if (this.loginUserForm.invalid) {
       return;
     }
     this.isLoading = true;
-    this.authService.login(username, password);
+    this.authService.login(email, password);
 
     console.log(this.loginUserForm);
-    console.log(`The user ${username} has attempted to login with password ${password}`);
+    console.log(`The user ${email} has attempted to login with password ${password}`);
     // this.loginUserForm.reset();
   }
 
