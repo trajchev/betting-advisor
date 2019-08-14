@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   isLoading = false;
   private authStatusSub: Subscription;
 
+  // create the form using reactive forms
   loginUserForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
@@ -34,17 +35,16 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onUserLogin() {
+    // Get login credentials from login form
     const email = this.loginUserForm.value.email;
     const password = this.loginUserForm.value.password;
+    // Stop execution if form is invalid
     if (this.loginUserForm.invalid) {
       return;
     }
     this.isLoading = true;
     this.authService.login(email, password);
-
-    console.log(this.loginUserForm);
-    console.log(`The user ${email} has attempted to login with password ${password}`);
-    // this.loginUserForm.reset();
+    this.loginUserForm.reset();
   }
 
 }

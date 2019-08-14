@@ -2,6 +2,7 @@ const Sequilize = require('sequelize');
 
 const sequelize = require('../utils/db');
 
+// Create the ticket model using the sequelize package
 const Ticket = sequelize.define(
     'ticket', {
         id: {

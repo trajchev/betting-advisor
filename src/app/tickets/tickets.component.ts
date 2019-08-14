@@ -16,6 +16,7 @@ export class TicketsComponent implements OnInit {
     this.showTickets();
   }
 
+  // Retrieve tickets from service
   showTickets() {
     return this.ticketService.getTickets()
       .subscribe((data) => {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
@@ -10,6 +10,7 @@ export class UserService {
 
   apiURL = 'http://localhost:3000/api';
 
+  // Set dummy data
   user = {
     firstName: 'Ivan',
     lastName: 'Trajchev',
@@ -21,12 +22,6 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
-
   getUsers(): Observable<any> {
     return this.http.get(this.apiURL + '/users')
     .pipe(
@@ -35,6 +30,7 @@ export class UserService {
     );
   }
 
+  // Error handler
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

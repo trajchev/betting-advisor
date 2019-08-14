@@ -1,14 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError, pipe } from 'rxjs';
-import { retry, catchError, map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
-const options = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +15,6 @@ export class LeagueService {
   private leagues = [];
 
   constructor(private http: HttpClient) { }
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
 
   getLeagues(): Observable<any> {
     return this.http
@@ -57,6 +46,7 @@ export class LeagueService {
       );
   }
 
+  // Error handler
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

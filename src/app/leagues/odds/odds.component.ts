@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LeagueService } from 'src/app/service/league.service';
 import { ActivatedRoute } from '@angular/router';
+
+import { LeagueService } from 'src/app/service/league.service';
 
 @Component({
   selector: 'app-odds',

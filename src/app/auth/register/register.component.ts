@@ -10,6 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent implements OnInit {
 
+  // Create user registration form using reactive forms
   registerUserForm = new FormGroup({
     userName: new FormControl(''),
     email: new FormControl(''),
@@ -22,17 +23,17 @@ export class RegisterComponent implements OnInit {
   }
 
   onUserRegister() {
-
+    // Stop code execution if entered data is invalid
     if (this.registerUserForm.invalid) {
       return;
     }
-
+    // Retrieve user registration data from registration form
     const username = this.registerUserForm.value.userName;
     const email = this.registerUserForm.value.email;
     const password = this.registerUserForm.value.password;
-    this.authService.createUser(username, email, password);
 
-    console.log(`User ${username} with email: ${email}, has requested to signup with password ${password}`);
+    // Register user and clear form input fields
+    this.authService.createUser(username, email, password);
     this.registerUserForm.reset();
   }
 
