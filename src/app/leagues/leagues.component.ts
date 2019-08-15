@@ -15,12 +15,12 @@ export class LeaguesComponent implements OnInit {
   constructor(private leagueService: LeagueService) { }
 
   ngOnInit() {
-    // this.sports = this.getLeagues();
+    this.getSports();
   }
 
-  getLeagues() {
-    this.leagueService.getLeagues().subscribe(res => {
-      this.sports = res.data;
+  getSports() {
+    this.leagueService.getSports().subscribe(res => {
+      this.sports = res;
       return this.sports;
     });
   }

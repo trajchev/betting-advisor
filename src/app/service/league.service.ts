@@ -5,6 +5,8 @@ import { catchError } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 
+const BACKEND = environment.apiUrl;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +21,16 @@ export class LeagueService {
   getLeagues(): Observable<any> {
     return this.http
       .get(`${this.apiURL}/sports/?apiKey=${environment.apiKey}`)
+      .pipe(
+        catchError(error => {
+          return [];
+        })
+      );
+  }
+
+  getSports(): Observable<any> {
+    return this.http
+      .get(`${BACKEND}/sports/sports`)
       .pipe(
         catchError(error => {
           return [];
