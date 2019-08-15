@@ -66,7 +66,7 @@ module.exports.login = (req, res, next) => {
             throw error;
         }
         // If passwords match, create the token and send it as JSON
-        const token = jwt.sign({email: loadedUser.email, userId: loadedUser.id}, 'Betwisor', {expiresIn: '1h'});
+        const token = jwt.sign({email: loadedUser.email, userId: loadedUser.id}, 'Betwisor', {expiresIn: 3600});
 
         res.status(200).json({token: token, userId: loadedUser.id, expiresIn: hourInSeconds});
     })
