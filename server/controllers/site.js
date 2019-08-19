@@ -2,12 +2,14 @@ const axios = require('axios');
 const _ = require('underscore');
 
 const Site = require('../models/site');
+const Team = require('../models/team');
 const connData = require('../../connection-data');
 
 const apiKey = connData.apiKey;
 const apiURL = connData.apiURL;
 
 const sites = [];
+const teams = [];
 
 module.exports.fillSitesData = (req, res, next) => {
 
@@ -22,6 +24,29 @@ module.exports.fillSitesData = (req, res, next) => {
     .then(response => {
         // Loop through the ticket Objects
         _.each(response.data.data, dataObj => {
+            // Save teams
+            if (!_.contains(_.pluck(teams, 'name'), dataObj.teams[0])) {
+                // Create the home team Object
+                const home_team = new Team({
+                    name: dataObj.teams[0],
+                    league_key: dataObj.sport_key
+                });
+                // push site to sites for checking purposes only
+                teams.push(home_team);
+                home_team.save();
+            } else if (!_.contains(_.pluck(teams, 'name'), dataObj.teams[1])) {
+                // Create the away site Object
+                const away_team = new Team({
+                    name: dataObj.teams[1],
+                    league_key: dataObj.sport_key
+                });
+                // push site to sites for checking purposes only
+                teams.push(away_team);
+                away_team.save();
+            } else {
+                return;
+            }
+
             // Loop through the sites
             _.each(dataObj.sites, siteObj => {
                 // Stop executing block of code if sites contains the site

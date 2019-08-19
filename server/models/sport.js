@@ -1,6 +1,7 @@
 const Sequilize = require('sequelize');
 
 const sequelize = require('../utils/db');
+const Team = require('./team');
 
 // Create the sport model using the sequelize package
 const Sport = sequelize.define( 'sport', {
