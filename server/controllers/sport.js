@@ -1,12 +1,13 @@
 const axios = require('axios');
 
-const Sport = require('../models/sport');
+const APIData = require('../models/APIData');
 const connData = require('../../connection-data');
 
 const apiKey = connData.apiKey;
 const apiURL = connData.apiURL;
+const Sport = APIData.Sport;
 
-module.exports.fillSportsData = (req, res, next) => {
+module.exports = (req, res, next) => {
 
     axios.get(`${apiURL}sports`, {
         params: {
@@ -21,7 +22,7 @@ module.exports.fillSportsData = (req, res, next) => {
                 active: dataObj.active,
                 group: dataObj.group,
                 details: dataObj.details,
-                title: dataObj.details
+                title: dataObj.title,
             });
 
             return sport.save();
@@ -29,17 +30,7 @@ module.exports.fillSportsData = (req, res, next) => {
     
     })
     .catch(err => {
-        console.log('Error status', error.response.status);
+        console.log('Error status', err.response.status);
         console.log(error.response.data);
     });
-
-}
-
-// Get all sports
-exports.getSports = (req, res, next) => {
-    Sport.findAll().then(sport => {
-        res.status(200)
-        .json(sport);
-    })
-    .catch(err => console.log(err));
-}
+};

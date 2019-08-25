@@ -2,10 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
-const ticketRoutes = require('./routes/tickets');
 const userRoutes = require('./routes/user');
-const sportRoutes = require('./routes/sport');
-const siteRoutes = require('./routes/site');
+const APIDataRoutes = require('./routes/APIData');
 
 const app = express();
 
@@ -24,8 +22,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api/user', userRoutes);
-app.use('/api/sports', sportRoutes);
-app.use('/api/sites', siteRoutes);
-app.use('/api', ticketRoutes);
+app.use('/api/data', APIDataRoutes);
 
 module.exports = app;
