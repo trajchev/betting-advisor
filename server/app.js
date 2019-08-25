@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
 const userRoutes = require('./routes/user');
+const leagueRoutes = require('./routes/league');
 const cronJob = require('./utils/cron');
 
 const app = express();
@@ -26,5 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api/user', userRoutes);
+app.use('/api/data', leagueRoutes);
+
 
 module.exports = app;
