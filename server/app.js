@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
 const userRoutes = require('./routes/user');
-const APIDataRoutes = require('./routes/APIData');
 
 const app = express();
 
@@ -22,6 +21,5 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api/user', userRoutes);
-app.use('/api/data', APIDataRoutes);
 
 module.exports = app;
