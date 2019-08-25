@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
 const userRoutes = require('./routes/user');
+const cronJob = require('./utils/cron');
 
 const app = express();
 
@@ -16,6 +17,10 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
     next();
 });
+
+// Execute defined cron jobs
+cronJob.sports;
+// cronJob.matches;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
