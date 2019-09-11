@@ -47,14 +47,14 @@ module.exports.login = (req, res, next) => {
     let loadedUser;
 
     // Check if a user with the entered email exists
-    User.findAll({ where: { email: email }}).then(users => {
+    User.findOne({ where: { email: email }}).then(user => {
         // user is an array with the users satisfying our criteria
-        if (users.length < 0) {
+        if (!user) {
             const error = new Error('A user with this email could not be found.');
             error.statusCode = 401;
             throw error;
         }
-        loadedUser = users[0];
+        loadedUser = user;
         // compare the 
         return bcrypt.compare(password, loadedUser.dataValues.password);
     })

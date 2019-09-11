@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   constructor(public ticketService: TicketsService, public userService: UserService) { }
 
   ngOnInit() {
-    this.showTickets();
+    // this.showTickets();
     this.user = this.userService.user;
   }
 
