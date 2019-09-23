@@ -18,6 +18,10 @@ export class AuthService {
   private token: string;
   private tokenTimer: any;
   private userId: number;
+  private userName: string;
+  private email: string;
+  private joined: string;
+
   private authStatusListener = new Subject<boolean>();
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -46,8 +50,9 @@ export class AuthService {
   createUser(username: string, email: string, password: string) {
     const authData = { username: username, email: email, password: password };
     this.http.put(`${BACKEND_URL}/user/signup`, authData).subscribe(
-      () => {
-        this.router.navigate(['/']);
+      (response) => {
+        console.log(response);
+        this.router.navigate(['/profile']);
       },
       error => {
         this.authStatusListener.next(false);
@@ -67,6 +72,7 @@ export class AuthService {
       )
       .subscribe(
         response => {
+          console.log(response);
           const token = response.token;
           this.token = token;
           if (token) {
@@ -74,6 +80,7 @@ export class AuthService {
             this.setAuthTimer(expiresInDuration);
             this.isAuthenticated = true;
             this.userId = response.userId;
+            // this.userName = response.user.userName;
             this.authStatusListener.next(true);
             const now = new Date();
             // Set expiration date/time
@@ -155,5 +162,4 @@ export class AuthService {
       userId: userId
     };
   }
-
 }

@@ -13,15 +13,15 @@ export class TicketsComponent implements OnInit {
   constructor(public ticketService: TicketsService) { }
 
   ngOnInit() {
-    this.showTickets();
+    // this.showTickets();
   }
 
   // Retrieve tickets from service
-  showTickets() {
-    return this.ticketService.getTickets()
-      .subscribe((data) => {
-        this.tickets = data;
-      });
-  }
+  // showTickets() {
+  //   return this.ticketService.getTickets()
+  //     .subscribe(data => {
+  //       this.tickets = data;
+  //     });
+  // }
 
 }

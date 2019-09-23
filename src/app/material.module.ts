@@ -9,6 +9,8 @@ import {
     MatFormFieldModule,
     MatOptionModule,
     MatSelectModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
 } from '@angular/material';
 
 @NgModule({
@@ -20,7 +22,9 @@ import {
         BrowserAnimationsModule,
         MatFormFieldModule,
         MatOptionModule,
-        MatSelectModule
+        MatSelectModule,
+        MatDialogModule,
+        MatProgressSpinnerModule
     ],
     exports: [
         MatToolbarModule,
@@ -30,7 +34,9 @@ import {
         BrowserAnimationsModule,
         MatFormFieldModule,
         MatOptionModule,
-        MatSelectModule
+        MatSelectModule,
+        MatDialogModule,
+        MatProgressSpinnerModule
     ]
 })
 export class MaterialModule { }

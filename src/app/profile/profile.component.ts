@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 import { TicketsService } from '../service/tickets.service';
 import { UserService } from '../service/user.service';
 import { User } from './profile.model';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,11 +15,17 @@ export class ProfileComponent implements OnInit {
   tickets;
   user: User;
 
-  constructor(public ticketService: TicketsService, public userService: UserService) { }
+  constructor(
+    public ticketService: TicketsService,
+    public authService: AuthService ,
+    public userService: UserService) { }
 
   ngOnInit() {
     // this.showTickets();
-    this.user = this.userService.user;
+    // this.user = this.authService.getUserId().subscribe(res => {
+    //   console.log(res);
+    // });
+    // this.showUser();
   }
 
   showTickets() {
@@ -31,6 +38,7 @@ export class ProfileComponent implements OnInit {
   showUser() {
     return this.userService.getUsers()
       .subscribe((data) => {
+        console.log(data);
         this.user = data[0];
       });
   }

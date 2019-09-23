@@ -10,7 +10,7 @@ module.exports.signup = (req, res, next) => {
     const errors = validationResult(req);
 
     if(!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.array() });
+        return res.status(422).json({ errors });
     }
     const password = req.body.password;
     const username = req.body.username;
@@ -48,7 +48,7 @@ module.exports.login = (req, res, next) => {
 
     // Check if a user with the entered email exists
     User.findOne({ where: { email: email }}).then(user => {
-        // user is an array with the users satisfying our criteria
+        // check if the user exists
         if (!user) {
             const error = new Error('A user with this email could not be found.');
             error.statusCode = 401;
@@ -68,7 +68,7 @@ module.exports.login = (req, res, next) => {
         // If passwords match, create the token and send it as JSON
         const token = jwt.sign({email: loadedUser.email, userId: loadedUser.id}, 'Betwisor', {expiresIn: 3600});
 
-        res.status(200).json({token: token, userId: loadedUser.id, expiresIn: hourInSeconds});
+        res.status(200).json({token: token, userId: loadedUser.id, expiresIn: hourInSeconds, user: loadedUser});
     })
     .catch(err => {
         if (!err.statusCode) {

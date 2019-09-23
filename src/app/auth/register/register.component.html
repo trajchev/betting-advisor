@@ -1,5 +1,6 @@
 <div class="w3-container">
-  <form class="form-info" id="register-form" [formGroup]="registerUserForm" (ngSubmit)="onUserRegister()" autocomplete="on">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form *ngIf="!isLoading" class="form-info" id="register-form" [formGroup]="registerUserForm" (ngSubmit)="onUserRegister()" autocomplete="on">
     <mat-form-field>
       <input type="text" formControlName="userName" matInput placeholder="Username" required>
     </mat-form-field>

@@ -15,6 +15,7 @@ Sport.init({
     key: {
         type: Sequilize.STRING,
         allowNull: false,
+        unique: true
     },
     active: {
         type: Sequilize.BOOLEAN,

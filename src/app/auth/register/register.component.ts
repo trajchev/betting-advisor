@@ -10,6 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent implements OnInit {
 
+  isLoading = false;
   // Create user registration form using reactive forms
   registerUserForm = new FormGroup({
     userName: new FormControl(''),
@@ -17,12 +18,14 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
+    this.isLoading = false;
   }
 
   onUserRegister() {
+    this.isLoading = true;
     // Stop code execution if entered data is invalid
     if (this.registerUserForm.invalid) {
       return;
@@ -34,6 +37,7 @@ export class RegisterComponent implements OnInit {
 
     // Register user and clear form input fields
     this.authService.createUser(username, email, password);
+    this.isLoading = false;
     this.registerUserForm.reset();
   }
 

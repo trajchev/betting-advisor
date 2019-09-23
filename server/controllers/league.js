@@ -2,7 +2,7 @@ const APIData = require('../models/APIData');
 
 const Sport = APIData.Sport;
 
-module.exports = (req, res, next) => {
+module.exports = (req, res) => {
 
     Sport.findAll()
     .then(response => {

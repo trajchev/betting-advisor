@@ -3,7 +3,7 @@
 <div class="w3-row">
   <div class="w3-container w3-quarter"></div>
 
-  <div class="w3-container w3-half card-col">
+  <div class="w3-container w3-half card-col" *ngIf="tickets">
 
     <app-ticket-mini *ngFor="let ticket of tickets" [ticket]="ticket"></app-ticket-mini>
     

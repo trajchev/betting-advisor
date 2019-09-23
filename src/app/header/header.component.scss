@@ -1,18 +1,28 @@
+mat-toolbar {
+    background-color: #000;
+}
+
+.fill-space {
+    flex: 1 1 auto;
+}
+
 .branding {
     color: #fff;
     text-decoration: none;
 }
 
 nav {
+    display: flex;
     ul {
         list-style-type: none;
         li {
             display: inline-block;
             a {
                 font-size: .8rem;
-                color: #bcdeff;
+                color: #333;
                 text-decoration: none;
                 padding: 1rem;
+                cursor: pointer;
             }
             .menu-active {
                 color: #fff;

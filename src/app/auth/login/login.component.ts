@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatSpinner } from '@angular/material';
 
 import { AuthService } from '../auth.service';
 import { Subscription } from 'rxjs';
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onUserLogin() {
+    console.log(this.loginUserForm);
     // Get login credentials from login form
     const email = this.loginUserForm.value.email;
     const password = this.loginUserForm.value.password;
