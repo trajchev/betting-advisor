@@ -72,7 +72,6 @@ export class AuthService {
       )
       .subscribe(
         response => {
-          console.log(response);
           const token = response.token;
           this.token = token;
           if (token) {
@@ -80,7 +79,6 @@ export class AuthService {
             this.setAuthTimer(expiresInDuration);
             this.isAuthenticated = true;
             this.userId = response.userId;
-            // this.userName = response.user.userName;
             this.authStatusListener.next(true);
             const now = new Date();
             // Set expiration date/time

@@ -2,8 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
-const userRoutes = require('./routes/user');
-const leagueRoutes = require('./routes/league');
+const routes = require('./routes/routes');
+
+const userRoutes = routes.user;
+const leagueRoutes = routes.league;
 const cronJob = require('./utils/cron');
 
 const app = express();

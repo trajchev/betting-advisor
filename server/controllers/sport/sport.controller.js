@@ -1,11 +1,11 @@
 const axios = require('axios');
 
-const APIData = require('../models/APIData');
-const connData = require('../../connection-data');
+const models = require('../../models/models');
+const connData = require('../../../connection-data');
 
 const apiKey = connData.apiKey;
 const apiURL = connData.apiURL;
-const Sport = APIData.Sport;
+const Sport = models.Sport;
 
 module.exports = (req, res, next) => {
 

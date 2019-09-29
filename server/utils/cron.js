@@ -1,7 +1,9 @@
 const cron = require('node-cron');
 
-const sportController = require('../controllers/sport');
-const matchController = require('../controllers/match');
+const controllers = require('../controllers/controllers');
+
+const sportController = controllers.sport;
+const matchController = controllers.match;
 
 // Check for sports every 28th of the month at 23:59
 module.exports.sports = cron.schedule("00 59 23 28 * *", () => {

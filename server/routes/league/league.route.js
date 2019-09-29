@@ -1,6 +1,8 @@
 const express = require('express');
 
-const leagueController = require('../controllers/league');
+const controllers = require('../../controllers/controllers');
+
+const leagueController = controllers.league;
 
 const router = express.Router();
 

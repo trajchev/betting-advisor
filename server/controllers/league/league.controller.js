@@ -1,6 +1,6 @@
-const APIData = require('../models/APIData');
+const models = require('../../models/models');
 
-const Sport = APIData.Sport;
+const Sport = models.Sport;
 
 module.exports = (req, res) => {
 
