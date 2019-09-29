@@ -20,7 +20,6 @@ import { TicketComponent } from './tickets/ticket/ticket.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { OddsComponent } from './leagues/odds/odds.component';
 import { LeagueComponent } from './leagues/league/league.component';
-import { TicketMiniComponent } from './tickets/ticket-mini/ticket-mini.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
@@ -39,7 +38,6 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     LeaguesComponent,
     OddsComponent,
     LeagueComponent,
-    TicketMiniComponent,
   ],
   imports: [
     BrowserModule,

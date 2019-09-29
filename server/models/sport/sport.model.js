@@ -32,7 +32,8 @@ Sport.init({
     },
     title: {
         type: Sequilize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     }
 }, {underscored: true, sequelize, modelName: 'sport'});
 

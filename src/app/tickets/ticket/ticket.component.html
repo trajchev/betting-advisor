@@ -1,19 +1,10 @@
-<app-dashboard-navigation></app-dashboard-navigation>
-
-<div class="w3-row">
-  <div class="w3-container w3-quarter"></div>
-  
-  <div class="w3-container w3-half card-col">
-    <div class="w3-card card">
-      <h1 class="h3 w3-text-white w3-center">Chelsea<span>1</span>:<span>3</span>Arsenal</h1>
-      <p>15.03.2017 <span class="w3-right">20:00</span></p>
-      <p>Chelsea Football Field</p>
-      <p>London, UK</p>
-      <div class="field">
-        <canvas id="pitch" width="530" height="400"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <div class="w3-container w3-quarter"></div>
+<div class="w3-card card ticket">
+  <p class="w3-text-white w3-center">
+      {{ticket.team_home}}
+      <span>{{ticket.team_home_odds}}</span>:<span>{{ticket.team_away_odds}}</span>
+      {{ticket.team_away}}
+    </p>
+    <p>Time: <span class="w3-right">{{ticket.game_time}}</span></p>
+    <p>Field: <span class="w3-right">{{ticket.game_field}}</span></p>
+    <p>Location: <span class="w3-right">{{ticket.game_location}}</span></p>
 </div>

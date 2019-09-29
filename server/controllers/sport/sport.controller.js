@@ -15,17 +15,23 @@ module.exports = (req, res, next) => {
         }
     })
     .then(response => {
-        console.log('Successfully got response', response.data.data);
         response.data.data.forEach(dataObj => {
-            const sport = new Sport({
-                key: dataObj.key,
-                active: dataObj.active,
-                group: dataObj.group,
-                details: dataObj.details,
-                title: dataObj.title,
-            });
+            Sport.findOne({where: {key: dataObj.key}})
+            .then(sportResult => {
+                if (!sportResult) {
 
-            return sport.save();
+                    const sport = new Sport({
+                        key: dataObj.key,
+                        active: dataObj.active,
+                        group: dataObj.group,
+                        details: dataObj.details,
+                        title: dataObj.title,
+                    });
+
+                    return sport.save();
+
+                }
+            })
         })
     
     })

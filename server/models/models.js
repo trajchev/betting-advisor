@@ -3,6 +3,7 @@ const Match = require('./match/match.model');
 const Odd = require('./odd/odd.model');
 const User = require('./user/user.model');
 
+// Defining the relationships
 Sport.hasMany(Match);
 Match.hasMany(Odd);
 Match.belongsTo(Sport, {foreignKey: 'sport_id', targetKey: 'id'});
