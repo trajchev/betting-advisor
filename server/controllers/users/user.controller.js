@@ -78,3 +78,30 @@ module.exports.login = (req, res, next) => {
         next(err);
     });
 }
+
+module.exports.user = (req, res, next) => {
+    const id = req.params.id;
+    // Check if a user with the entered email exists
+    User.findOne({ where: { id }}).then(user => {
+        // check if the user exists
+        if (!user) {
+            const error = new Error('The user could not be found');
+            error.statusCode = 401;
+            throw error;
+        }
+        const activeUser = {
+            username: user.username,
+            email: user.email,
+            created: user.createdAt,
+            updated: user.updatedAt
+        };
+        // compare the 
+        res.status(200).json({message: 'success', user: activeUser});
+    })
+    .catch(err => {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    });
+}

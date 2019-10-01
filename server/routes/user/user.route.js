@@ -39,4 +39,6 @@ router.put(
 
 router.post('/login', userController.login);
 
+router.get('/user/:id', userController.user)
+
 module.exports = router;

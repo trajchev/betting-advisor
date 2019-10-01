@@ -13,7 +13,7 @@ import { AuthService } from '../auth/auth.service';
 export class ProfileComponent implements OnInit {
 
   tickets;
-  user: User;
+  user;
 
   constructor(
     public ticketService: TicketsService,
@@ -22,10 +22,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     // this.showTickets();
-    // this.user = this.authService.getUserId().subscribe(res => {
-    //   console.log(res);
-    // });
-    // this.showUser();
+    this.user = this.userService.getActiveUser().subscribe(res => {
+      this.user = res.user;
+    });
   }
 
   showTickets() {
@@ -34,13 +33,4 @@ export class ProfileComponent implements OnInit {
         this.tickets = data;
       });
   }
-
-  showUser() {
-    return this.userService.getUsers()
-      .subscribe((data) => {
-        console.log(data);
-        this.user = data[0];
-      });
-  }
-
 }

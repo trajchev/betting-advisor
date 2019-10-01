@@ -6,8 +6,6 @@
   <div class="w3-container w3-half card-col">
     <div class="w3-card card w3-half" *ngFor="let game of games">
       <p class="h5 w3-text-white" *ngFor="let team of game.teams">{{team}}</p>
-      <!-- <p class="h6 w3-text-white w3-center" *ngFor="let booker of game.sites">{{booker.site_nice}}</p> -->
-      <!-- <p class="h6 w3-text-white w3-center" *ngFor="let odd of game.sites.site.odds.h2h">{{odd}}</p> -->
       <mat-form-field>
         <mat-label>Booker</mat-label>
         <mat-select>

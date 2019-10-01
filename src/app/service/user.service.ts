@@ -9,21 +9,12 @@ import { retry, catchError } from 'rxjs/operators';
 export class UserService {
 
   apiURL = 'http://localhost:3000/api';
-
-  // Set dummy data
-  user = {
-    firstName: 'Ivan',
-    lastName: 'Trajchev',
-    username: 'Ivanche',
-    email: 'ivan@yahoo.com',
-    password: '***',
-    dateAdded: new Date()
-  };
+  private user = this.getAuthData();
 
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<any> {
-    return this.http.get(this.apiURL + '/users')
+  getActiveUser(): Observable<any> {
+    return this.http.get(this.apiURL + `/user/user/${this.user.userId}`)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -40,5 +31,20 @@ export class UserService {
     }
     window.alert(errorMessage);
     return throwError(errorMessage);
+  }
+
+  // Retrieve authentication data from local storage
+  private getAuthData() {
+    const token = localStorage.getItem('token');
+    const expirationDate = localStorage.getItem('expiration');
+    const userId = +localStorage.getItem('userId');
+    if (!token || !expirationDate) {
+      return;
+    }
+    return {
+      token: token,
+      expirationDate: new Date(expirationDate),
+      userId: userId
+    };
   }
 }
