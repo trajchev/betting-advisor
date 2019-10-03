@@ -1,21 +1,29 @@
 .navigation {
-    position: relative;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    bottom: 0;
+    width: 20rem;
+    padding: 1rem;
+    border-right: 1px solid #36507f;
+    background: linear-gradient(#0d1c26, #101829) no-repeat;
     ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
 
         li {
-            display: inline-block;
-            padding: 2rem 0;
-            width: 33.333333%;
-            text-align: center;
+            display: block;
+            padding: 0;
+            text-align: right;
             position: relative;
 
             a {
+                display: block;
                 text-decoration: none;
                 color: #36507f;
                 font-size: .8rem;
+                padding: 1rem;
                 &:hover {
                     color: #fff;
                 }
@@ -28,20 +36,14 @@
             }
             &:after {
                 position: absolute;
-                bottom: -2px;
-                left: 0;
-                right: 0;
-                height: 2px;
+                bottom: 0;
+                right: -1rem;
+                top: 0;
+                width: 2px;
                 content: " ";
                 background-color: #2b7fda;
                 box-shadow: 0 0 10px rgba(62, 201, 230, .5);
             }
         }
     }
-}
-
-.nav-wrapper {
-    float: left;
-    width: 100%;
-    border-bottom: 2px solid #36507f;
 }
