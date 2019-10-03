@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { LeagueService } from 'src/app/service/league.service';
+import { MatchService } from 'src/app/service/match.service';
 
 @Component({
   selector: 'app-league',
@@ -12,19 +13,27 @@ export class LeagueComponent implements OnInit {
 
   league;
   games;
+  matches;
 
-  constructor(private leagueService: LeagueService, private route: ActivatedRoute) { }
+  constructor(
+    private leagueService: LeagueService,
+    private route: ActivatedRoute,
+    private matchService: MatchService) { }
 
   ngOnInit() {
-    // this.league = this.route.snapshot.paramMap.get('league');
-    // this.games = this.getLeague(this.league);
+    this.getMatches();
   }
 
   getLeague(league) {
     this.leagueService.getLeague(league).subscribe(res => {
       this.games = res.data;
-      // console.log(this.games);
       return this.games;
+    });
+  }
+
+  getMatches() {
+    this.matchService.getMatches('tennis_wta_us_open').subscribe(res => {
+      this.matches = res.matches;
     });
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { _ } from 'underscore';
 
 import { LeagueService } from '../service/league.service';
 
@@ -10,7 +11,6 @@ import { LeagueService } from '../service/league.service';
 export class LeaguesComponent implements OnInit {
 
   sports;
-  data;
 
   constructor(private leagueService: LeagueService) { }
 
@@ -21,7 +21,6 @@ export class LeaguesComponent implements OnInit {
   getSports() {
     this.leagueService.getSports().subscribe(res => {
       this.sports = res;
-      return this.sports;
     });
   }
 

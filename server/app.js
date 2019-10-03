@@ -6,6 +6,7 @@ const routes = require('./routes/routes');
 
 const userRoutes = routes.user;
 const leagueRoutes = routes.league;
+const matchRoutes = routes.match;
 const cronJob = require('./utils/cron');
 
 const app = express();
@@ -30,6 +31,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api/user', userRoutes);
 app.use('/api/data', leagueRoutes);
+app.use('/api/match', matchRoutes);
 
 
 module.exports = app;

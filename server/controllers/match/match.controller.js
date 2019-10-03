@@ -52,4 +52,25 @@ const getMatchesOdds = (league) => {
     });
 }
 
-module.exports = getMatchesOdds;
+const getMatchesFromDB = (req, res, next) => {
+    const league = req.params.league;
+    // Grab all the Matches from the sport
+    Match.findAll({ where: { sport_key: league }}).then(matches => {
+        // check if sport exists
+        if (!matches) {
+            const error = new Error('The user could not be found');
+            error.statusCode = 401;
+            throw error;
+        }
+        // compare the 
+        res.status(200).json({message: 'success', matches: matches});
+    })
+    .catch(err => {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    });
+}
+
+module.exports = { getMatchesOdds, getMatchesFromDB};
