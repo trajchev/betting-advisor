@@ -29,9 +29,9 @@ cronJob.sports;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use('/api/user', userRoutes);
-app.use('/api/data', leagueRoutes);
-app.use('/api/match', matchRoutes);
+app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/data', leagueRoutes);
+app.use('/api/v1/match', matchRoutes);
 
 
 module.exports = app;

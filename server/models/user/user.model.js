@@ -15,8 +15,7 @@ const User = sequelize.define( 'user', {
             allowNull: false,
             unique: true,
             validate: {
-                len: [4, 24],
-                isAlphaNumeric: true
+                len: [4, 24]
             }
         },
         email: {
@@ -29,7 +28,6 @@ const User = sequelize.define( 'user', {
         },
         photo: {
             type: Sequilize.STRING,
-            allowNull: false,
             defaultValue: 'image.jpg'
         },
         role: {
@@ -43,16 +41,11 @@ const User = sequelize.define( 'user', {
         password: {
             type: Sequilize.STRING,
             allowNull: false,
-            validate: {
-                len: [8, 24]
-            }
+            
         },
         passwordConfirm: {
             type: Sequilize.STRING,
-            allowNull: false,
-            validate: {
-                equals: this.password
-            }
+            allowNull: false
         },
         passwordResetToken: {
             type: Sequilize.STRING

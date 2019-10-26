@@ -14,16 +14,20 @@ module.exports.signup = (req, res, next) => {
         return res.status(422).json({ errors });
     }
     const password = req.body.password;
+    const passwordConfirm = req.body.passwordConfirm;
     const username = req.body.username;
     const email = req.body.email;
-    // Hash the password and save the user with the email and username
-    bcrypt
+
+    if (password === passwordConfirm) {
+        // Hash the password and save the user with the email and username
+        bcrypt
         .hash(password, 10)
         .then(hashedPass => {
             const user = new User({
                 username: username,
                 email: email,
                 password: hashedPass,
+                passwordConfirm: hashedPass
             });
             return user.save();
         })
@@ -38,6 +42,9 @@ module.exports.signup = (req, res, next) => {
             res.status(500).json({error: err});
             next(err);
         });
+    } else {
+        return new Error('Password and confirmed password do not match', 500);
+    }
 }
 
 // Login
