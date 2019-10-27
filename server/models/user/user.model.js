@@ -1,9 +1,13 @@
+const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 const Sequilize = require('sequelize');
 
 const sequelize = require('../../utils/db');
 
+class User extends Sequilize.Model {} 
+
 // Create the user model using the sequelize package
-const User = sequelize.define( 'user', {
+User.init({
         id: {
             type: Sequilize.INTEGER,
             autoIncrement: true,
@@ -31,21 +35,17 @@ const User = sequelize.define( 'user', {
             defaultValue: 'image.jpg'
         },
         role: {
-            type: Sequilize.STRING,
+            type: Sequilize.ENUM,
             allowNull: false,
-            validate: {
-                isIn: [['beginner', 'advanced', 'pro', 'admin']]
-            },
+            values: ['beginner', 'advanced', 'pro', 'admin'],
             defaultValue: 'beginner'
         },
         password: {
             type: Sequilize.STRING,
             allowNull: false,
-            
         },
         passwordConfirm: {
-            type: Sequilize.STRING,
-            allowNull: false
+            type: Sequilize.STRING
         },
         passwordResetToken: {
             type: Sequilize.STRING
@@ -60,7 +60,48 @@ const User = sequelize.define( 'user', {
             type: Sequilize.BOOLEAN,
             defaultValue: true
         }
+    }, {
+        underscored: true,
+        sequelize,
+        modelName: 'user'
     }     
 );
+
+User.addHook('beforeSave', async (user, options) => {
+
+    user.password = await bcrypt.hash(user.password, 10);
+    user.passwordConfirm = undefined;
+
+});
+
+User.addHook('beforeSave', user => {
+
+    user.passwordChangedAt = Date.now() - 1000;
+    
+});
+
+User.prototype.correctPassword = async (candidatePass, userPass) => {
+    return await bcrypt.compare(candidatePass, userPass);
+}
+
+User.prototype.changedPassAfter = function(JWTTimestamp) {
+
+    if (this.passwordChangedAt) {
+        const changedTimestamp = parseInt(this.passwordChangedAt.getTime() / 1000, 10);
+        return JWTTimestamp < changedTimestamp;
+    }
+
+    // Not changed
+    return false;
+}
+
+User.prototype.createPasswordResetToken = function() {
+
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+    this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+    return resetToken;
+
+}
 
 module.exports = User;

@@ -1,114 +1,98 @@
-const { validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const multer = require('multer');
 
+const catchAsync = require('../../utils/catchAsync');
+const BAError = require('../../utils/BAError');
+const factory = require('../handlers/handlerFactory');
 const models = require('../../models/models');
 const User = models.User;
 
-// Signup
-module.exports.signup = (req, res, next) => {
-    // Check for errors in the request
-    const errors = validationResult(req);
-
-    if(!errors.isEmpty()) {
-        return res.status(422).json({ errors });
+// Multer setup
+const multerStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/img/users');
+    },
+    filename: (req, file, cb) => {
+        // user -id - timestamp - extention
+        const extention = file.mimetype.split('/')[1];
+        cb(null, `user-${req.user.id}-${Date.now()}.${extention}`);
     }
-    const password = req.body.password;
-    const passwordConfirm = req.body.passwordConfirm;
-    const username = req.body.username;
-    const email = req.body.email;
+});
 
-    if (password === passwordConfirm) {
-        // Hash the password and save the user with the email and username
-        bcrypt
-        .hash(password, 10)
-        .then(hashedPass => {
-            const user = new User({
-                username: username,
-                email: email,
-                password: hashedPass,
-                passwordConfirm: hashedPass
-            });
-            return user.save();
-        })
-        .then(result => {
-            // Return the ID for the created user for future use
-            res.status(201).json({ message: 'User successfully created', userId: result.dataValues.id});
-        })
-        .catch(err => {
-            if (!err.statusCode) {
-                err.statusCode = 500;
-            }
-            res.status(500).json({error: err});
-            next(err);
-        });
+const multerFilter = (req, file, cb) => {
+    if (file.mimetype.startsWith('image')) {
+        cb(null, true);
     } else {
-        return new Error('Password and confirmed password do not match', 500);
+        cb(new BAError('Not an image!', 400));
     }
 }
 
-// Login
-module.exports.login = (req, res, next) => {
-    const email = req.body.email;
-    const password = req.body.password;
-    const hourInSeconds = 60 * 60 ;
-    let loadedUser;
+const upload = multer({
+    storage: multerStorage,
+    fileFilter: multerFilter
+});
 
-    // Check if a user with the entered email exists
-    User.findOne({ where: { email: email }}).then(user => {
-        // check if the user exists
-        if (!user) {
-            const error = new Error('A user with this email could not be found.');
-            error.statusCode = 401;
-            throw error;
+const filterObj = (obj, ...allowedFields) => {
+    const newObj = {};
+    Object.keys(obj).forEach(el => {
+        if(allowedFields.includes(el)) {
+            newObj[el] = obj[el];
         }
-        loadedUser = user;
-        // compare the 
-        return bcrypt.compare(password, loadedUser.dataValues.password);
-    })
-    .then(isEqual => {
-        // Check if entered pass and pass in db do not match
-        if (!isEqual) {
-            const error = new Error('Wrong password!');
-            error.statusCode = 401;
-            throw error;
-        }
-        // If passwords match, create the token and send it as JSON
-        const token = jwt.sign({email: loadedUser.email, userId: loadedUser.id}, 'Betwisor', {expiresIn: 3600});
-
-        res.status(200).json({token: token, userId: loadedUser.id, expiresIn: hourInSeconds, user: loadedUser});
-    })
-    .catch(err => {
-        if (!err.statusCode) {
-            err.statusCode = 500;
-        }
-        next(err);
     });
+    return newObj;
 }
 
-module.exports.user = (req, res, next) => {
-    const id = req.params.id;
-    // Check if a user with the entered email exists
-    User.findOne({ where: { id }}).then(user => {
-        // check if the user exists
-        if (!user) {
-            const error = new Error('The user could not be found');
-            error.statusCode = 401;
-            throw error;
+const uploadUserPhoto = upload.single('photo');
+
+const getUser = factory.getOne(User);
+
+// Do not update password with this
+const updateUser = factory.updateOne(User);
+
+const getAllUsers = factory.getAll(User);
+
+const deleteUser = factory.deleteOne(User);
+
+const updateMe = catchAsync(async (req, res, next) => {
+    // 1. Create error if user posts pass data
+    if (req.body.password || req.body.passwordConfirm) {
+        return next(new BAError('This route is not for password updates', 400));
+    }
+
+    // 2. Exclude not allowed fields
+    const filteredBody = filterObj(req.body, 'name', 'email');
+    if (req.file) filteredBody.photo = req.file.filename;
+
+    // 3. Update user
+    const updateUser = await User.update(filteredBody, {where: {id: req.user.id}});
+    res.status(200).json({
+        status: 'success',
+        data: {
+            user: updateUser
         }
-        const activeUser = {
-            username: user.username,
-            email: user.email,
-            created: user.createdAt,
-            updated: user.updatedAt
-        };
-        // compare the 
-        res.status(200).json({message: 'success', user: activeUser});
-    })
-    .catch(err => {
-        if (!err.statusCode) {
-            err.statusCode = 500;
-        }
-        next(err);
     });
+});
+
+const getMe = (req, res, next) => {
+    req.params.id = req.user.id;
+    next();
 }
+
+const deleteMe = catchAsync( async (req, res, next) => {
+    await User.update({active: false}, {where: {id: req.user.id}});
+
+    res.status(204).json({
+        status: 'success',
+        data: null
+    });
+});
+
+module.exports = {
+    getAllUsers,
+    getUser,
+    updateUser,
+    deleteUser,
+    updateMe,
+    deleteMe,
+    getMe,
+    uploadUserPhoto
+};
