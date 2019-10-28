@@ -74,7 +74,7 @@ const login = catchAsync(async (req, res,next) => {
 const logout = (req, res) => {
 
     res.cookie('jwt', 'loggedout', {
-        expires: new Date(Date.now() + 10 * 1000),
+        expires: new Date(Date.now() + 10000),
         httpOnly: true
     });
 
@@ -115,8 +115,13 @@ const protect = catchAsync( async (req, res, next) => {
     let token;
 
     // 1. Getting token and check if its there
-    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+    if (
+        req.headers.authorization
+        && req.headers.authorization.startsWith('Bearer')
+        ) {
         token = req.headers.authorization.split(' ')[1];
+    } else if (req.cookies.jwt) {
+        token = req.cookies.jwt;
     }
 
     if (!token) {
@@ -137,8 +142,9 @@ const protect = catchAsync( async (req, res, next) => {
         return next(new BAError('User recently changed password. Please log in again', 401));
     }
 
-    req.user = currentUser;
     // Grant  access to protected route
+    req.user = currentUser;
+    res.locals.user = currentUser;
     next();
 });
 
