@@ -14,16 +14,17 @@ const signToken = id => {
     )
 };
 
-const createAndSendToken = (user, statusCode, res) => {
+const createAndSendToken = (user, statusCode, req, res) => {
 
     const token = signToken(user.id);
 
     const cookieOptions = {
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
-        httpOnly: true
+        httpOnly: true,
+        secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
     };
 
-    if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
+    // if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
 
     res.cookie('jwt', token, cookieOptions);
 
@@ -51,7 +52,6 @@ const signup = catchAsync(async (req, res, next) => {
     });
 
     const url = `${req.protocol}://${req.get('host')}/me`;
-    console.log(url);
 
     await new Email(newUser, url).sendWelcome();
 
@@ -180,11 +180,6 @@ const forgotPassword = catchAsync(async (req, res, next) => {
     const message = `Forgot your message? Submit a patch request with your new password and passwordConfirm to ${resetURL}. \nIf you didn't forget your password, please ignore this email`;
 
     try {
-        // await sendEmail({
-        //     email: user.email,
-        //     subject: 'Your password reset token (valid for 10 minutes)',
-        //     message
-        // });
 
         await new Email(user, resetURL).sendPasswordReset();
     
@@ -204,7 +199,7 @@ const forgotPassword = catchAsync(async (req, res, next) => {
 const resetPassword = catchAsync(async (req, res, next) => {
     // 1. Get user based on token
     const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
-    const user = await User.findOne({where: {passwordResetToken: hashedToken, passwordResetExpires: {[Op.gt]: Date.now()}}});
+    const user = await User.findOne({where: {passwordResetToken: hashedToken}});
 
     // 2. If token has not expired set the new password
     if (!user) {
