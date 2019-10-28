@@ -8,17 +8,17 @@ const models = require('../../models/models');
 const User = models.User;
 
 const signToken = id => {
-    return jwt.sign({id}, process.env.JWT_SECRET, 
+    return jwt.sign({id: id}, process.env.JWT_SECRET, 
     {expiresIn: process.env.JWT_EXPIRES_IN}
     )
 };
 
 const createAndSendToken = (user, statusCode, res) => {
 
-    const token = signToken(user._id);
+    const token = signToken(user.id);
 
     const cookieOptions = {
-        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
+        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN),
         httpOnly: true
     };
 
@@ -53,9 +53,8 @@ const signup = catchAsync(async (req, res, next) => {
 });
 
 const login = catchAsync(async (req, res,next) => {
-    const {email, password} = await req.body;
 
-    console.log('Req body ======================= ', req.body);
+    const {email, password} = await req.body;
 
     // 1. Check if email and password exist
     if (!email || !password) {
@@ -83,16 +82,15 @@ const logout = (req, res) => {
 };
 
 const isLoggedIn = async (req, res, next) => {
+
     if (req.cookies.jwt) {
+
       try {
-        // 1) verify token
-        const decoded = await promisify(jwt.verify)(
-          req.cookies.jwt,
-          process.env.JWT_SECRET
-        );
+
+        const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
   
         // 2) Check if user still exists
-        const currentUser = await User.findById(decoded.id);
+        const currentUser = await User.findOne({where: {id: decoded.id}});
         if (!currentUser) {
           return next();
         }
