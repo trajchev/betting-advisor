@@ -1,17 +1,14 @@
 const axios = require('axios');
 
 const models = require('../../models/models');
-const connData = require('../../../connection-data');
 
-const apiKey = connData.apiKey;
-const apiURL = connData.apiURL;
 const Sport = models.Sport;
 
 module.exports = (req, res, next) => {
 
-    axios.get(`${apiURL}sports`, {
+    axios.get(`${process.env.API_URL}sports`, {
         params: {
-            api_key: apiKey
+            api_key: process.env.API_KEY
         }
     })
     .then(response => {

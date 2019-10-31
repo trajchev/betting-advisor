@@ -1,17 +1,14 @@
 const axios = require('axios');
 
 const models = require('../../models/models');
-const connData = require('../../../connection-data');
 
-const apiKey = connData.apiKey;
-const apiURL = connData.apiURL;
 const Match = models.Match;
 const Odd = models.Odd;
 
 const getMatchesOdds = (league) => {
-    axios.get(`${apiURL}odds`, {
+    axios.get(`${process.env.API_URL}odds`, {
         params: {
-            api_key: apiKey,
+            api_key: process.env.API_KEY,
             sport: league,
             region: 'uk',
         }

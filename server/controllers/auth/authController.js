@@ -9,24 +9,22 @@ const models = require('../../models/models');
 const User = models.User;
 
 const signToken = id => {
-    return jwt.sign({id: id}, process.env.JWT_SECRET, 
-    {expiresIn: process.env.JWT_EXPIRES_IN}
-    )
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRES_IN
+    });
 };
 
-const createAndSendToken = (user, statusCode, req, res) => {
+const createSendToken = (user, statusCode, req, res) => {
 
     const token = signToken(user.id);
 
-    const cookieOptions = {
-        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
+    res.cookie('jwt', token, {
+        expires: new Date(
+            Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+        ),
         httpOnly: true,
         secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
-    };
-
-    // if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
-
-    res.cookie('jwt', token, cookieOptions);
+    });
 
     // Remove password from output
     user.password = undefined;
@@ -55,7 +53,7 @@ const signup = catchAsync(async (req, res, next) => {
 
     await new Email(newUser, url).sendWelcome();
 
-    createAndSendToken(newUser, 201, res);
+    createSendToken(newUser, 201, res);
 });
 
 const login = catchAsync(async (req, res,next) => {
@@ -74,7 +72,7 @@ const login = catchAsync(async (req, res,next) => {
     }
 
     // 3. If everything is OK send token to client
-    createAndSendToken(user, 200, res);
+    createSendToken(user, 200, res);
 });
 
 const logout = (req, res) => {
@@ -177,7 +175,7 @@ const forgotPassword = catchAsync(async (req, res, next) => {
     
     // 3. Send it to user email
     const resetURL = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
-    const message = `Forgot your message? Submit a patch request with your new password and passwordConfirm to ${resetURL}. \nIf you didn't forget your password, please ignore this email`;
+    const message = `Forgot your Password? Submit a patch request with your new password and passwordConfirm to ${resetURL}. \nIf you didn't forget your password, please ignore this email`;
 
     try {
 
@@ -214,7 +212,7 @@ const resetPassword = catchAsync(async (req, res, next) => {
     await user.save();
 
     // 4. Log the user in, sent JWT
-    createAndSendToken(user, 201, res);
+    createSendToken(user, 201, res);
 
 });
 
@@ -232,7 +230,7 @@ const updatePassword = catchAsync(async (req, res, next) => {
     await user.save();
 
     // 4. Log user In, send JWT
-    createAndSendToken(user, 201, res);
+    createSendToken(user, 201, res);
 });
 
 module.exports = {

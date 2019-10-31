@@ -1,8 +1,11 @@
 const Sequelize = require('sequelize');
 
-const connect = require('../../connection-data');
-
 // connect to db with sequelize
-const sequelize = new Sequelize(connect.db, connect.user, connect.pass, {host: 'localhost', dialect: 'mysql'});
+const sequelize = new Sequelize(
+    process.env.DATABASE,
+    process.env.DATABASE_USER,
+    process.env.DATABASE_PASS,
+    {host: 'localhost', dialect: 'mysql'}
+);
 
 module.exports = sequelize;
