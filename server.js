@@ -13,10 +13,10 @@ const port = process.env.PORT || 8000;
 app.set('port', port);
 
 sequelize.sync()
-    .then(result => {
-        // console.log(result);
-        app.listen(port);
-    })
-    .catch(err => {
-        console.log(err)
-    });
+.then(result => {
+    // console.log(result);
+    app.listen(port);
+})
+.catch(err => {
+    console.log(err)
+});

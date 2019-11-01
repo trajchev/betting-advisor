@@ -75,4 +75,46 @@ const getMatchesFromDB = (req, res, next) => {
     });
 }
 
-module.exports = { getMatchesOdds, getMatchesFromDB};
+const getMatchStats = (req, res, next) => {
+    const league = req.params.league;
+    const matchId = req.params.matchId;
+    let game;
+    // Grab all the Matches from the sport
+    Match.findOne({ where: { id: matchId, sport_key: league }})
+    .then(match => {
+        // check if sport exists
+        if (!match) {
+            const error = new Error('The sport key could not be found');
+            error.statusCode = 401;
+            throw error;
+        }
+
+        game = match;
+    })
+    .catch(err => {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    });
+
+    Odd.findAll({where: {match_id: matchId}})
+    .then( odds => {
+        res.status(200).json({
+            message: 'success',
+            data: {
+                game: game,
+                oddsNumber: odds.length,
+                odds: odds
+            }
+        });
+    })
+    .catch(err => {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    });
+}
+
+module.exports = { getMatchesOdds, getMatchesFromDB, getMatchStats};
