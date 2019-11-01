@@ -6,6 +6,6 @@ const matchController = controllers.match;
 
 const router = express.Router();
 
-router.get('/matches/:league', matchController.getMatchesFromDB);
+router.get('/:league', matchController.getMatchesFromDB);
 
 module.exports = router;

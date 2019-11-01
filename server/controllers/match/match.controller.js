@@ -56,12 +56,16 @@ const getMatchesFromDB = (req, res, next) => {
     Match.findAll({ where: { sport_key: league }}).then(matches => {
         // check if sport exists
         if (!matches) {
-            const error = new Error('The user could not be found');
+            const error = new Error('The sport key could not be found');
             error.statusCode = 401;
             throw error;
         }
         // compare the 
-        res.status(200).json({message: 'success', matches: matches});
+        res.status(200).json({
+            message: 'success',
+            matches: matches.length,
+            data: matches
+        });
     })
     .catch(err => {
         if (!err.statusCode) {
