@@ -31,11 +31,7 @@ module.exports.matches = cron.schedule("00 59 23 28 * Sunday", () => {
     Sport.findAll()
     .then(sports => {
         sports.forEach(sport => {
-            // for (let i = 0; i < regions.length; i++) {
-                // for (let j = 0; j < mkt.length; j++) {
-                    pullMatch(sport.key, regions[0], mkt[0]);
-                // }
-            // }
+            pullMatch(sport.key, regions[0], mkt[0]);
         })
     });
 
