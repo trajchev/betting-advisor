@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api/v1/users', userRoutes);
-app.use('/api/v1/data', leagueRoutes);
+app.use('/api/v1/leagues', leagueRoutes);
 app.use('/api/v1/match', matchRoutes);
 
 

@@ -6,6 +6,7 @@ const leagueController = controllers.league;
 
 const router = express.Router();
 
-router.get('/sports', leagueController);
+router.get('/all', leagueController.getLeagues);
+router.get('/:group', leagueController.getLeaguesOfGroup);
 
 module.exports = router;

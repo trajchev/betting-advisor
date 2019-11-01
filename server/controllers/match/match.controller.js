@@ -5,12 +5,13 @@ const models = require('../../models/models');
 const Match = models.Match;
 const Odd = models.Odd;
 
-const getMatchesOdds = (league) => {
+const getMatchesOdds = (sport, region, oddsType) => {
     axios.get(`${process.env.API_URL}odds`, {
         params: {
             api_key: process.env.API_KEY,
-            sport: league,
-            region: 'uk',
+            sport: sport,
+            region: region,
+            mkt: oddsType
         }
     })
     .then(response => {
