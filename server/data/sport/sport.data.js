@@ -50,4 +50,6 @@ const importSports = async () => {
     process.exit();
 };
 
+importSports();
+
 module.exports = importSports;

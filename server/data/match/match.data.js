@@ -24,22 +24,21 @@ const getMatchesOdds = (league, region) => {
                 sport_key: dataObj.sport_key,
             });
 
-            return match.save()
-            .then(matchData => {
-                dataObj.sites.forEach(site => {
-                    // Create odd and save to db
-                    const type = Object.keys(site.odds)[0];
-                    const oddsArr = site.odds[type];
-                    const odd = new Odd({
-                        type: type,
-                        home_team: oddsArr[0],
-                        draw: oddsArr[1],
-                        away_team: oddsArr[2],
-                        match_id: matchData.dataValues.id
-                    });
-        
-                    return odd.save()
+            match.save()
+
+            dataObj.sites.forEach(site => {
+                // Create odd and save to db
+                const type = Object.keys(site.odds)[0];
+                const oddsArr = site.odds[type];
+                const odd = new Odd({
+                    type,
+                    home_team: oddsArr[0],
+                    draw: oddsArr[1],
+                    away_team: oddsArr[2],
+                    match_id: matchData.dataValues.id
                 });
+    
+                return odd.save()
             });
         });
     
@@ -48,7 +47,7 @@ const getMatchesOdds = (league, region) => {
         console.log('Error status', err.response.status);
         console.log(err.response.data);
     });
-    
+
     process.exit();
 }
 
