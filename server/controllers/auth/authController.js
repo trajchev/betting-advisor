@@ -199,15 +199,20 @@ const resetPassword = catchAsync(async (req, res, next) => {
     const user = await User.findOne({where: {passwordResetToken: hashedToken}});
 
     // 2. If token has not expired set the new password
-    if (!user) {
-        return next(new BAError('Token is invalid or expires', 400));
+    if (!user || !user.passwordResetToken) {
+
+        res.json({
+            status: 'fail',
+            message: 'Token is invalid or expired'
+        });
+        return next(new BAError('Token is invalid or expired', 400));
     }
     user.password = req.body.password
     user.passwordConfirm = req.body.passwordConfirm
 
     // 3. Update changedPasswordAt
-    user.passwordResetToken = undefined;
-    user.passwordResetExpires = undefined;
+    user.passwordResetToken = null;
+    user.passwordResetExpires = null;
     await user.save();
 
     // 4. Log the user in, sent JWT
