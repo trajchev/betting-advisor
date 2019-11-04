@@ -4,7 +4,9 @@ const catchAsync = require('../../utils/catchAsync');
 const BAError = require('../../utils/BAError');
 const factory = require('../handlers/handlerFactory');
 const models = require('../../models/models');
+
 const User = models.User;
+const UserMatch = models.UserMatch;
 
 // Multer setup
 const multerStorage = multer.diskStorage({
@@ -77,6 +79,22 @@ const getMe = (req, res, next) => {
     next();
 }
 
+const saveMatch = (req, res, next) => {
+    const newUserMatch = UserMatch.create({
+        userId: req.user.id,
+        matchId: 1
+    });
+
+    return newUserMatch.save()
+    .then(res => {
+        res.json({status: 'success', message: 'You saved this match'});
+    })
+    .catch(err => {
+        console.log('Error status', err.response.status);
+        console.log(err.response.data);
+    });
+}
+
 const deleteMe = catchAsync( async (req, res, next) => {
     await User.update({active: false}, {where: {id: req.user.id}});
 
@@ -94,5 +112,6 @@ module.exports = {
     updateMe,
     deleteMe,
     getMe,
-    uploadUserPhoto
+    uploadUserPhoto,
+    saveMatch
 };

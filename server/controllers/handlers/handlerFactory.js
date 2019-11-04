@@ -4,11 +4,7 @@ const APIFeatures = require('../../utils/ApiFeatures');
 
 const deleteOne = Model => catchAsync(async (req, res, next) => {
 
-    const doc = await Model.destroy({
-        where: {
-            id: req.params.id
-        }
-    });
+    const doc = await Model.destroy({where: {id: req.params.id}});
 
     if (!doc) {
         return next(new BAError('No document found with that id', 404));
@@ -75,7 +71,7 @@ const getAll = Model => catchAsync(async (req, res, next) => {
 
     // To allow for nested GET reviews on tour
     let filter = {};
-    if (req.params.tourId) filter = { tour: req.params.tourId };
+    if (req.params.ticketId) filter = { ticket: req.params.ticketId };
     
     // EXECUTE QUERY
     const features = new APIFeatures(Model.findAll({where: filter}), req.query)
