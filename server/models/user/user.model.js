@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const Sequilize = require('sequelize');
 
+const BAError = require('../../utils/BAError');
 const sequelize = require('../../utils/db');
 
 class User extends Sequilize.Model {} 
@@ -19,6 +20,7 @@ User.init({
             allowNull: false,
             unique: true,
             validate: {
+                notEmpty: true,
                 len: [4, 24]
             }
         },
@@ -27,7 +29,9 @@ User.init({
             allowNull: false,
             unique: true,
             validate: {
-                isEmail: true
+                isEmail: true,
+                notEmpty: true,
+                len: [1, 255]
             }
         },
         photo: {
@@ -43,6 +47,9 @@ User.init({
         password: {
             type: Sequilize.STRING,
             allowNull: false,
+            validate: {
+                len: [8, 255]
+            }
         },
         passwordConfirm: {
             type: Sequilize.STRING
@@ -69,8 +76,12 @@ User.init({
 
 User.addHook('beforeSave', async (user, options) => {
 
-    user.password = await bcrypt.hash(user.password, 10);
-    user.passwordConfirm = undefined;
+    if (user.password === user.passwordConfirm) {
+        user.password = await bcrypt.hash(user.password, 10);
+        user.passwordConfirm = true;
+    } else {
+        return new BAError('Password and password confirm do not match', 401);
+    }
 
 });
 
@@ -99,7 +110,7 @@ User.prototype.createPasswordResetToken = function() {
 
     const resetToken = crypto.randomBytes(32).toString('hex');
     this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
-    this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+    this.passwordResetExpires = Date.now() + process.env.PASSWORD_RESET_EXPIRES_IN;
     return resetToken;
 
 }

@@ -24,6 +24,7 @@ app.use((req, res, next) => {
 
 // Execute defined cron jobs
 cronJob.sports;
+cronJob.matches;
 // cronJob.matches;
 
 app.use(bodyParser.json());

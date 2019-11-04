@@ -59,10 +59,10 @@ const getOne = Model => catchAsync(async (req, res, next) => {
 
     if (!doc) { return next(new BAError('No Document found with that id', 404));}
 
-    if (doc.password) {
-        doc.password = '';
-        doc.id = '';
-    }
+    // if (doc.password) {
+    //     doc.password = '';
+    //     doc.id = '';
+    // }
 
     res.status(200).json({
         status: 'success',

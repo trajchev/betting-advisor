@@ -45,15 +45,14 @@ const signup = catchAsync(async (req, res, next) => {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        passwordConfirm: req.body.passwordConfirm,
-        role: req.body.role || 'beginner'
+        passwordConfirm: req.body.passwordConfirm
     });
 
     const url = `${req.protocol}://${req.get('host')}/me`;
 
     await new Email(newUser, url).sendWelcome();
 
-    createSendToken(newUser, 201, res);
+    createSendToken(newUser, 201, req, res);
 });
 
 const login = catchAsync(async (req, res,next) => {
@@ -72,13 +71,13 @@ const login = catchAsync(async (req, res,next) => {
     }
 
     // 3. If everything is OK send token to client
-    createSendToken(user, 200, res);
+    createSendToken(user, 200, req, res);
 });
 
 const logout = (req, res) => {
 
     res.cookie('jwt', 'loggedout', {
-        expires: new Date(Date.now() + 10000),
+        expires: new Date(Date.now() + 10 *  1000),
         httpOnly: true
     });
 
@@ -134,7 +133,7 @@ const protect = catchAsync( async (req, res, next) => {
 
     // 2. Verification token
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-
+    
     // 3. Check if user still exists
     const currentUser = await User.findOne({where: {id: decoded.id}});
     if (!currentUser) {
@@ -201,7 +200,7 @@ const resetPassword = catchAsync(async (req, res, next) => {
 
     // 2. If token has not expired set the new password
     if (!user) {
-        return next(new AppError('Token is invalid or expires', 400));
+        return next(new BAError('Token is invalid or expires', 400));
     }
     user.password = req.body.password
     user.passwordConfirm = req.body.passwordConfirm
@@ -212,7 +211,7 @@ const resetPassword = catchAsync(async (req, res, next) => {
     await user.save();
 
     // 4. Log the user in, sent JWT
-    createSendToken(user, 201, res);
+    createSendToken(user, 201, req, res);
 
 });
 
