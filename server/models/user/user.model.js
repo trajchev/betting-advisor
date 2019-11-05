@@ -21,7 +21,10 @@ User.init({
             unique: true,
             validate: {
                 notEmpty: true,
-                len: [4, 24]
+                len: {
+                    args: [[4, 24]],
+                    msg: 'The username must be between 4 and 24 characters long'
+                }
             }
         },
         email: {
@@ -32,6 +35,9 @@ User.init({
                 isEmail: true,
                 notEmpty: true,
                 len: [1, 255]
+            },
+            set(val) {
+                this.setDataValue('email', val.toLowerCase())
             }
         },
         photo: {
@@ -48,7 +54,10 @@ User.init({
             type: Sequilize.STRING,
             allowNull: false,
             validate: {
-                len: [8, 255]
+                len: {
+                    args: [[8, 255]],
+                    msg: 'Password must be between 8 and 255 characters long'
+                } 
             }
         },
         passwordConfirm: {

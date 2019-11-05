@@ -13,6 +13,6 @@ SavedMatch.init({
         type: Sequilize.INTEGER,
         allowNull: false,
     },
-}, {underscored: true, sequelize, modelName: 'savedMatch'});
+}, {sequelize, underscored: true, modelName: 'savedMatch'});
 
 module.exports = SavedMatch;

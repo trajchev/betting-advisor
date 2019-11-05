@@ -6,7 +6,8 @@ const factory = require('../handlers/handlerFactory');
 const models = require('../../models/models');
 
 const User = models.User;
-const UserMatch = models.UserMatch;
+const Match = models.Match;
+const SavedMatch = models.SavedMatch;
 
 // Multer setup
 const multerStorage = multer.diskStorage({
@@ -80,7 +81,7 @@ const getMe = (req, res, next) => {
 }
 
 const saveMatch = (req, res, next) => {
-    const newUserMatch = UserMatch.create({
+    const newUserMatch = SavedMatch.create({
         userId: req.user.id,
         matchId: 1
     });
@@ -94,6 +95,22 @@ const saveMatch = (req, res, next) => {
         console.log(err.response.data);
     });
 }
+
+const getMyTickets = catchAsync( async (req, res, next) => {
+
+    const userId = req.user.id;
+
+    const myTickets = await SavedMatch.findAll({attributes: ['createdAt', 'updatedAt'],  where: {userId},
+        include: [{
+            model: Match
+        }]
+    });
+
+    res.status(200).json({
+        status: 'success',
+        data: myTickets
+    });
+});
 
 const deleteMe = catchAsync( async (req, res, next) => {
     await User.update({active: false}, {where: {id: req.user.id}});
@@ -113,5 +130,6 @@ module.exports = {
     deleteMe,
     getMe,
     uploadUserPhoto,
-    saveMatch
+    saveMatch,
+    getMyTickets
 };
