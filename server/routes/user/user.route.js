@@ -20,10 +20,10 @@ router.patch('/resetPassword/:token', authController.resetPassword);
 router.use(authController.protect);
 
 router.get('/me', userController.getMe, userController.getUser);
-router.get('/tickets', userController.getMe, userController.getMyTickets);
-router.patch('/updateMe', userController.uploadUserPhoto, userController.updateMe);
-router.patch('/updateMyPassword', authController.updatePassword);
-router.delete('/deleteMe', userController.deleteMe);
+router.get('/me/tickets', userController.getMe, userController.getMyTickets);
+router.patch('/me/update', userController.uploadUserPhoto, userController.updateMe);
+router.patch('/me/updatePassword', authController.updatePassword);
+router.delete('/me/delete', userController.deleteMe);
 router.route('/:id')
     .get(userController.getUser)
     .patch(userController.updateUser)

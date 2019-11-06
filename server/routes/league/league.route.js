@@ -2,11 +2,12 @@ const express = require('express');
 
 const controllers = require('../../controllers/controllers');
 
+const authController = controllers.auth;
 const leagueController = controllers.league;
 
 const router = express.Router();
 
-router.get('/all', leagueController.getLeagues);
-router.get('/:group', leagueController.getLeaguesOfGroup);
+router.get('/all', authController.protect, leagueController.getLeagues);
+router.get('/:group', authController.protect, leagueController.getLeaguesOfGroup);
 
 module.exports = router;

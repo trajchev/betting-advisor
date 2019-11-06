@@ -76,7 +76,8 @@ const updateMe = catchAsync(async (req, res, next) => {
 });
 
 const getMe = (req, res, next) => {
-    req.params.id = req.user.id;
+    const userId = req.user.id
+    req.params.id = userId;
     next();
 }
 

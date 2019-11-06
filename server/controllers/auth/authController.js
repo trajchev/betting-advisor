@@ -9,22 +9,21 @@ const models = require('../../models/models');
 const User = models.User;
 
 const signToken = id => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN
-    });
+    return jwt.sign({ id: id, exp: Math.floor(Date.now() / 1000) + (60 * 60)}, process.env.JWT_SECRET);
 };
 
 const createSendToken = (user, statusCode, req, res) => {
 
     const token = signToken(user.id);
+    const expTime = Date.now() + process.env.JWT_EXPIRES_IN * 1;
 
-    res.cookie('jwt', token, {
-        expires: new Date(
-            Date.now() + process.env.JWT_COOKIE_EXPIRES_IN
-        ),
+    const tokenOptions = {
+        expires: new Date(expTime),
         httpOnly: true,
         secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
-    });
+    };
+
+    res.cookie('jwt', token, tokenOptions);
 
     // Remove password from output
     user.password = undefined;
@@ -77,41 +76,12 @@ const login = catchAsync(async (req, res,next) => {
 const logout = (req, res) => {
 
     res.cookie('jwt', 'loggedout', {
-        expires: new Date(Date.now() + 10 *  1000),
+        expires: new Date(Date.now() + 1000),
         httpOnly: true
     });
 
     res.status(200).json({ status: 'success' });
 };
-
-const isLoggedIn = async (req, res, next) => {
-
-    if (req.cookies.jwt) {
-
-      try {
-
-        const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
-  
-        // 2) Check if user still exists
-        const currentUser = await User.findOne({where: {id: decoded.id}});
-        if (!currentUser) {
-          return next();
-        }
-  
-        // 3) Check if user changed password after the token was issued
-        if (currentUser.changedPasswordAfter(decoded.iat)) {
-          return next();
-        }
-  
-        // THERE IS A LOGGED IN USER
-        res.locals.user = currentUser;
-        return next();
-      } catch (err) {
-        return next();
-      }
-    }
-    next();
-  };
 
 const protect = catchAsync( async (req, res, next) => {
 
@@ -123,8 +93,10 @@ const protect = catchAsync( async (req, res, next) => {
         && req.headers.authorization.startsWith('Bearer')
         ) {
         token = req.headers.authorization.split(' ')[1];
-    } else if (req.cookies.jwt) {
+    } else if (req.cookies && req.cookies.jwt) {
         token = req.cookies.jwt;
+    } else if (req.headers.cookie) {
+        token = req.headers.cookie.split('=')[1];
     }
 
     if (!token) {
@@ -241,7 +213,6 @@ module.exports = {
     signup,
     login,
     logout,
-    isLoggedIn,
     protect,
     restrictTo,
     forgotPassword,
