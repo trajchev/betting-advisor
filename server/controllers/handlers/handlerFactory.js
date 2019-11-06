@@ -67,25 +67,33 @@ const getOne = Model => catchAsync(async (req, res, next) => {
     });
 });
 
-const getAll = Model => catchAsync(async (req, res, next) => {
+const getAll = (Model) => catchAsync(async (req, res, next) => {
+
+    let limit, page, offset;
+
+    if (req.params.page) {
+        limit = 10;
+        page = +req.params.page;
+        offset = (page - 1) * limit;
+    } 
 
     // To allow for nested GET reviews on tour
     let filter = {};
-    if (req.params.ticketId) filter = { ticket: req.params.ticketId };
-    
-    // EXECUTE QUERY
-    const features = new APIFeatures(Model.findAll({where: filter}), req.query)
-        .filter()
-        .sort()
-        .limitFields()
-        .paginate();
 
-    // const doc = await features.query.explain();
-    const doc = await features.query;
+    if (req.params.ticketId) filter = { ticket: req.params.ticketId };
+    if (req.params.group) { filter.group = req.params.group };
+
+    const occurences = await Model.count({where: filter});
+    const doc = await Model.findAll({limit, offset, where: filter});
 
     res.status(200).json({
         status: 'success',
-        results: doc.length, 
+        stats: {
+            records: occurences,
+            perpage: limit,
+            current: doc.length,
+            offset: offset
+        },
         data: {
             data: doc
         }

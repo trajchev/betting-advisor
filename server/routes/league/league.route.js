@@ -7,7 +7,7 @@ const leagueController = controllers.league;
 
 const router = express.Router();
 
-router.get('/all', authController.protect, leagueController.getLeagues);
-router.get('/:group', authController.protect, leagueController.getLeaguesOfGroup);
+router.get('/', authController.protect, leagueController.getLeagues);
+router.get('/:group', authController.protect, leagueController.getLeagues);
 
 module.exports = router;
