@@ -1,6 +1,5 @@
 const catchAsync = require('../../utils/catchAsync');
 const BAError = require('../../utils/BAError');
-const APIFeatures = require('../../utils/ApiFeatures');
 
 const deleteOne = Model => catchAsync(async (req, res, next) => {
 
@@ -67,7 +66,7 @@ const getOne = Model => catchAsync(async (req, res, next) => {
     });
 });
 
-const getAll = (Model) => catchAsync(async (req, res, next) => {
+const getAll = Model => catchAsync(async (req, res, next) => {
 
     let limit, page, offset;
 
