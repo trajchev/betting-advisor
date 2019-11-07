@@ -15,7 +15,7 @@ const signToken = id => {
 const createSendToken = (user, statusCode, req, res) => {
 
     const token = signToken(user.id);
-    const expTime = Date.now() + process.env.JWT_EXPIRES_IN * 1;
+    const expTime = Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 1;
 
     const tokenOptions = {
         expires: new Date(expTime),
@@ -95,8 +95,6 @@ const protect = catchAsync( async (req, res, next) => {
         token = req.headers.authorization.split(' ')[1];
     } else if (req.cookies && req.cookies.jwt) {
         token = req.cookies.jwt;
-    } else if (req.headers.cookie) {
-        token = req.headers.cookie.split('=')[1];
     }
 
     if (!token) {

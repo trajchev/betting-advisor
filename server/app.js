@@ -50,7 +50,7 @@ app.enable('trust proxy');
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(cookieParser());
-
+    
     // Prevent XSS
     app.use(xss());
 
