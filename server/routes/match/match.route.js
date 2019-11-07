@@ -8,8 +8,13 @@ const saveMatchController = controllers.saveMatch;
 
 const router = express.Router({mergeParams: true});
 
-router.get('/:league', authController.protect, matchController.getMatches);
-router.get('/:league/:matchId', authController.protect, matchController.getMatchStats);
-router.post('/:league/:matchId', authController.protect, saveMatchController);
+router.use(authController.protect);
+
+router.route('/:league')
+    .get(matchController.getMatches);
+
+router.route('/:league/:matchId')
+    .get(matchController.getMatch)
+    .post(saveMatchController);
 
 module.exports = router;

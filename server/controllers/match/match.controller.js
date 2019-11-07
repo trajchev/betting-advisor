@@ -29,7 +29,7 @@ const getMatches = (req, res, next) => {
     });
 }
 
-const getMatchStats = (req, res, next) => {
+const getMatch = (req, res, next) => {
     const league = req.params.league;
     const matchId = req.params.matchId;
     // Grab the match with given ID
@@ -58,4 +58,4 @@ const getMatchStats = (req, res, next) => {
     });
 }
 
-module.exports = { getMatches, getMatchStats};
+module.exports = { getMatches, getMatch};
