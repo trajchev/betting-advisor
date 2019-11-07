@@ -25,7 +25,7 @@ const multerFilter = (req, file, cb) => {
     if (file.mimetype.startsWith('image')) {
         cb(null, true);
     } else {
-        cb(new BAError('Not an image!', 400));
+        cb(new BAError('The uploaded file is not an image!', 400));
     }
 }
 
@@ -92,16 +92,28 @@ const saveMatch = (req, res, next) => {
         res.json({status: 'success', message: 'You saved this match'});
     })
     .catch(err => {
-        console.log('Error status', err.response.status);
-        console.log(err.response.data);
+        return next(new BAError(err.response.message, err.response.status));
     });
 }
 
 const getMyTickets = catchAsync( async (req, res, next) => {
 
+    let limit, page = 1, offset;
+
+    if (req.params.page) {
+        limit = 10;
+        page = +req.params.page;
+        offset = (page - 1) * limit;
+    }
+
     const userId = req.user.id;
 
-    const myTickets = await SavedMatch.findAll({attributes: ['createdAt', 'updatedAt'],  where: {userId},
+    const occurences = await SavedMatch.count({attributes: ['createdAt', 'updatedAt'],  where: {userId},
+        include: [{
+            model: Match
+        }]
+    });
+    const myTickets = await SavedMatch.findAll({attributes: ['createdAt', 'updatedAt'], limit, offset, where: {userId},
         include: [{
             model: Match
         }]
@@ -109,6 +121,12 @@ const getMyTickets = catchAsync( async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
+        stats: {
+            records: occurences,
+            perpage: limit,
+            current: myTickets.length,
+            offset: offset
+        },
         data: myTickets
     });
 });

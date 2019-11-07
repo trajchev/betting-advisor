@@ -9,12 +9,11 @@ const saveMatch = catchAsync( async (req, res, next) => {
 
     const decoded = jwt.decode(req.headers.cookie.split('=')[1]);
 
+    // Get the requesting user id and the match id to save for user
     const matchId = +req.params.matchId;
     const userId = decoded.id;
 
-    const newSavedGame = await SavedMatch.create({
-        userId, matchId
-    });
+    const newSavedGame = await SavedMatch.create({userId, matchId});
 
     res.json({
         message: 'success',

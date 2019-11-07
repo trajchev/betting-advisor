@@ -1,61 +1,49 @@
 const models = require('../../models/models');
+const catchAsync = require('../../utils/catchAsync');
+const BAError = require('../../utils/BAError');
 
 const Match = models.Match;
 const Odd = models.Odd;
 
-const getMatches = (req, res, next) => {
+const getMatches = catchAsync( async(req, res, next) => {
     const league = req.params.league;
-    // Grab all the Matches from the sport
-    Match.findAll({ where: { sport_key: league }})
-    .then(matches => {
-        // check if sport exists
-        if (!matches) {
-            const error = new Error('The sport key could not be found');
-            error.statusCode = 401;
-            throw error;
-        }
-        // compare the 
-        res.status(200).json({
-            message: 'success',
-            matchesNumber: matches.length,
-            data: matches
-        });
-    })
-    .catch(err => {
-        if (!err.statusCode) {
-            err.statusCode = 500;
-        }
-        next(err);
-    });
-}
 
-const getMatch = (req, res, next) => {
+    // Grab all the Matches from the sport
+    const matches = await Match.findAll({ where: { sport_key: league }})
+
+    if (!matches) {
+        return next(new BAError('No matches for that league were found', 404));
+    }
+    
+    // compare the 
+    res.status(200).json({
+        message: 'success',
+        records: matches.length,
+        data: {
+            data: matches
+        }
+    });
+
+});
+
+const getMatch = catchAsync( async (req, res, next) => {
     const league = req.params.league;
     const matchId = req.params.matchId;
     // Grab the match with given ID
-    Match.findOne({ where: { id: matchId, sport_key: league }, include: [{model: Odd, as: 'odds'}]})
-    .then(match => {
-        // check if sport exists
-        if (!match) {
-            const error = new Error('The sport key could not be found');
-            error.statusCode = 401;
-            throw error;
-        }
+    const match = await Match.findOne({ where: { id: matchId, sport_key: league }, include: [{model: Odd, as: 'odds'}]});
 
-        res.status(200).json({
-            message: 'success',
-            oddsNumber: match.odds.length,
-            data: {
-                game: match
-            }
-        });
-    })
-    .catch(err => {
-        if (!err.statusCode) {
-            err.statusCode = 500;
+    if (!match) {
+        return next(new BAError('No matches in this league with that id was found', 404));
+    }
+    
+    res.status(200).json({
+        message: 'success',
+        oddsNumber: match.odds.length,
+        data: {
+            game: match
         }
-        next(err);
     });
-}
+
+});
 
 module.exports = { getMatches, getMatch};
