@@ -76,24 +76,12 @@ const updateMe = catchAsync(async (req, res, next) => {
 });
 
 const getMe = (req, res, next) => {
+
     const userId = req.user.id
+
     req.params.id = userId;
     next();
-}
 
-const saveMatch = (req, res, next) => {
-    const newUserMatch = SavedMatch.create({
-        userId: req.user.id,
-        matchId: 1
-    });
-
-    return newUserMatch.save()
-    .then(res => {
-        res.json({status: 'success', message: 'You saved this match'});
-    })
-    .catch(err => {
-        return next(new BAError(err.response.message, err.response.status));
-    });
 }
 
 const getMyTickets = catchAsync( async (req, res, next) => {
@@ -149,6 +137,5 @@ module.exports = {
     deleteMe,
     getMe,
     uploadUserPhoto,
-    saveMatch,
     getMyTickets
 };

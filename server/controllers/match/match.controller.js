@@ -6,6 +6,7 @@ const Match = models.Match;
 const Odd = models.Odd;
 
 const getMatches = catchAsync( async(req, res, next) => {
+    
     const league = req.params.league;
 
     // Grab all the Matches from the sport
@@ -15,7 +16,6 @@ const getMatches = catchAsync( async(req, res, next) => {
         return next(new BAError('No matches for that league were found', 404));
     }
     
-    // compare the 
     res.status(200).json({
         message: 'success',
         records: matches.length,
@@ -27,8 +27,10 @@ const getMatches = catchAsync( async(req, res, next) => {
 });
 
 const getMatch = catchAsync( async (req, res, next) => {
+
     const league = req.params.league;
     const matchId = req.params.matchId;
+
     // Grab the match with given ID
     const match = await Match.findOne({ where: { id: matchId, sport_key: league }, include: [{model: Odd, as: 'odds'}]});
 
@@ -46,4 +48,7 @@ const getMatch = catchAsync( async (req, res, next) => {
 
 });
 
-module.exports = { getMatches, getMatch};
+module.exports = {
+    getMatches,
+    getMatch
+};
