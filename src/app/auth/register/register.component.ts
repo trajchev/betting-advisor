@@ -15,7 +15,8 @@ export class RegisterComponent implements OnInit {
   registerUserForm = new FormGroup({
     userName: new FormControl(''),
     email: new FormControl(''),
-    password: new FormControl('')
+    password: new FormControl(''),
+    passwordConfirm: new FormControl('')
   });
 
   constructor(public authService: AuthService) { }
@@ -34,11 +35,12 @@ export class RegisterComponent implements OnInit {
     const username = this.registerUserForm.value.userName;
     const email = this.registerUserForm.value.email;
     const password = this.registerUserForm.value.password;
+    const passwordConfirm = this.registerUserForm.value.passwordConfirm;
 
     // Register user and clear form input fields
-    this.authService.createUser(username, email, password);
-    this.isLoading = false;
+    this.authService.signup(username, email, password, passwordConfirm);
     this.registerUserForm.reset();
+    this.isLoading = false;
   }
 
 }

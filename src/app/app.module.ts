@@ -20,7 +20,7 @@ import { TicketComponent } from './tickets/ticket/ticket.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { OddsComponent } from './leagues/odds/odds.component';
 import { LeagueComponent } from './leagues/league/league.component';
-import { AuthInterceptor } from './auth/auth.interceptor';
+import { AuthInterceptor } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [
