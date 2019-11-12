@@ -12,7 +12,7 @@ const SavedMatch = models.SavedMatch;
 // Multer setup
 const multerStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'public/img/users');
+        cb(null, 'server/public/img/users');
     },
     filename: (req, file, cb) => {
         // user -id - timestamp - extention

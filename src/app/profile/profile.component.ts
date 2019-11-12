@@ -1,9 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { TicketsService } from '../service/tickets.service';
 import { UserService } from '../service/user.service';
-import { User } from './profile.model';
 import { AuthService } from '../auth/auth.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     // this.showTickets();
     this.user = this.userService.getActiveUser().subscribe(res => {
-      this.user = res.user;
+      this.user = res.data;
     });
   }
 

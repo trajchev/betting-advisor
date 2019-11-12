@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onUserLogin() {
-    console.log(this.loginUserForm.value);
     // Get login credentials from login form
     const email = this.loginUserForm.value.email;
     const password = this.loginUserForm.value.password;

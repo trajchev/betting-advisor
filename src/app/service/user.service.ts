@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { retry, catchError, map } from 'rxjs/operators';
+
+import { environment } from '../../environments/environment';
+import { User } from '../profile/profile.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  apiURL = 'http://localhost:3000/api';
-  private user = this.getAuthData();
+  apiURL = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
   getActiveUser(): Observable<any> {
-    return this.http.get(this.apiURL + `/user/user/${this.user.userId}`)
+    return this.http.get(this.apiURL + `/users/me`)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -29,22 +31,6 @@ export class UserService {
     } else {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(errorMessage);
     return throwError(errorMessage);
-  }
-
-  // Retrieve authentication data from local storage
-  private getAuthData() {
-    const token = localStorage.getItem('token');
-    const expirationDate = localStorage.getItem('expiration');
-    const userId = +localStorage.getItem('userId');
-    if (!token || !expirationDate) {
-      return;
-    }
-    return {
-      token: token,
-      expirationDate: new Date(expirationDate),
-      userId: userId
-    };
   }
 }

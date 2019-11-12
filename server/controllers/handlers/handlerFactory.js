@@ -55,14 +55,14 @@ const getOne = Model => catchAsync(async (req, res, next) => {
     if (!doc) { return next(new BAError('No Document found with that id', 404));}
 
     if (doc.password) {
+        const photo = doc.photo;
         doc.password = '';
+        doc.photo = `http://localhost:8000/img/users/${photo}`;
     }
 
     res.status(200).json({
         status: 'success',
-        data: {
-            data: doc
-        }
+        data: doc
     });
 });
 
@@ -93,9 +93,7 @@ const getAll = Model => catchAsync(async (req, res, next) => {
             current: doc.length,
             offset: offset
         },
-        data: {
-            data: doc
-        }
+        data: doc
     });
 });
 

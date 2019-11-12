@@ -30,7 +30,7 @@ export class LeagueService {
 
   getSports(): Observable<any> {
     return this.http
-      .get(`${BACKEND}/data/sports`)
+      .get(`${BACKEND}/leagues`)
       .pipe(
         catchError(error => {
           return [];

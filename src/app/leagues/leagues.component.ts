@@ -20,7 +20,7 @@ export class LeaguesComponent implements OnInit {
 
   getSports() {
     this.leagueService.getSports().subscribe(res => {
-      this.sports = res;
+      this.sports = res.data;
     });
   }
 
