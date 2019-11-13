@@ -30,6 +30,14 @@ export class UserService {
     );
   }
 
+  fetchDashboardData(): Observable<any> {
+    return this.http.get(this.apiURL + `/users/dashboard`)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
   // Error handler
   handleError(error) {
     let errorMessage = '';

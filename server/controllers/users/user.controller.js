@@ -75,6 +75,40 @@ const updateMe = catchAsync(async (req, res, next) => {
     });
 });
 
+const getDashboardData = catchAsync(async (req, res, next) => {
+
+    const userId = req.user.id;
+    const limit = 3;
+
+    const user = await User.findOne({where: {id: userId}});
+
+    if (!user) { return next(new BAError('No Document found with that id', 404));}
+
+    const occurences = await SavedMatch.count({attributes: ['createdAt', 'updatedAt'],  where: {userId},
+        include: [{
+            model: Match
+        }]
+    });
+    const myTickets = await SavedMatch.findAll({attributes: ['createdAt', 'updatedAt'], limit, where: {userId},
+        include: [{
+            model: Match
+        }]
+    });
+
+    if (user.password) {
+        const photo = user.photo;
+        user.password = '';
+        user.photo = `http://localhost:8000/img/users/${photo}`;
+    }
+
+    res.status(200).json({
+        status: 'success',
+        user,
+        numberOfTickets: occurences,
+        tickets: myTickets,
+    });
+});
+
 const getMe = (req, res, next) => {
 
     const userId = req.user.id
@@ -137,5 +171,6 @@ module.exports = {
     deleteMe,
     getMe,
     uploadUserPhoto,
-    getMyTickets
+    getMyTickets,
+    getDashboardData
 };
