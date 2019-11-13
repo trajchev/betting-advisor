@@ -10,11 +10,13 @@ const router = express.Router({mergeParams: true});
 
 router.use(authController.protect);
 
+router.route('/')
+    .post(saveMatchController);
+
 router.route('/:league')
     .get(matchController.getMatches);
 
 router.route('/:league/:matchId')
     .get(matchController.getMatch)
-    .post(saveMatchController);
 
 module.exports = router;

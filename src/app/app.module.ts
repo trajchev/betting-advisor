@@ -21,6 +21,8 @@ import { LeaguesComponent } from './leagues/leagues.component';
 import { AuthInterceptor } from './auth/auth-interceptor.service';
 import { MsToDatePipe } from './pipes/ms-to-date.pipe';
 import { MatchComponent } from './match/match.component';
+import { LeagueComponent } from './leagues/league/league.component';
+import { LeagueMatchComponent } from './leagues/league/league-match/league-match.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { MatchComponent } from './match/match.component';
     LeaguesComponent,
     MsToDatePipe,
     MatchComponent,
+    LeagueComponent,
+    LeagueMatchComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,16 @@ export class LeagueService {
       );
   }
 
+  fetchMatches(sportKey: string): Observable<any> {
+    return this.http
+      .get(`${environment.apiUrl}/matches/${sportKey}`)
+      .pipe(
+        catchError(error => {
+          return [];
+        })
+      );
+  }
+
   fetchMatch(sportKey: string, id: number): Observable<any> {
     return this.http
       .get(`${environment.apiUrl}/matches/${sportKey}/${id}`)
@@ -31,6 +41,18 @@ export class LeagueService {
         })
       );
   }
+
+  // addToTickets(matchId: number) {
+  //   const body = {"matchId": matchId};
+  //   return this.http.post<any>(`${environment.apiUrl}/matches`, body).subscribe(
+  //     (response) => {
+  //       return response;
+  //     },
+  //     error => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
   // Error handler
   handleError(error) {
