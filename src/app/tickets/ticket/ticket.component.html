@@ -1,10 +1,7 @@
-<div class="w3-card card ticket">
+<div class="w3-card card w3-third">
   <p class="w3-text-white w3-center">
-      {{ticket.team_home}}
-      <span>{{ticket.team_home_odds}}</span>:<span>{{ticket.team_away_odds}}</span>
-      {{ticket.team_away}}
+      {{ticket.match.home_team}} : {{ticket.match.away_team}}
     </p>
-    <p>Time: <span class="w3-right">{{ticket.game_time}}</span></p>
-    <p>Field: <span class="w3-right">{{ticket.game_field}}</span></p>
-    <p>Location: <span class="w3-right">{{ticket.game_location}}</span></p>
+    <p>Match time: <span class="w3-right">{{ticket.match.commence_time | msToDate | date}}</span></p>
+    <p>Saved: <span class="w3-right">{{ticket.createdAt | date}}</span></p>
 </div>

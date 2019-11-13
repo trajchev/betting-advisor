@@ -22,6 +22,14 @@ export class UserService {
     );
   }
 
+  fetchUserTickets(): Observable<any> {
+    return this.http.get(this.apiURL + `/users/me/tickets`)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
   // Error handler
   handleError(error) {
     let errorMessage = '';

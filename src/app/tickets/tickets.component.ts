@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-tickets',
@@ -9,18 +10,17 @@ export class TicketsComponent implements OnInit {
 
   tickets;
 
-  // constructor(public ticketService: TicketsService) { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
-    // this.showTickets();
+    this.getTickets();
   }
 
-  // Retrieve tickets from service
-  // showTickets() {
-  //   return this.ticketService.getTickets()
-  //     .subscribe(data => {
-  //       this.tickets = data;
-  //     });
-  // }
+  // Retrieve data using the service
+  getTickets() {
+    this.userService.fetchUserTickets().subscribe(res => {
+      this.tickets = res.data;
+    });
+  }
 
 }
