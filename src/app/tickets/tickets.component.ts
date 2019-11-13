@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TicketsService } from '../service/tickets.service';
 
 @Component({
   selector: 'app-tickets',
@@ -10,7 +9,7 @@ export class TicketsComponent implements OnInit {
 
   tickets;
 
-  constructor(public ticketService: TicketsService) { }
+  // constructor(public ticketService: TicketsService) { }
 
   ngOnInit() {
     // this.showTickets();

@@ -1,34 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
-import { Ticket } from '../tickets/ticket/ticket.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TicketsService {
-
-  apiURL = 'http://localhost:3000/api';
-  private tickets: Ticket[] = [];
+export class LeagueService {
 
   constructor(private http: HttpClient) { }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
-
-  getTickets() {
-    return this.http.get<Ticket[]>(this.apiURL + '/tickets')
-    .pipe(
-      retry(1),
-      catchError(this.handleError)
-    );
+  getSports(): Observable<any> {
+    return this.http
+      .get(`${environment.apiUrl}/leagues`)
+      .pipe(
+        catchError(error => {
+          return [];
+        })
+      );
   }
 
+  // Error handler
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

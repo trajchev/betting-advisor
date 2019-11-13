@@ -8,6 +8,7 @@
 }
 
 .card {
+    cursor: pointer;
     padding: 1rem;
     margin-bottom: 1rem;
     background: linear-gradient( to right, #0f1726, #141f33, #0f1726) no-repeat;
@@ -17,7 +18,7 @@
     }
 
     span {
-        padding: 0 1rem;
+        color: #ccc;
     }
 }
 
@@ -26,5 +27,5 @@
 }
 
 .card-col {
-    padding: 2rem 0;
+    padding: 2rem 2rem 2rem 332px;
 }

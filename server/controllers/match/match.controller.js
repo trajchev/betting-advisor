@@ -19,9 +19,7 @@ const getMatches = catchAsync( async(req, res, next) => {
     res.status(200).json({
         message: 'success',
         records: matches.length,
-        data: {
-            data: matches
-        }
+        data: matches
     });
 
 });
@@ -41,9 +39,7 @@ const getMatch = catchAsync( async (req, res, next) => {
     res.status(200).json({
         message: 'success',
         oddsNumber: match.odds.length,
-        data: {
-            game: match
-        }
+        data: match
     });
 
 });

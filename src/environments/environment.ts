@@ -4,9 +4,7 @@
 
 export const environment = {
   production: false,
-  apiKey: 'cec3bab91a164e702a135a505dbbae59',
   apiUrl: 'http://localhost:8000/api/v1',
-  userImg: 'http://localhost:8000/img/users/'
 };
 
 /*

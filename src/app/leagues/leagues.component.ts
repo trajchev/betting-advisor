@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { _ } from 'underscore';
 
-import { LeagueService } from '../service/league.service';
+import { LeagueService } from './league.service';
 
 @Component({
   selector: 'app-leagues',

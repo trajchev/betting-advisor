@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { retry, catchError, map } from 'rxjs/operators';
+
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MatchService {
+export class UserService {
 
-  apiURL = 'http://localhost:3000/api';
+  apiURL = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
-  getMatches(sportKey): Observable<any> {
-    return this.http.get(this.apiURL + `/match/matches/${sportKey}`)
+  getActiveUser(): Observable<any> {
+    return this.http.get(this.apiURL + `/users/me`)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -28,7 +30,6 @@ export class MatchService {
     } else {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(errorMessage);
     return throwError(errorMessage);
   }
 }
