@@ -19,9 +19,7 @@ export class LeaguesComponent implements OnInit {
   }
 
   getSports() {
-    this.leagueService.getSports().subscribe(res => {
-      this.sports = res.data;
-    });
+    this.leagueService.getSports().subscribe(res => this.sports = res.data);
   }
 
 }

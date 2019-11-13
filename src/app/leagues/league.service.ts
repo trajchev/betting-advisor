@@ -22,6 +22,16 @@ export class LeagueService {
       );
   }
 
+  fetchMatch(sportKey: string, id: number): Observable<any> {
+    return this.http
+      .get(`${environment.apiUrl}/matches/${sportKey}/${id}`)
+      .pipe(
+        catchError(error => {
+          return [];
+        })
+      );
+  }
+
   // Error handler
   handleError(error) {
     let errorMessage = '';

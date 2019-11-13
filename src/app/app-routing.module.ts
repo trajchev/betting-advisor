@@ -11,6 +11,7 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { TicketComponent } from './tickets/ticket/ticket.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { AuthGuard } from './auth/auth.guard';
+import { MatchComponent } from './match/match.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'tickets', component: TicketsComponent, canActivate: [AuthGuard]  },
   { path: 'ticket', component: TicketComponent, canActivate: [AuthGuard]  },
   { path: 'leagues', component: LeaguesComponent, canActivate: [AuthGuard]  },
+  { path: 'matches/:league/:matchId', component: MatchComponent, canActivate: [AuthGuard]  },
   { path: '**', component: PageNotFoundComponent },
 ];
 

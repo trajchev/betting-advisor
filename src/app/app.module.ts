@@ -20,6 +20,7 @@ import { TicketComponent } from './tickets/ticket/ticket.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { AuthInterceptor } from './auth/auth-interceptor.service';
 import { MsToDatePipe } from './pipes/ms-to-date.pipe';
+import { MatchComponent } from './match/match.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MsToDatePipe } from './pipes/ms-to-date.pipe';
     TicketComponent,
     LeaguesComponent,
     MsToDatePipe,
+    MatchComponent,
   ],
   imports: [
     BrowserModule,
