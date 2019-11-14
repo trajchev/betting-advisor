@@ -5,6 +5,6 @@
     <p>League: <span class="w3-right">{{match.sport_key}}</span></p>
     <button
        class="w3-btn w3-round w3-border w3-border-indigo w3-hover-border-green w3-text-indigo w3-hover-text-green w3-right"
-       (click)="addToTickets(match.id)">+ {{match.id}}</button>
-    <a [routerLink]="['/matches', match.sport_key, match.id ]" class="w3-btn w3-round w3-border w3-border-indigo w3-hover-border-green w3-text-indigo w3-hover-text-green w3-left" title="Details">Odds</a>
+       (click)="addToTickets(match.id)">+</button>
+    <a [routerLink]="['/matches', match.sport_key, match.id ]" class="w3-btn w3-round w3-border w3-border-indigo w3-hover-border-green w3-text-indigo w3-hover-text-green w3-left" title="Details">Stats</a>
 </div>
