@@ -11,6 +11,7 @@ SavedMatch.init({
     },
     matchId: {
         type: Sequilize.INTEGER,
+        unique: true,
         allowNull: false,
     },
 }, {sequelize, underscored: true, modelName: 'savedMatch'});

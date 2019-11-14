@@ -42,17 +42,15 @@ export class LeagueService {
       );
   }
 
-  // addToTickets(matchId: number) {
-  //   const body = {"matchId": matchId};
-  //   return this.http.post<any>(`${environment.apiUrl}/matches`, body).subscribe(
-  //     (response) => {
-  //       return response;
-  //     },
-  //     error => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
+  addToTickets(matchId: number) {
+    const match = {matchId: matchId};
+    this.http.post<{message: string; matchId: string}>(`${environment.apiUrl}/matches/`, match)
+    .subscribe(
+      (response) => {
+        // console.log(response);
+      }
+    );
+  }
 
   // Error handler
   handleError(error) {
