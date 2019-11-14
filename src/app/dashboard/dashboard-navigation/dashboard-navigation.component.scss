@@ -23,9 +23,15 @@
                 text-decoration: none;
                 color: #36507f;
                 font-size: .8rem;
+                line-height: .8rem;
                 padding: 1rem;
                 &:hover {
                     color: #fff;
+                }
+
+                mat-icon {
+                    width: 1rem;
+                    height: 1rem;
                 }
             }
         }
