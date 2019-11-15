@@ -29,12 +29,14 @@ const pullSports = () => {
 
                 }
             })
+            .catch(err => {
+                console.log('Error status', err.response.status);
+            });
         })
     
     })
     .catch(err => {
         console.log('Error status', err.response.status);
-        console.log(error.response.data);
     });
 };
 
