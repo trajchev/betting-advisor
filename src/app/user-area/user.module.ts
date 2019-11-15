@@ -39,18 +39,6 @@ import { UserRoutingModule } from './user-routing.module';
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-    ],
-    exports: [
-        UserAreaComponent,
-        UserNavigationComponent,
-        DashboardComponent,
-        ProfileComponent,
-        LeaguesComponent,
-        LeagueComponent,
-        LeagueMatchComponent,
-        TicketsComponent,
-        TicketComponent,
-        MatchComponent,
     ]
 })
 export class UserModule { }
