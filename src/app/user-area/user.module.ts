@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from '../material.module';
 
@@ -15,8 +15,6 @@ import { LeagueMatchComponent } from './leagues/league/league-match/league-match
 import { TicketsComponent } from './tickets/tickets.component';
 import { TicketComponent } from './tickets/ticket/ticket.component';
 import { MatchComponent } from './match/match.component';
-import { AppRoutingModule } from '../app-routing.module';
-import { AuthInterceptor } from '../auth/auth-interceptor.service';
 import { MsToDatePipe } from '../pipes/ms-to-date.pipe';
 import { UserRoutingModule } from './user-routing.module';
 
