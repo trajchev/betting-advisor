@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "./app/material.theme.scss";
+
+body {
+    font-size: 12px;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(#0d1c26, #101829) no-repeat;
+}

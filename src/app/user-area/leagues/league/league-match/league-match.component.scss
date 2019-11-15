@@ -1,0 +1,15 @@
+.card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: linear-gradient( to right, #0f1726, #141f33, #0f1726) no-repeat;
+    cursor: pointer;
+
+    p {
+        color: #36507f;
+    }
+
+    span {
+        color: #ccc;
+        padding: 0 1rem;
+    }
+}

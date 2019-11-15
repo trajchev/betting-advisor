@@ -41,3 +41,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Sensitive Data
+connection-data.js
+config.env
+/src/environments/environment.ts

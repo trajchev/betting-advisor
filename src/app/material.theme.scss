@@ -1,0 +1,13 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$betvisor-primary: mat-palette($mat-blue);
+
+$betvisor-accent: mat-palette($mat-blue, A700, A100, A400);
+
+$betvisor-warn: mat-palette($mat-red);
+
+$betvisor-theme: mat-light-theme($betvisor-primary, $betvisor-accent, $betvisor-warn);
+
+@include angular-material-theme($betvisor-theme);

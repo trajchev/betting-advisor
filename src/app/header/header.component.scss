@@ -1,0 +1,37 @@
+mat-toolbar {
+    border-bottom: 1px solid #36507f;
+    background: linear-gradient(#0d1c26, #101829) no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.fill-space {
+    flex: 1 1 auto;
+}
+
+.branding {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    ul {
+        list-style-type: none;
+        li {
+            display: inline-block;
+            a {
+                font-size: .8rem;
+                color: #36507f;
+                text-decoration: none;
+                padding: 1rem;
+                cursor: pointer;
+            }
+            .menu-active {
+                color: #fff;
+            }
+        }
+    }
+}

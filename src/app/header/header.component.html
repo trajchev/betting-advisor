@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <span>
+    <a *ngIf="!isUserAuthenticated" class="branding" routerLink="/">BA</a>
+    <a *ngIf="isUserAuthenticated" class="branding" routerLink="/user">BA</a>
+  </span>
+  <span class="fill-space"></span>
+  <nav layout-align="center end" class="pull-right">
+    <ul>
+      <li *ngIf="!isUserAuthenticated"><a routerLink="/register" routerLinkActive="menu-active">Register</a></li>
+      <li *ngIf="!isUserAuthenticated"><a routerLink="/login" routerLinkActive="menu-active">Login</a></li>
+      <li *ngIf="isUserAuthenticated"><a (click)="onLogout()">Logout</a></li>
+    </ul>
+  </nav>
+
+</mat-toolbar>
