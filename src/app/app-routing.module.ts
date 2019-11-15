@@ -12,17 +12,20 @@ import { AuthGuard } from './auth/auth.guard';
 import { MatchComponent } from './user-area/match/match.component';
 import { DashboardComponent } from './user-area/dashboard/dashboard.component';
 import { LeagueComponent } from './user-area/leagues/league/league.component';
+import { UserAreaComponent } from './user-area/user-area.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent , canActivate: [AuthGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  },
-  { path: 'tickets', component: TicketsComponent, canActivate: [AuthGuard]  },
-  { path: 'leagues', component: LeaguesComponent, canActivate: [AuthGuard]  },
-  { path: 'leagues/:league', component: LeagueComponent, canActivate: [AuthGuard]  },
-  { path: 'matches/:league/:matchId', component: MatchComponent, canActivate: [AuthGuard]  },
+  { path: 'user', component: UserAreaComponent, children: [
+    { path: 'dashboard', component: DashboardComponent , canActivate: [AuthGuard] },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  },
+    { path: 'tickets', component: TicketsComponent, canActivate: [AuthGuard]  },
+    { path: 'leagues', component: LeaguesComponent, canActivate: [AuthGuard]  },
+    { path: 'leagues/:league', component: LeagueComponent, canActivate: [AuthGuard]  },
+    { path: 'matches/:league/:matchId', component: MatchComponent, canActivate: [AuthGuard]  },
+  ]},
   { path: '**', component: PageNotFoundComponent },
 ];
 

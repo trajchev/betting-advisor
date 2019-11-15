@@ -1,13 +1,4 @@
-<div class="w3-row">
-    <div class="w3-container w3-quarter">
-      <app-user-navigation></app-user-navigation>
-    </div>
-  
-    <div class="w3-container card-col" *ngIf="matches">
-  
-      <app-league-match *ngFor="let match of matches" [match]="match"></app-league-match>
-      
-    </div>
-  
-    <div class="w3-container w3-quarter"></div>
-  </div>
+ 
+<div class="w3-container card-col" *ngIf="matches">
+  <app-league-match *ngFor="let match of matches" [match]="match"></app-league-match>
+</div>
