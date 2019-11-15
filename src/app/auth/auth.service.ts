@@ -85,7 +85,7 @@ export class AuthService {
     const authData = { username, email, password, passwordConfirm };
     return this.http.post<RegisterResponseData>(`${BACKEND_URL}/users/signup`, authData).subscribe(
       (response) => {
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/user/profile']);
       },
       error => {
         this.authStatusListener.next(false);
@@ -114,7 +114,7 @@ export class AuthService {
             const expirationDate = new Date(now.getTime() + expiresInDuration);
             this.saveAuthData(token, expirationDate);
             // Once logged in, navigate to dashboard
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/user/dashboard']);
           }
         },
         error => {

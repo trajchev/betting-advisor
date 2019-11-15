@@ -1,5 +1,8 @@
 <mat-toolbar>
-  <span><a class="branding" routerLink="/">BA</a></span>
+  <span>
+    <a *ngIf="!isUserAuthenticated" class="branding" routerLink="/">BA</a>
+    <a *ngIf="isUserAuthenticated" class="branding" routerLink="/user">BA</a>
+  </span>
   <span class="fill-space"></span>
   <nav layout-align="center end" class="pull-right">
     <ul>
