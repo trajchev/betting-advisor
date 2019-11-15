@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LeagueService } from '../league.service';
 import { ActivatedRoute } from '@angular/router';
+import { LeagueService } from '../league.service';
 
 @Component({
   selector: 'app-league',

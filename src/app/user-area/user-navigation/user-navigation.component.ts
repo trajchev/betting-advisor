@@ -3,11 +3,11 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
 
 @Component({
-  selector: 'app-dashboard-navigation',
-  templateUrl: './dashboard-navigation.component.html',
-  styleUrls: ['./dashboard-navigation.component.scss']
+  selector: 'app-user-navigation',
+  templateUrl: './user-navigation.component.html',
+  styleUrls: ['./user-navigation.component.scss']
 })
-export class DashboardNavigationComponent implements OnInit {
+export class UserNavigationComponent implements OnInit {
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon(

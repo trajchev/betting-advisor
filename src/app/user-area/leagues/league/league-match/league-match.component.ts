@@ -16,7 +16,6 @@ export class LeagueMatchComponent implements OnInit {
   }
 
   addToTickets(id) {
-    console.log(id);
    this.leagueService.addToTickets(id);
   }
 

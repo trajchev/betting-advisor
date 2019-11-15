@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Ticket } from './ticket.model';
-import { LeagueService } from 'src/app/leagues/league.service';
+import { LeagueService } from 'src/app/user-area/leagues/league.service';
 
 @Component({
   selector: 'app-ticket',
