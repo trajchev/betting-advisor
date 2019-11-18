@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   isLoading = false;
   private authStatusSub: Subscription;
 
+  private authCredentialsOK = true;
+
   // create the form using reactive forms
   loginUserForm = new FormGroup({
     email: new FormControl(''),
@@ -25,12 +27,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.authStatusSub = this.authService.getAuthStatusListener().subscribe(authStatus => {
-      this.isLoading = false;
+      this.isLoading = authStatus;
     });
-  }
-
-  ngOnDestroy() {
-    this.authStatusSub.unsubscribe();
   }
 
   onUserLogin() {
@@ -43,7 +41,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
     this.isLoading = true;
     this.authService.login(email, password);
+    this.authCredentialsOK = this.authService.authCredentialsOK;
     this.loginUserForm.reset();
+  }
+
+  ngOnDestroy() {
+    this.authStatusSub.unsubscribe();
   }
 
 }

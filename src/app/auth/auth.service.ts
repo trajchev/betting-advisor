@@ -57,6 +57,7 @@ export class AuthService {
   private isAuthenticated = false;
   private token: string;
   private tokenTimer: any;
+  authCredentialsOK: boolean;
 
   private authStatusListener = new Subject<boolean>();
 
@@ -118,6 +119,7 @@ export class AuthService {
           }
         },
         error => {
+          this.authCredentialsOK = false;
           this.authStatusListener.next(false);
         }
       );
