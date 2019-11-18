@@ -125,6 +125,14 @@ export class AuthService {
       );
   }
 
+  forgotPassword(email: string) {
+    return this.http.post(`${BACKEND_URL}/users/forgotPassword`, {email});
+  }
+
+  resetPassword(token: string, password: string, passwordConfirm: string) {
+    return this.http.patch(`${BACKEND_URL}/users/resetPassword/${token}`, {password, passwordConfirm});
+  }
+
   // Clear auth data when expiration date/time runs out (1 hour)
   autoAuthUser() {
     const authInfo = this.getAuthData();

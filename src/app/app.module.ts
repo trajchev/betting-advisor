@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthInterceptor } from './auth/auth-interceptor.service';
 import { UserModule } from './user-area/user.module';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
     LoginComponent,
     RegisterComponent,
     PageNotFoundComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
