@@ -10,12 +10,10 @@ import { environment } from '../../../environments/environment';
 })
 export class UserService {
 
-  apiURL = environment.apiUrl;
-
   constructor(private http: HttpClient) { }
 
   getActiveUser(): Observable<any> {
-    return this.http.get(this.apiURL + `/users/me`)
+    return this.http.get(environment.apiUrl + `/users/me`)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -23,7 +21,7 @@ export class UserService {
   }
 
   fetchUserTickets(): Observable<any> {
-    return this.http.get(this.apiURL + `/users/me/tickets`)
+    return this.http.get(environment.apiUrl + `/users/me/tickets`)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -31,7 +29,7 @@ export class UserService {
   }
 
   fetchDashboardData(): Observable<any> {
-    return this.http.get(this.apiURL + `/users/dashboard`)
+    return this.http.get(environment.apiUrl + `/users/dashboard`)
     .pipe(
       retry(1),
       catchError(this.handleError)
