@@ -3,6 +3,7 @@
     <p>Away Team: <span class="w3-right">{{match.away_team}}</span></p>
     <p>Match time: <span class="w3-right">{{match.commence_time | msToDate | date}}</span></p>
     <p>League: <span class="w3-right">{{match.sport_key}}</span></p>
+    <hr class="w3-border w3-border-indigo">
     <button
        class="w3-btn w3-round w3-border w3-border-indigo w3-hover-border-green w3-text-indigo w3-hover-text-green w3-right"
        (click)="addToTickets(match.id)">+</button>
