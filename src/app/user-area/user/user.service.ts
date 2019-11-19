@@ -20,8 +20,8 @@ export class UserService {
     );
   }
 
-  fetchUserTickets(): Observable<any> {
-    return this.http.get(environment.apiUrl + `/users/me/tickets`)
+  fetchUserTickets(ticketsPerPage: number, page: number): Observable<any> {
+    return this.http.get(environment.apiUrl + `/users/me/tickets/${ticketsPerPage}/${page}`)
     .pipe(
       retry(1),
       catchError(this.handleError)

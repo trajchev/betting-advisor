@@ -3,5 +3,5 @@
       {{ticket.match.home_team}} : {{ticket.match.away_team}}
     </p>
     <p>Match time: <span class="w3-right">{{ticket.match.commence_time | msToDate | date}}</span></p>
-    <p>Saved: <span class="w3-right">{{ticket.createdAt | date}}</span></p>
+    <p>Saved: <span class="w3-right">{{ticket.match.createdAt | date}}</span></p>
 </div>

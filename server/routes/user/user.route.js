@@ -21,7 +21,7 @@ router.use(authController.protect);
 
 router.get('/me', userController.getMe, userController.getUser);
 router.get('/dashboard', userController.getDashboardData);
-router.get('/me/tickets/:page?', userController.getMe, userController.getMyTickets);
+router.get('/me/tickets/:perPage?/:page?', userController.getMe, userController.getMyTickets);
 router.patch('/me/update', userController.uploadUserPhoto, userController.updateMe);
 router.patch('/me/updatePassword', authController.updatePassword);
 router.delete('/me/delete', userController.deleteMe);

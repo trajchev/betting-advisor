@@ -122,20 +122,20 @@ const getMyTickets = catchAsync( async (req, res, next) => {
 
     let limit, page = 1, offset;
 
-    if (req.params.page) {
-        limit = 10;
+    if (req.params.perPage && req.params.page) {
+        limit = +req.params.perPage;
         page = +req.params.page;
         offset = (page - 1) * limit;
     }
 
     const userId = req.user.id;
 
-    const occurences = await SavedMatch.count({attributes: ['createdAt', 'updatedAt'],  where: {userId},
+    const occurences = await SavedMatch.count({ where: {userId},
         include: [{
             model: Match
         }]
     });
-    const myTickets = await SavedMatch.findAll({attributes: ['createdAt', 'updatedAt'], limit, offset, where: {userId},
+    const myTickets = await SavedMatch.findAll({attributes: [], limit, offset, where: {userId},
         include: [{
             model: Match
         }]
