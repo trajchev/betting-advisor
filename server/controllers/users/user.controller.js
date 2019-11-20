@@ -62,7 +62,7 @@ const updateMe = catchAsync(async (req, res, next) => {
     }
 
     // 2. Exclude not allowed fields
-    const filteredBody = filterObj(req.body, 'name', 'email');
+    const filteredBody = filterObj(req.body, 'username', 'email');
     if (req.file) filteredBody.photo = req.file.filename;
 
     // 3. Update user

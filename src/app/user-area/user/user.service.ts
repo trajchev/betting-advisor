@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getActiveUser(): Observable<any> {
-    return this.http.get(environment.apiUrl + `/users/me`)
+    return this.http.get(`${environment.apiUrl}/users/me`)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -21,7 +21,7 @@ export class UserService {
   }
 
   fetchUserTickets(ticketsPerPage: number, page: number): Observable<any> {
-    return this.http.get(environment.apiUrl + `/users/me/tickets/${ticketsPerPage}/${page}`)
+    return this.http.get(`${environment.apiUrl}/users/me/tickets/${ticketsPerPage}/${page}`)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -29,11 +29,15 @@ export class UserService {
   }
 
   fetchDashboardData(): Observable<any> {
-    return this.http.get(environment.apiUrl + `/users/dashboard`)
+    return this.http.get(`${environment.apiUrl}/users/dashboard`)
     .pipe(
       retry(1),
       catchError(this.handleError)
     );
+  }
+
+  updateUser(username: string): Observable<any> {
+    return this.http.patch(`${environment.apiUrl}/users/me/update`, {username});
   }
 
   // Error handler

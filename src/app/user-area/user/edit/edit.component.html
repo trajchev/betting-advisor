@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Hi {{user.username}}</h1>
+<div mat-dialog-content>
+  <p>Would you like to edit your username?</p>
+
+  <form class="form-info w3-padding-16" id="edit-form" [formGroup]="editUserForm" (ngSubmit)="onUserEdit()" autocomplete="on" *ngIf="message.length <= 0">
+    <mat-form-field>
+      <input type="text" formControlName="username" matInput placeholder="username" value="{{user.username}}" minlength="4" required>
+      <mat-error *ngIf="">Username should be at least 4 characters long</mat-error>
+    </mat-form-field>
+    <button type="submit" mat-flat-button color="primary">Save</button>
+  </form>
+
+  <div class="w3-panel" *ngIf="message.length > 0">{{message}}</div>
+
+  <button mat-flat-button class="w3-orange" (click)="onNoClick()">Dismiss</button>
+
+</div>

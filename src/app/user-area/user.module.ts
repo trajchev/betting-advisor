@@ -18,6 +18,7 @@ import { MatchComponent } from './match/match.component';
 import { MsToDatePipe } from '../pipes/ms-to-date.pipe';
 import { UserRoutingModule } from './user-routing.module';
 import { InfoModalComponent } from './info-modal/info-modal.component';
+import { EditComponent } from './user/edit/edit.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +33,8 @@ import { InfoModalComponent } from './info-modal/info-modal.component';
         TicketComponent,
         MatchComponent,
         MsToDatePipe,
-        InfoModalComponent
+        InfoModalComponent,
+        EditComponent
     ],
     imports: [
         UserRoutingModule,
@@ -43,7 +45,8 @@ import { InfoModalComponent } from './info-modal/info-modal.component';
         HttpClientModule,
     ],
     entryComponents: [
-        InfoModalComponent
+        InfoModalComponent,
+        EditComponent
     ]
 })
 export class UserModule { }
