@@ -44,12 +44,7 @@ export class LeagueService {
 
   addToTickets(matchId: number) {
     const match = {matchId: matchId};
-    this.http.post<{message: string; matchId: string}>(`${environment.apiUrl}/matches/`, match)
-    .subscribe(
-      (response) => {
-        // console.log(response);
-      }
-    );
+    return this.http.post<{message: string; matchId: string}>(`${environment.apiUrl}/matches/`, match);
   }
 
   // Error handler

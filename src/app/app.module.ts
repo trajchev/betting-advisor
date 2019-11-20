@@ -17,6 +17,7 @@ import { UserModule } from './user-area/user.module';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { HttpErrorInterceptor } from './http-error.interceptor';
+import { InfoModalComponent } from './user-area/info-modal/info-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { HttpErrorInterceptor } from './http-error.interceptor';
     RegisterComponent,
     PageNotFoundComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

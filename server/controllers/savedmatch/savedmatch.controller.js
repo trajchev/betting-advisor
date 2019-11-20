@@ -12,7 +12,7 @@ const saveMatch = catchAsync( async (req, res, next) => {
     const newSavedGame = await SavedMatch.create({userId, matchId});
 
     res.json({
-        message: 'success',
+        status: 'success',
         data: {
             savedGame: newSavedGame
         }
