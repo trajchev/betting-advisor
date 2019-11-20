@@ -1,4 +1,17 @@
 <div class="w3-container card-col">
+  <div class="w3-panel w3-right">
+    <mat-form-field color="primary">
+      <mat-label>Select Group</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option (click)="onSelectGroup('')" [value]="">All</mat-option>
+        <mat-option (click)="onSelectGroup(league)" *ngFor="let league of leaguesList" [value]="league">
+          {{league}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div class="w3-container card-col">
   <div class="w3-card card w3-third" *ngFor="let sport of sports" 
   [routerLink]=[sport.key]>
     <p class="h5 w3-text-white w3-center">{{sport.title}}</p>

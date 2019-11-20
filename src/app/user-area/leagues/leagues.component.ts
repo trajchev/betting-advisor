@@ -11,6 +11,7 @@ import { LeagueService } from './league.service';
 export class LeaguesComponent implements OnInit {
 
   sports;
+  leaguesList = [];
 
   constructor(private leagueService: LeagueService) { }
 
@@ -19,9 +20,27 @@ export class LeaguesComponent implements OnInit {
   }
 
   getSports() {
+    const lList = [];
     this.leagueService.getSports().subscribe(res => {
+      res.data.forEach(league => {
+        lList.push(league.group);
+      });
+
+      this.leaguesList = _.uniq(lList);
       this.sports = res.data;
     });
+  }
+
+  onSelectGroup(selected) {
+    if (selected.length === '') {
+      this.leagueService.getSports().subscribe(res => {
+        this.sports = res.data;
+      });
+    } else {
+      this.leagueService.fetchSportsOfGroup(selected).subscribe(res => {
+        this.sports = res.data;
+      });
+    }
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="w3-container card-col">
-    <mat-paginator mat-raised color="primary" [length]="totalTickets" [pageSize]="ticketsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"
+    <mat-paginator [length]="totalTickets" [pageSize]="ticketsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"
       *ngIf="tickets.length > 0"></mat-paginator>
 </div>
 

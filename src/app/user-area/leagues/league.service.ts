@@ -22,6 +22,16 @@ export class LeagueService {
       );
   }
 
+  fetchSportsOfGroup(group: string): Observable<any> {
+    return this.http
+      .get(`${environment.apiUrl}/leagues/${group}`)
+      .pipe(
+        catchError(error => {
+          return [];
+        })
+      );
+  }
+
   fetchMatches(sportKey: string): Observable<any> {
     return this.http
       .get(`${environment.apiUrl}/matches/${sportKey}`)
