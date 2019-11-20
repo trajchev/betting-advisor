@@ -5,10 +5,24 @@
   <p>Away Team: <span>{{matchData.away_team}}</span></p>
   <p>League: <span>{{matchData.sport_key}}</span></p>
   <p>Match Start: <span>{{matchData.commence_time | date}}</span></p>
-  <div>
-    <h4>Odds:</h4>
-    <div *ngFor="let odd of matchData.odds" class="odds-container">
-      <p>{{matchData.home_team + ':' + odd.home_team}} | {{matchData.away_team + ':' + odd.away_team}} | {{'Draw : ' + odd.draw}} | Type {{odd.type}}</p>
+  <div *ngIf="matchData.odds.length > 0">
+    <h4 class="w3-text-white w3-center">Odds:</h4>
+
+    <div class="w3-panel w3-topbar w3-bottombar w3-border w3-border-blue odd-details w3-text-white">
+      <div class="w3-row">
+        <div class="w3-container w3-third"><h4>{{matchData.home_team}}</h4></div>
+        <div class="w3-container w3-third"><h4>Draw</h4></div>
+        <div class="w3-container w3-third"><h4>{{matchData.away_team}}</h4></div>
+      </div>
+
+      <div class="w3-row" *ngFor="let odd of matchData.odds" >
+        <div class="w3-container w3-third"><h6>{{odd.home_team}}</h6></div>
+        <div class="w3-container w3-third"><h6>{{odd.draw}}</h6></div>
+        <div class="w3-container w3-third"><h6>{{odd.away_team}}</h6></div>
+        <div class="w3-container"><p>Odd Type : <span class="w3-tag">{{odd.type}}</span></p></div>
+        <hr class="w3-border w3-border-indigo w3-indigo" />
+      </div>
     </div>
+
   </div>
 </div>

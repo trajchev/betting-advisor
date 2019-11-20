@@ -28,7 +28,7 @@ import {
         MatDialogModule,
         MatProgressSpinnerModule,
         MatIconModule,
-        MatPaginatorModule
+        MatPaginatorModule,
     ],
     exports: [
         MatToolbarModule,
@@ -42,7 +42,7 @@ import {
         MatDialogModule,
         MatProgressSpinnerModule,
         MatIconModule,
-        MatPaginatorModule
+        MatPaginatorModule,
     ]
 })
 export class MaterialModule { }
