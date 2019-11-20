@@ -89,7 +89,10 @@ const getDashboardData = catchAsync(async (req, res, next) => {
             model: Match
         }]
     });
-    const myTickets = await SavedMatch.findAll({attributes: ['createdAt', 'updatedAt'], limit, where: {userId},
+    const myTickets = await SavedMatch.findAll({order: [
+            ['createdAt', 'DESC'],
+        ],
+        attributes: ['createdAt', 'updatedAt'], limit, where: {userId},
         include: [{
             model: Match
         }]
@@ -135,7 +138,11 @@ const getMyTickets = catchAsync( async (req, res, next) => {
             model: Match
         }]
     });
-    const myTickets = await SavedMatch.findAll({attributes: [], limit, offset, where: {userId},
+    const myTickets = await SavedMatch.findAll({attributes: [],
+        order: [
+            ['createdAt', 'DESC'],
+        ],
+        limit, offset, where: {userId},
         include: [{
             model: Match
         }]
