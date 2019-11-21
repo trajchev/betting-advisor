@@ -10,8 +10,7 @@ const deleteOne = Model => catchAsync(async (req, res, next) => {
     }
 
     res.status(204).json({
-        status: 'success',
-        data: null
+        status: 'success'
     });
 
 });
@@ -48,6 +47,27 @@ const createOne = Model => catchAsync(async (req, res, next) => {
     });
 });
 
+const createOneAssoc = Model => catchAsync(async (req, res, next) => {
+
+    const userId = +req.user.id;
+    const docId = +req.body.docId;
+
+    const doc = await Model.create({userId, matchId: docId});
+
+    if (!doc) {
+        return next(new BAError('The document could not be created', 404));
+    }
+
+    res.status(201).json({
+        status: 'success',
+        data: {
+            data: doc
+        }
+    });
+
+
+})
+
 const getOne = Model => catchAsync(async (req, res, next) => {
 
     const doc = await Model.findOne({where: {id: req.params.id}});
@@ -66,21 +86,35 @@ const getOne = Model => catchAsync(async (req, res, next) => {
     });
 });
 
+const getOneAssoc = (Model, AssocModel, assocAlias) => catchAsync( async(req, res, next) => {
+
+    const doc = await Model.findOne({ where: { id: req.params.id }, include: [{model: AssocModel, as: assocAlias}]});
+
+    if (!doc) { return next(new BAError('No Document found with that id', 404));}
+
+    res.status(200).json({
+        status: 'success',
+        data: doc
+    });
+
+});
+
 const getAll = Model => catchAsync(async (req, res, next) => {
 
-    let limit, page, offset;
+    let limit, page = 1, offset;
 
     if (req.params.page) {
-        limit = 10;
+        limit = +req.params.perPage;
         page = +req.params.page;
         offset = (page - 1) * limit;
     } 
 
-    // To allow for nested GET reviews on tour
+    // To allow for nested GET reviews on ticket
     let filter = {};
 
     if (req.params.ticketId) filter = { ticket: req.params.ticketId };
     if (req.params.group) { filter.group = req.params.group };
+    if (req.params.league) { filter.sport_key = req.params.league };
 
     const occurences = await Model.count({where: filter});
     const doc = await Model.findAll({limit, offset, where: filter});
@@ -99,8 +133,10 @@ const getAll = Model => catchAsync(async (req, res, next) => {
 
 module.exports = {
     createOne,
+    createOneAssoc,
     getOne,
+    getOneAssoc,
     getAll,
     updateOne,
-    deleteOne
+    deleteOne,
 }

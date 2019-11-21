@@ -145,7 +145,6 @@ const forgotPassword = catchAsync(async (req, res, next) => {
     
     // 3. Send it to user email
     const resetURL = `${req.protocol}://${req.get('host')}/api/v1/users/reset-assword/${resetToken}`;
-    const message = `Forgot your Password? Submit a patch request with your new password and passwordConfirm to ${resetURL}. \nIf you didn't forget your password, please ignore this email`;
 
     try {
 

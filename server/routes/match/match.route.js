@@ -14,13 +14,14 @@ router.use(authController.protect);
 router.route('/')
     .post(saveMatchController);
 
-router.route('/:ticketId')
+router.route('/:id')
     .delete(deleteMatchController);
 
 router.route('/:league')
     .get(matchController.getMatches);
 
-router.route('/:league/:matchId')
+// :id is the match id
+router.route('/:league/:id')
     .get(matchController.getMatch)
 
 module.exports = router;

@@ -1,35 +1,9 @@
 const models = require('../../models/models');
-const catchAsync = require('../../utils/catchAsync');
+const factory = require('../handlers/handlerFactory');
 
 const SavedMatch = models.SavedMatch;
 
-const saveMatch = catchAsync( async (req, res, next) => {
-
-    // Get the requesting user id and the match id to save for user
-    const matchId = +req.body.matchId;
-    const userId = +req.user.id;
-
-    const newSavedGame = await SavedMatch.create({userId, matchId});
-
-    res.json({
-        status: 'success',
-        data: {
-            savedGame: newSavedGame
-        }
-    });
-
-});
-
-const deleteMatch = catchAsync( async (req, res, next) => {
-
-    const ticketId = +req.params.ticketId
-    const userId = +req.user.id;
-
-    const deletedTicket = await SavedMatch.destroy({ where: {userId, id: ticketId}});
-
-    res.json({
-        status: 'success',
-    });
-}) 
+const saveMatch = factory.createOneAssoc(SavedMatch);
+const deleteMatch = factory.deleteOne(SavedMatch);
 
 module.exports = { saveMatch, deleteMatch };
