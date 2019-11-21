@@ -1,11 +1,12 @@
 <div class="w3-card card w3-third">
-  <p class="w3-text-white w3-center">
-      {{ticket.match.home_team}} : {{ticket.match.away_team}}
-    </p>
-    <p>Match time: <span class="w3-right">{{ticket.match.commence_time | msToDate | date}}</span></p>
-    <p>Saved: <span class="w3-right">{{ticket.match.createdAt | date}}</span></p>
-    <a [routerLink]="['/user', 'matches', ticket.match.sport_key, ticket.match.id ]" class="w3-btn w3-round w3-border w3-border-indigo w3-hover-border-green w3-text-indigo w3-hover-text-green w3-left" title="Details">Stats</a>
-    <button
-       class="w3-btn w3-round w3-border w3-border-indigo w3-hover-border-red w3-text-indigo w3-hover-text-red w3-right"
-       (click)="removeTicket(ticket.id)">-</button>
+  <p class="w3-text-white w3-center">{{ticket.match.home_team}} : {{ticket.match.away_team}}</p>
+  <p>Match time: <span class="w3-right">{{ticket.match.commence_time | msToDate | date}}</span></p>
+  <p>Saved: <span class="w3-right">{{ticket.match.createdAt | date}}</span></p>
+  <a 
+    [routerLink]="['/user', 'matches', ticket.match.sport_key, ticket.match.id ]"
+    class="w3-btn w3-round w3-border w3-border-indigo w3-hover-border-green w3-text-indigo w3-hover-text-green w3-left"
+    title="Details">Stats</a>
+  <button
+    class="w3-btn w3-round w3-border w3-border-indigo w3-hover-border-red w3-text-indigo w3-hover-text-red w3-right"
+    (click)="removeTicket(ticket.id)">-</button>
 </div>

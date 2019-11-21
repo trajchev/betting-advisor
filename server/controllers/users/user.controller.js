@@ -84,15 +84,10 @@ const getDashboardData = catchAsync(async (req, res, next) => {
 
     if (!user) { return next(new BAError('No Document found with that id', 404));}
 
-    const occurences = await SavedMatch.count({attributes: ['createdAt', 'updatedAt'],  where: {userId},
-        include: [{
-            model: Match
-        }]
-    });
     const myTickets = await SavedMatch.findAll({order: [
             ['createdAt', 'DESC'],
         ],
-        attributes: ['createdAt', 'updatedAt'], limit, where: {userId},
+        attributes: ['id', 'createdAt', 'updatedAt'], limit, where: {userId},
         include: [{
             model: Match
         }]
@@ -107,7 +102,7 @@ const getDashboardData = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: 'success',
         user,
-        numberOfTickets: occurences,
+        numberOfTickets: myTickets.length,
         tickets: myTickets,
     });
 });

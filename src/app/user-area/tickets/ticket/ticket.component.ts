@@ -15,17 +15,9 @@ export class TicketComponent implements OnInit {
 
   ngOnInit() {}
 
-  getMatch(sportKey, id) {
-    this.leagueService.fetchMatch(sportKey, id).subscribe(res => {
-      console.log(res);
-    });
-  }
-
   removeTicket(id) {
     this.leagueService.deleteTicket(id).subscribe(res => {
-      if (res.status === 'success') {
-        console.log(res);
-      }
+      console.log(res);
     });
   }
 

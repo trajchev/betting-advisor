@@ -54,23 +54,11 @@ export class LeagueService {
   }
 
   addToTickets(matchId: number) {
-    const match = {matchId: matchId};
+    const match = {docId: matchId};
     return this.http.post<SavedGame>(`${environment.apiUrl}/matches/`, match);
   }
 
-  deleteTicket(ticketId: number) {
-    return this.http.delete<{status: String}>(`${environment.apiUrl}/matches/${ticketId}`);
-  }
-
-  // Error handler
-  handleError(error) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    window.alert(errorMessage);
-    return throwError(errorMessage);
+  deleteTicket(id: number) {
+    return this.http.delete(`${environment.apiUrl}/matches/${id}`);
   }
 }

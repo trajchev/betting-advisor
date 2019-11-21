@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   getDashboardData() {
     this.userService.fetchDashboardData().subscribe(res => {
       this.userData = res;
+      console.log(res);
     });
   }
 
