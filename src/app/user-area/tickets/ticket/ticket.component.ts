@@ -23,7 +23,9 @@ export class TicketComponent implements OnInit {
 
   removeTicket(id) {
     this.leagueService.deleteTicket(id).subscribe(res => {
-      console.log(res);
+      if (res.status === 'success') {
+        console.log(res);
+      }
     });
   }
 

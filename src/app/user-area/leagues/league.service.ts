@@ -59,7 +59,7 @@ export class LeagueService {
   }
 
   deleteTicket(ticketId: number) {
-    return this.http.delete(`${environment.apiUrl}/matches/${ticketId}`);
+    return this.http.delete<{status: String}>(`${environment.apiUrl}/matches/${ticketId}`);
   }
 
   // Error handler
