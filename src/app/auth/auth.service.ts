@@ -5,6 +5,8 @@ import { Subject } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 import { Auth } from './auth.model';
+import { ForgotPasswordResponse } from './forgot-password/forgot-password.model';
+import { ResetPasswordResponse } from './reset-password/reset-password.model';
 
 // get the API url
 const BACKEND_URL = environment.apiUrl;
@@ -126,11 +128,11 @@ export class AuthService {
   }
 
   forgotPassword(email: string) {
-    return this.http.post(`${BACKEND_URL}/users/forgotPassword`, {email});
+    return this.http.post<ForgotPasswordResponse>(`${BACKEND_URL}/users/forgotPassword`, {email});
   }
 
   resetPassword(token: string, password: string, passwordConfirm: string) {
-    return this.http.patch(`${BACKEND_URL}/users/resetPassword/${token}`, {password, passwordConfirm});
+    return this.http.patch<ResetPasswordResponse>(`${BACKEND_URL}/users/resetPassword/${token}`, {password, passwordConfirm});
   }
 
   // Clear auth data when expiration date/time runs out (1 hour)

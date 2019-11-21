@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
+import { SavedGame } from './league/league-match/saved-match.model';
 
 @Injectable({
   providedIn: 'root'
@@ -54,7 +55,7 @@ export class LeagueService {
 
   addToTickets(matchId: number) {
     const match = {matchId: matchId};
-    return this.http.post<{message: string; matchId: string}>(`${environment.apiUrl}/matches/`, match);
+    return this.http.post<SavedGame>(`${environment.apiUrl}/matches/`, match);
   }
 
   // Error handler
