@@ -20,4 +20,16 @@ const saveMatch = catchAsync( async (req, res, next) => {
 
 });
 
-module.exports = saveMatch;
+const deleteMatch = catchAsync( async (req, res, next) => {
+
+    const ticketId = +req.params.ticketId
+    const userId = +req.user.id;
+
+    const deletedTicket = await SavedMatch.destroy({ where: {userId, id: ticketId}});
+
+    res.json({
+        status: 'success',
+    });
+}) 
+
+module.exports = { saveMatch, deleteMatch };

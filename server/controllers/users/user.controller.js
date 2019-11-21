@@ -138,7 +138,7 @@ const getMyTickets = catchAsync( async (req, res, next) => {
             model: Match
         }]
     });
-    const myTickets = await SavedMatch.findAll({attributes: [],
+    const myTickets = await SavedMatch.findAll({attributes: ['id'],
         order: [
             ['createdAt', 'DESC'],
         ],

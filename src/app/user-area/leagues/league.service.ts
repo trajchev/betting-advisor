@@ -58,6 +58,10 @@ export class LeagueService {
     return this.http.post<SavedGame>(`${environment.apiUrl}/matches/`, match);
   }
 
+  deleteTicket(ticketId: number) {
+    return this.http.delete(`${environment.apiUrl}/matches/${ticketId}`);
+  }
+
   // Error handler
   handleError(error) {
     let errorMessage = '';
