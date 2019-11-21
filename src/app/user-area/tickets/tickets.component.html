@@ -1,6 +1,14 @@
 <div class="w3-container card-col">
-    <mat-paginator [length]="totalTickets" [pageSize]="ticketsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"
-      *ngIf="tickets.length > 0"></mat-paginator>
+  <div class="w3-row">
+    <div class="w3-panel w3-brown">
+      <mat-paginator 
+        [length]="totalTickets" 
+        [pageSize]="ticketsPerPage" 
+        [pageSizeOptions]="pageSizeOptions" 
+        (page)="onChangedPage($event)"
+        *ngIf="tickets.length > 0"></mat-paginator>
+    </div>
+  </div>
 </div>
 
 <div class="w3-container card-col" *ngIf="tickets">
