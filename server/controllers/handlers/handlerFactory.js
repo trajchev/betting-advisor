@@ -77,7 +77,7 @@ const getOne = Model => catchAsync(async (req, res, next) => {
     if (doc.password) {
         const photo = doc.photo;
         doc.password = '';
-        doc.photo = `http://localhost:8000/img/users/${photo}`;
+        doc.photo = `http://localhost:3300/img/users/${photo}`;
     }
 
     res.status(200).json({

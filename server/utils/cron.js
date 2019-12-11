@@ -12,6 +12,8 @@ module.exports.sports = cron.schedule("00 59 23 28 * *", () => {
     pullSports()
 });
 
+// module.exports.sports = pullSports();
+
 const regions = ['uk', 'us', 'au'];
 const mkt = ['h2h', 'spreads', 'totals'];
 // Fill matches data every sunday at 23::59

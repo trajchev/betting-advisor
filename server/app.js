@@ -55,7 +55,7 @@ app.enable('trust proxy');
     // Prevent XSS
     app.use(xss());
 
-    // Preven parameter pollution
+    // Prevent parameter pollution
     app.use(
         hpp({
             whitelist: [

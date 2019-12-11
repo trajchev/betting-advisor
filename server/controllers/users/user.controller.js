@@ -102,7 +102,7 @@ const getDashboardData = catchAsync(async (req, res, next) => {
     if (user.password) {
         const photo = user.photo;
         user.password = '';
-        user.photo = `http://localhost:8000/img/users/${photo}`;
+        user.photo = `http://localhost:3300/img/users/${photo}`;
     }
 
     res.status(200).json({

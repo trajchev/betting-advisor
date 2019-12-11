@@ -19,7 +19,7 @@ const pullSports = () => {
 
                     const sport = new Sport({
                         key: dataObj.key,
-                        active: dataObj.active,
+                        active: dataObj.active || false,
                         group: dataObj.group,
                         details: dataObj.details,
                         title: dataObj.title,
@@ -30,13 +30,13 @@ const pullSports = () => {
                 }
             })
             .catch(err => {
-                console.log('Error status', err.response.status);
+                console.log('Error status', err);
             });
         })
     
     })
     .catch(err => {
-        console.log('Error status', err.response.status);
+        console.log('Error status', err);
     });
 };
 
