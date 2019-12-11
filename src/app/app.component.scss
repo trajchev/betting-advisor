@@ -21,7 +21,12 @@
     } 
 
     .card-col {
-        padding: 2rem 2rem 0 332px;
+        padding: 2rem 1rem;
+        margin-top: 7rem;
+        @media screen and (min-width: 768px) {
+            margin-top: 3rem;
+            padding: 2rem 2rem 0 332px;
+        }
     }
 
     /* Scrollbar */

@@ -1,19 +1,20 @@
 .navigation {
     position: fixed;
-    top: 68px;
+    top: 56px;
     left: 0;
-    bottom: 0;
-    width: 20rem;
-    padding: 1rem;
-    border-right: 1px solid #36507f;
-    background: linear-gradient(#0d1c26, #101829) no-repeat;
+    width: 100%;
+    padding: 1rem 1rem 0 1rem;
+    border-bottom: 1px solid #36507f;
+    background: linear-gradient( to right, #0f1726, #141f33, #0f1726) no-repeat;
+    z-index: 99;
     ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
 
         li {
-            display: block;
+            display: inline-block;
+            width: 25%;
             padding: 0;
             text-align: right;
             position: relative;
@@ -25,13 +26,9 @@
                 font-size: .8rem;
                 line-height: .8rem;
                 padding: 1rem;
+                text-align: center;
                 &:hover {
                     color: #fff;
-                }
-
-                mat-icon {
-                    width: 1rem;
-                    height: 1rem;
                 }
             }
         }
@@ -43,13 +40,49 @@
             &:after {
                 position: absolute;
                 bottom: 0;
-                right: -1rem;
-                top: 0;
-                width: 2px;
+                right: 0;
+                left: 0;
+                height: 2px;
                 content: " ";
                 background-color: #2b7fda;
                 box-shadow: 0 0 10px rgba(62, 201, 230, .5);
             }
         }
     }
+}
+
+@media screen and (min-width: 768px) {
+
+    .navigation {
+        top: 64px;
+        bottom: 0;
+        width: 20rem;
+        padding: 1rem;
+        border-right: 1px solid #36507f;
+        ul {
+            li {
+                width: 100%;
+
+                a {
+                    text-align: right;
+                    mat-icon {
+                        width: 1rem;
+                        height: 1rem;
+                    }
+                }
+            }
+
+            li.active {
+                &:after {
+                    bottom: 0;
+                    right: -1rem;
+                    top: 0;
+                    left: auto;
+                    width: 2px;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
 }

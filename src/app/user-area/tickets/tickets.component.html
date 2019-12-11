@@ -9,8 +9,7 @@
         *ngIf="tickets.length > 0"></mat-paginator>
     </div>
   </div>
-</div>
-
-<div class="w3-container card-col" *ngIf="tickets">
-  <app-ticket *ngFor="let ticket of tickets" [ticket]="ticket"></app-ticket>
+  <div class="w3-row" *ngIf="tickets">
+    <app-ticket *ngFor="let ticket of tickets" [ticket]="ticket"></app-ticket>
+  </div>
 </div>

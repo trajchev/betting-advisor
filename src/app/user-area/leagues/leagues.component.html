@@ -10,14 +10,14 @@
       </mat-select>
     </mat-form-field>
   </div>
-</div>
-<div class="w3-container card-col">
-  <div class="w3-card card w3-third" *ngFor="let sport of sports" 
-  [routerLink]=[sport.key]>
-    <p class="h5 w3-text-white w3-center">{{sport.title}}</p>
-    <p>Group:</p>
-    <p><span>{{sport.group}}</span></p>
-    <p>Description:</p> 
-    <p><span>{{sport.details}}</span></p>
+  <div class="w3-row">
+    <div class="w3-card card w3-third" *ngFor="let sport of sports" 
+      [routerLink]=[sport.key]>
+      <p class="h5 w3-text-white w3-center">{{sport.title}}</p>
+      <p>Group:</p>
+      <p><span>{{sport.group}}</span></p>
+      <p>Description:</p> 
+      <p><span>{{sport.details}}</span></p>
+    </div>
   </div>
 </div>
