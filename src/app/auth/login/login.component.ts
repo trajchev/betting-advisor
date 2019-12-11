@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { AuthService } from '../auth.service';
 import { Subscription } from 'rxjs';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -23,7 +25,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     password: new FormControl('')
   });
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) { 
+    iconRegistry.addSvgIcon(
+      'visibility',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/images/icons/visibility.svg'));
+   }
 
   ngOnInit() {
     this.authStatusSub = this.authService.getAuthStatusListener().subscribe(authStatus => {

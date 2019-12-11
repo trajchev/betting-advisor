@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { AuthService } from '../auth.service';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +21,11 @@ export class RegisterComponent implements OnInit {
     passwordConfirm: new FormControl('')
   });
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) { 
+    iconRegistry.addSvgIcon(
+      'visibility',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/images/icons/visibility.svg'));
+  }
 
   ngOnInit() {
     this.isLoading = false;
