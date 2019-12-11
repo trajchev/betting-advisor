@@ -65,7 +65,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  // Retieve the token
+  // Retrieve the token
   getToken() {
     return this.token;
   }
