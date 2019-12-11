@@ -16,11 +16,11 @@ Functionalities:
   
 Techonologies used:
   - NodeJS
-    - ExpressJS;
-    - Sequelize;
-    - MySQL;
+  - ExpressJS;
+  - Sequelize;
+  - MySQL;
   - Angular
-    - Angular Material
+  - Angular Material
   - W3CSS
   
 All the data for the matches and tickets is pulled from "The Odds API" (https://the-odds-api.com/) and stored
