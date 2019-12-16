@@ -8,21 +8,56 @@
   <div *ngIf="matchData.odds.length > 0">
     <h4 class="w3-text-white w3-center">Odds:</h4>
 
-    <div class="w3-panel w3-topbar w3-bottombar w3-border w3-border-blue odd-details w3-text-white">
-      <div class="w3-row">
-        <div class="w3-container w3-third"><h4>{{matchData.home_team}}</h4></div>
-        <div class="w3-container w3-third"><h4>Draw</h4></div>
-        <div class="w3-container w3-third"><h4>{{matchData.away_team}}</h4></div>
-      </div>
-
-      <div class="w3-row" *ngFor="let odd of matchData.odds" >
-        <div class="w3-container w3-third"><h6>{{odd.home_team}}</h6></div>
-        <div class="w3-container w3-third"><h6>{{odd.draw}}</h6></div>
-        <div class="w3-container w3-third"><h6>{{odd.away_team}}</h6></div>
-        <div class="w3-container"><p>Odd Type : <span class="w3-tag">{{odd.type}}</span></p></div>
-        <hr class="w3-border w3-border-indigo w3-indigo" />
-      </div>
-    </div>
+    <mat-tab-group>
+      <mat-tab label="h2h">
+        <div class="w3-panel odd-details w3-text-white">
+          <div class="w3-row">
+            <div class="w3-container w3-third"><h4>{{matchData.home_team}}</h4></div>
+            <div class="w3-container w3-third"><h4>Draw</h4></div>
+            <div class="w3-container w3-third"><h4>{{matchData.away_team}}</h4></div>
+          </div>
+          <div class="w3-row" *ngFor="let odd of matchData.odds">
+            <div *ngIf="odd.type === 'h2h'" class="w3-border-bottom w3-border-blue">
+              <div class="w3-container w3-third"><h6>{{odd.home_team}}</h6></div>
+              <div class="w3-container w3-third"><h6>{{odd.draw}}</h6></div>
+              <div class="w3-container w3-third"><h6>{{odd.away_team}}</h6></div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="spreads">
+        <div class="w3-panel odd-details w3-text-white">
+          <div class="w3-row">
+            <div class="w3-container w3-third"><h4>{{matchData.home_team}}</h4></div>
+            <div class="w3-container w3-third"><h4>Draw</h4></div>
+            <div class="w3-container w3-third"><h4>{{matchData.away_team}}</h4></div>
+          </div>
+          <div class="w3-row" *ngFor="let odd of matchData.odds">
+            <div *ngIf="odd.type === 'h2h'" class="w3-border-bottom w3-border-blue">
+              <div class="w3-container w3-third"><h6>{{odd.home_team}}</h6></div>
+              <div class="w3-container w3-third"><h6>{{odd.draw}}</h6></div>
+              <div class="w3-container w3-third"><h6>{{odd.away_team}}</h6></div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="totals">
+        <div class="w3-panel odd-details w3-text-white">
+          <div class="w3-row">
+            <div class="w3-container w3-third"><h4>{{matchData.home_team}}</h4></div>
+            <div class="w3-container w3-third"><h4>Draw</h4></div>
+            <div class="w3-container w3-third"><h4>{{matchData.away_team}}</h4></div>
+          </div>
+          <div class="w3-row" *ngFor="let odd of matchData.odds">
+            <div *ngIf="odd.type === 'h2h'" class="w3-border-bottom w3-border-blue">
+              <div class="w3-container w3-third"><h6>{{odd.home_team}}</h6></div>
+              <div class="w3-container w3-third"><h6>{{odd.draw}}</h6></div>
+              <div class="w3-container w3-third"><h6>{{odd.away_team}}</h6></div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
 
   </div>
 </div>

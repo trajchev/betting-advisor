@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   isLoading = false;
   private authStatusSub: Subscription;
 
+  private hide = true;
+
   private authCredentialsOK = true;
 
   // create the form using reactive forms

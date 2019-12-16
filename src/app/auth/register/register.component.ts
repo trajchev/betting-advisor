@@ -12,6 +12,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class RegisterComponent implements OnInit {
 
+  private hide = true;
+  private hideConfirm = true;
   isLoading = false;
   // Create user registration form using reactive forms
   registerUserForm = new FormGroup({
@@ -22,6 +24,7 @@ export class RegisterComponent implements OnInit {
   });
 
   constructor(public authService: AuthService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) { 
+
     iconRegistry.addSvgIcon(
       'visibility',
       sanitizer.bypassSecurityTrustResourceUrl('assets/images/icons/visibility.svg'));
