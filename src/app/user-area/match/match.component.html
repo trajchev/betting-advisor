@@ -33,7 +33,7 @@
             <div class="w3-container w3-third"><h4>{{matchData.away_team}}</h4></div>
           </div>
           <div class="w3-row" *ngFor="let odd of matchData.odds">
-            <div *ngIf="odd.type === 'h2h'" class="w3-border-bottom w3-border-blue">
+            <div *ngIf="odd.type === 'spreads'" class="w3-border-bottom w3-border-blue">
               <div class="w3-container w3-third"><h6>{{odd.home_team}}</h6></div>
               <div class="w3-container w3-third"><h6>{{odd.draw}}</h6></div>
               <div class="w3-container w3-third"><h6>{{odd.away_team}}</h6></div>
@@ -49,7 +49,7 @@
             <div class="w3-container w3-third"><h4>{{matchData.away_team}}</h4></div>
           </div>
           <div class="w3-row" *ngFor="let odd of matchData.odds">
-            <div *ngIf="odd.type === 'h2h'" class="w3-border-bottom w3-border-blue">
+            <div *ngIf="odd.type === 'totals'" class="w3-border-bottom w3-border-blue">
               <div class="w3-container w3-third"><h6>{{odd.home_team}}</h6></div>
               <div class="w3-container w3-third"><h6>{{odd.draw}}</h6></div>
               <div class="w3-container w3-third"><h6>{{odd.away_team}}</h6></div>
