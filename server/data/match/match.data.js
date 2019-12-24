@@ -9,6 +9,7 @@ const Match = models.Match;
 const Odd = models.Odd;
 const Team = models.Team;
 const Site = models.Site;
+const Totals = models.Totals;
 
 const pullMatchesOdds = (sport, region, oddsType) => {
     axios.get(`${process.env.API_URL}odds`, {
@@ -58,7 +59,7 @@ const pullMatchesOdds = (sport, region, oddsType) => {
 const getMatchesOdds = () => {
     const matchesPath = path.join(__dirname, '/totalsEPL.json')
 
-    const rawMatches = fs.readFileSync(matchesPath, (error, data) => {
+    const rawMatches = fs.readFileSync(matchesPath, error => {
         if (error) {
             return new Error(error);
         }
@@ -91,35 +92,6 @@ const getMatchesOdds = () => {
             });
         });
 
-        // Pull the sites
-        matchObj.sites.forEach(siteObj => {
-            console.log('MATCH OBJ ======================== ', siteObj);
-
-            Site.findOne({
-                where: {
-                    key: siteObj.site_key
-                }
-            })
-            .then(siteRes => {
-                if (!siteRes) {
-
-                    // console.log('SITE KEY ================', siteObj.site_key);
-                    // console.log('SITE NAME ================', siteObj.site_nice);
-
-                    const site = new Site({
-                        key: siteObj.site_key,
-                        name: siteObj.site_nice
-                    });
-
-                    return site.save();
-                }
-            })
-            .catch(err => {
-                // console.log('Error status', err);
-                // return new Error(err);
-            });
-        });
-
         Match.findOne({where: {
             home_team: matchObj.teams[0],
             away_team: matchObj.teams[1],
@@ -135,8 +107,85 @@ const getMatchesOdds = () => {
                     sport_key: matchObj.sport_key,
                 });
 
-                return match.save()
+                match.save();
             }
+
+            matchObj.sites.forEach(siteObj => {
+
+                let siteID;
+
+                Site.findOne({
+                    where: {
+                        key: siteObj.site_key
+                    }
+                })
+                .then(siteRes => {
+                    if (!siteRes) {
+    
+                        const site = new Site({
+                            key: siteObj.site_key,
+                            name: siteObj.site_nice
+                        });
+    
+                        const savedSite = site.save();
+
+                        siteID = savedSite.id;
+
+                        Totals.findOne({where: {
+                            match_id: matchResult.id,
+                            site_id: siteID
+                        }})
+                        .then(totalsRes => {
+                            if ( !totalsRes ) {
+                                const total = new Totals({
+                                    type: 'totals',
+                                    position_over: siteObj.odds.totals.position[0],
+                                    position_under: siteObj.odds.totals.position[1],
+                                    odds_home: siteObj.odds.totals.odds[0],
+                                    odds_away: siteObj.odds.totals.odds[1],
+                                    points_home: siteObj.odds.totals.points[0],
+                                    points_away: siteObj.odds.totals.points[1],
+                                    match_id: matchResult.id,
+                                    site_id: siteID
+                                });
+                
+                                return total.save();
+                            }
+                        })
+                    }
+
+                    siteID = siteRes.id;
+                    
+                    Totals.findOne({where: {
+                        match_id: matchResult.id,
+                        site_id: siteID
+                    }})
+                    .then(totalsRes => {
+                        if ( !totalsRes ) {
+                            const total = new Totals({
+                                type: 'totals',
+                                position_over: siteObj.odds.totals.position[0],
+                                position_under: siteObj.odds.totals.position[1],
+                                odds_home: siteObj.odds.totals.odds[0],
+                                odds_away: siteObj.odds.totals.odds[1],
+                                points_home: siteObj.odds.totals.points[0],
+                                points_away: siteObj.odds.totals.points[1],
+                                match_id: matchResult.id,
+                                site_id: siteID
+                            });
+            
+                            return total.save();
+                        }
+                    })
+                })
+                .catch(err => {
+                    console.log('Error status', err);
+                    return new Error(err);
+                });
+
+                // console.log('SITE ================================= ', siteObj.odds.totals);
+
+            })
         })
         .catch(err => {
             console.log('Error status', err);
