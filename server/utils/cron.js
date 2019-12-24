@@ -4,7 +4,8 @@ const models = require('../models/models');
 const data = require('../data/data');
 
 const Sport = models.Sport;
-const pullSports = data.sport;
+const pullSports = data.pullSports;
+const getSports = data.getSports;
 const pullMatch = data.match;
 
 // Check for sports every 28th of the month at 23:59
@@ -38,3 +39,7 @@ module.exports.matches = cron.schedule("00 59 23 28 * Sunday", () => {
     });
 
 });
+
+module.exports.getSports = () => {
+    return getSports();
+};
