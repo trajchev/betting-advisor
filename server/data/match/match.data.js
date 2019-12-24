@@ -1,9 +1,13 @@
 const axios = require('axios');
 
+const fs = require('fs');
+const path = require('path');
+
 const models = require('../../models/models');
 
 const Match = models.Match;
 const Odd = models.Odd;
+const Team = models.Team;
 
 const pullMatchesOdds = (sport, region, oddsType) => {
     axios.get(`${process.env.API_URL}odds`, {
@@ -50,4 +54,68 @@ const pullMatchesOdds = (sport, region, oddsType) => {
     });
 };
 
-module.exports = pullMatchesOdds;
+const getMatchesOdds = () => {
+    const matchesPath = path.join(__dirname, '/totalsEPL.json')
+
+    const rawMatches = fs.readFileSync(matchesPath, (error, data) => {
+        if (error) {
+            return new Error(error);
+        }
+    });
+
+    const matches = JSON.parse(rawMatches);
+
+    matches.data.forEach(matchObj => {
+
+        matchObj.teams.forEach(team => {
+            console.log('TEAM =========================== ', team);
+            Team.findOne({
+                where: {
+                    name: team
+                }
+            })
+            .then(teamRes => {
+                if (!teamRes) {
+                    const team = new Team({
+                        name: matchObj.teams[0],
+                        sport_name: matchObj.sport_nice.replace(/[^0-9a-z- ]/gi, ''),
+                        sport_key: matchObj.sport_key
+                    });
+    
+                    return team.save();
+                }
+            })
+            .catch(err => {
+                console.log('Error status', err);
+                return new Error(err);
+            });
+        });
+
+        Match.findOne({where: {
+            home_team: matchObj.teams[0],
+            away_team: matchObj.teams[1],
+            commence_time: matchObj.commence_time}
+        })
+        .then(matchResult => {
+            if (!matchResult) {
+                // Create the Match and save to db
+                const match = new Match({
+                    home_team: matchObj.teams[0],
+                    away_team: matchObj.teams[1],
+                    commence_time: matchObj.commence_time,
+                    sport_key: matchObj.sport_key,
+                });
+
+                return match.save()
+            }
+        })
+        .catch(err => {
+            console.log('Error status', err);
+            return new Error(err);
+        });
+        
+
+    });
+}
+
+module.exports = { pullMatchesOdds, getMatchesOdds };

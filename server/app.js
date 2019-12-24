@@ -81,9 +81,8 @@ app.enable('trust proxy');
 
     // Execute defined cron jobs
     cronJob.getSports;
-    cronJob.matches;
-    cronJob.getSports();
-    // cronJob.matches;
+    cronJob.getMatches();
+    // cronJob.getSports();
 
 // 2. ROUTES
 app.use('/api/v1/users', userRoutes);

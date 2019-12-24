@@ -16,14 +16,6 @@ Total.init(
             type: Sequilize.STRING,
             allowNull: false,
         },
-        home_team: {
-            type: Sequilize.DOUBLE(10, 2),
-            allowNull: false,
-        },
-        away_team: {
-            type: Sequilize.DOUBLE(10, 2),
-            allowNull: false,
-        },
         position_over: {
             type: Sequilize.STRING,
             allowNull: false,

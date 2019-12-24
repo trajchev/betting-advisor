@@ -1,0 +1,1769 @@
+{
+    "success": true,
+    "data": [
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Brighton and Hove Albion",
+                "Crystal Palace"
+            ],
+            "commence_time": 1576525500,
+            "home_team": "Crystal Palace",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.17,
+                                1.78
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.1,
+                                1.667
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.14,
+                                1.71
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.92592,
+                                2.02
+                            ],
+                            "points": [
+                                2,
+                                2
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Arsenal",
+                "Everton"
+            ],
+            "commence_time": 1576931400,
+            "home_team": "Everton",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.63,
+                                2.44
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.6,
+                                2.25
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.58,
+                                2.38
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2,
+                                1.9009
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Crystal Palace",
+                "Newcastle United"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Newcastle United",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.54,
+                                1.59
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.375,
+                                1.533
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.38,
+                                1.58
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.16,
+                                1.76335
+                            ],
+                            "points": [
+                                2,
+                                2
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Aston Villa",
+                "Southampton"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Aston Villa",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.68,
+                                2.34
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.667,
+                                2.1
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.65,
+                                2.23
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.83333,
+                                2.07
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Bournemouth",
+                "Burnley"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Bournemouth",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.92,
+                                1.99
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.85,
+                                1.85
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.79,
+                                2.02
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.91743,
+                                1.99009
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Brighton and Hove Albion",
+                "Sheffield United"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Brighton and Hove Albion",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.22,
+                                1.75
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.05,
+                                1.7
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.18,
+                                1.68
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.94339,
+                                1.96153
+                            ],
+                            "points": [
+                                2,
+                                2
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Norwich City",
+                "Wolverhampton Wanderers"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Norwich City",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.81,
+                                2.13
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.8,
+                                1.909
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.79,
+                                2.02
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.02,
+                                1.88495
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Leicester City",
+                "Manchester City"
+            ],
+            "commence_time": 1576949400,
+            "home_team": "Manchester City",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.28,
+                                1.71
+                            ],
+                            "points": [
+                                3.5,
+                                3.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.5,
+                                2.5
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.23,
+                                1.65
+                            ],
+                            "points": [
+                                3.5,
+                                3.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.04,
+                                1.86206
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Manchester United",
+                "Watford"
+            ],
+            "commence_time": 1577023200,
+            "home_team": "Watford",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.86,
+                                2.06
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.8,
+                                1.909
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.81,
+                                2
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.09,
+                                1.813
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Chelsea",
+                "Tottenham Hotspur"
+            ],
+            "commence_time": 1577032200,
+            "home_team": "Tottenham Hotspur",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.61,
+                                2.49
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.6,
+                                2.25
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.58,
+                                2.38
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.97087,
+                                1.95238
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Brighton and Hove Albion",
+                "Tottenham Hotspur"
+            ],
+            "commence_time": 1577363400,
+            "home_team": "Tottenham Hotspur",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.616,
+                                2.48
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.571,
+                                2.3
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.56,
+                                2.43
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 3
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Crystal Palace",
+                "West Ham United"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Crystal Palace",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.87,
+                                2.05
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.85,
+                                1.85
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.82,
+                                2
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 3
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Aston Villa",
+                "Norwich City"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Aston Villa",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.4,
+                                1.65
+                            ],
+                            "points": [
+                                3.5,
+                                3.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.533,
+                                2.375
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.38,
+                                1.58
+                            ],
+                            "points": [
+                                3.5,
+                                3.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 3
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Chelsea",
+                "Southampton"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Chelsea",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.3,
+                                1.7
+                            ],
+                            "points": [
+                                3.5,
+                                3.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.444,
+                                2.625
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.23,
+                                1.65
+                            ],
+                            "points": [
+                                3.5,
+                                3.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 3
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Arsenal",
+                "Bournemouth"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Bournemouth",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.3,
+                                1.7
+                            ],
+                            "points": [
+                                3.5,
+                                3.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.5,
+                                2.5
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.18,
+                                1.68
+                            ],
+                            "points": [
+                                3.5,
+                                3.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 3
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Burnley",
+                "Everton"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Everton",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.85,
+                                2.08
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.727,
+                                2
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.78,
+                                2.04
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 3
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Sheffield United",
+                "Watford"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Sheffield United",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.13,
+                                1.81
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.05,
+                                1.7
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.08,
+                                1.75
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 3
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Manchester United",
+                "Newcastle United"
+            ],
+            "commence_time": 1577381400,
+            "home_team": "Manchester United",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.71,
+                                2.28
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.667,
+                                2.1
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.63,
+                                2.28
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 3
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Leicester City",
+                "Liverpool"
+            ],
+            "commence_time": 1577390400,
+            "home_team": "Leicester City",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.75,
+                                2.22
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.7,
+                                2.05
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.7,
+                                2.15
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 3
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Manchester City",
+                "Wolverhampton Wanderers"
+            ],
+            "commence_time": 1577475900,
+            "home_team": "Wolverhampton Wanderers",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.65,
+                                2.4
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "williamhill",
+                    "site_nice": "William Hill",
+                    "last_update": 1576501143,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.615,
+                                2.2
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "unibet",
+                    "site_nice": "Unibet",
+                    "last_update": 1576500942,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.63,
+                                2.28
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 3
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Arsenal",
+                "Chelsea"
+            ],
+            "commence_time": 1577628000,
+            "home_team": "Arsenal",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.85,
+                                2.08
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        }
+    ]
+}

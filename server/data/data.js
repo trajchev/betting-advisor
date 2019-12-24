@@ -4,8 +4,12 @@ const match = require('./match/match.data');
 const getSports = sport.getSports;
 const pullSports = sport.pullSports;
 
+const getMatchesOdds = match.getMatchesOdds;
+const pullMatchesOdds = match.pullMatchesOdds;
+
 module.exports = {
     getSports,
     pullSports,
-    match
+    getMatchesOdds,
+    pullMatchesOdds
 }
