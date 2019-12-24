@@ -8,6 +8,7 @@ const models = require('../../models/models');
 const Match = models.Match;
 const Odd = models.Odd;
 const Team = models.Team;
+const Site = models.Site;
 
 const pullMatchesOdds = (sport, region, oddsType) => {
     axios.get(`${process.env.API_URL}odds`, {
@@ -68,7 +69,6 @@ const getMatchesOdds = () => {
     matches.data.forEach(matchObj => {
 
         matchObj.teams.forEach(team => {
-            console.log('TEAM =========================== ', team);
             Team.findOne({
                 where: {
                     name: team
@@ -88,6 +88,35 @@ const getMatchesOdds = () => {
             .catch(err => {
                 console.log('Error status', err);
                 return new Error(err);
+            });
+        });
+
+        // Pull the sites
+        matchObj.sites.forEach(siteObj => {
+            console.log('MATCH OBJ ======================== ', siteObj);
+
+            Site.findOne({
+                where: {
+                    key: siteObj.site_key
+                }
+            })
+            .then(siteRes => {
+                if (!siteRes) {
+
+                    // console.log('SITE KEY ================', siteObj.site_key);
+                    // console.log('SITE NAME ================', siteObj.site_nice);
+
+                    const site = new Site({
+                        key: siteObj.site_key,
+                        name: siteObj.site_nice
+                    });
+
+                    return site.save();
+                }
+            })
+            .catch(err => {
+                // console.log('Error status', err);
+                // return new Error(err);
             });
         });
 
