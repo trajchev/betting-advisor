@@ -80,7 +80,7 @@ app.enable('trust proxy');
     });
 
     // Execute defined cron jobs
-    cronJob.getSports;
+    // cronJob.getSports;
     cronJob.getMatches();
     // cronJob.getSports();
 

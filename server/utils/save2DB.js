@@ -28,7 +28,13 @@ const checkSaveTotals = ( siteObj, matchResult, siteID ) => {
             return total.save();
         }
 
+        return null;
+
     })
+    .catch(err => {
+        console.log('Error status', err.response.status);
+        throw new Error(err)
+    });
 
 };
 
@@ -53,8 +59,11 @@ const checkSaveSpreads = ( siteObj, matchResult, siteID ) => {
     
             return spread.save();
         }
-
     })
+    .catch(err => {
+        console.log('Error status', err.response.status);
+        throw new Error(err)
+    });
 
 }
 
@@ -80,6 +89,10 @@ const checkSaveH2H = ( siteObj, matchResult, siteID) => {
         }
 
     })
+    .catch(err => {
+        console.log('Error status', err.response.status);
+        throw new Error(err)
+    });
 
 }
 
