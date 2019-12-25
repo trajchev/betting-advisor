@@ -112,6 +112,8 @@ const getMatchesOdds = () => {
 
             matchObj.sites.forEach(siteObj => {
 
+                const type = Object.keys(siteObj.odds)[0];
+
                 let siteID;
 
                 Site.findOne({
@@ -130,6 +132,41 @@ const getMatchesOdds = () => {
                         const savedSite = site.save();
 
                         siteID = savedSite.id;
+
+                        if (type === 'totals') {
+
+                            Totals.findOne({where: {
+                                match_id: matchResult.id,
+                                site_id: siteID
+                            }})
+                            .then(totalsRes => {
+                                if ( !totalsRes ) {
+                                    const total = new Totals({
+                                        type: 'totals',
+                                        position_over: siteObj.odds.totals.position[0],
+                                        position_under: siteObj.odds.totals.position[1],
+                                        odds_home: siteObj.odds.totals.odds[0],
+                                        odds_away: siteObj.odds.totals.odds[1],
+                                        points_home: siteObj.odds.totals.points[0],
+                                        points_away: siteObj.odds.totals.points[1],
+                                        match_id: matchResult.id,
+                                        site_id: siteID
+                                    });
+                    
+                                    return total.save();
+                                }
+                            })
+                        } else if (type === 'spreads') {
+
+                            
+
+                        }
+
+                    }
+
+                    siteID = siteRes.id;
+                    
+                    if (type === 'totals') {
 
                         Totals.findOne({where: {
                             match_id: matchResult.id,
@@ -153,30 +190,6 @@ const getMatchesOdds = () => {
                             }
                         })
                     }
-
-                    siteID = siteRes.id;
-                    
-                    Totals.findOne({where: {
-                        match_id: matchResult.id,
-                        site_id: siteID
-                    }})
-                    .then(totalsRes => {
-                        if ( !totalsRes ) {
-                            const total = new Totals({
-                                type: 'totals',
-                                position_over: siteObj.odds.totals.position[0],
-                                position_under: siteObj.odds.totals.position[1],
-                                odds_home: siteObj.odds.totals.odds[0],
-                                odds_away: siteObj.odds.totals.odds[1],
-                                points_home: siteObj.odds.totals.points[0],
-                                points_away: siteObj.odds.totals.points[1],
-                                match_id: matchResult.id,
-                                site_id: siteID
-                            });
-            
-                            return total.save();
-                        }
-                    })
                 })
                 .catch(err => {
                     console.log('Error status', err);
