@@ -11,6 +11,7 @@ const Team = models.Team;
 const Site = models.Site;
 const Totals = models.Totals;
 const Spreads = models.Spreads;
+const H2H = models.H2H;
 
 const pullMatchesOdds = (sport, region, oddsType) => {
     axios.get(`${process.env.API_URL}odds`, {
@@ -58,7 +59,7 @@ const pullMatchesOdds = (sport, region, oddsType) => {
 };
 
 const getMatchesOdds = () => {
-    const matchesPath = path.join(__dirname, '/spreadsEPL.json')
+    const matchesPath = path.join(__dirname, '/h2hEPL.json')
 
     const rawMatches = fs.readFileSync(matchesPath, error => {
         if (error) {
@@ -179,6 +180,27 @@ const getMatchesOdds = () => {
                                 }
                             })
 
+                        } else if ( type === 'h2h' ) {
+
+                            H2H.findOne({where: {
+                                match_id: matchResult.id,
+                                site_id: siteID
+                            }})
+                            .then(h2hRes => {
+                                if ( !h2hRes ) {
+                                    const h2h = new H2H({
+                                        type: 'h2h',
+                                        odds_home: siteObj.odds.h2h[0],
+                                        odds_draw: siteObj.odds.h2h[1],
+                                        odds_away: siteObj.odds.h2h[2],
+                                        match_id: matchResult.id,
+                                        site_id: siteID
+                                    });
+                    
+                                    return h2h.save();
+                                }
+                            })
+
                         }
 
                     }
@@ -227,6 +249,27 @@ const getMatchesOdds = () => {
                                 });
                 
                                 return spread.save();
+                            }
+                        })
+
+                    } else if ( type === 'h2h' ) {
+
+                        H2H.findOne({where: {
+                            match_id: matchResult.id,
+                            site_id: siteID
+                        }})
+                        .then(h2hRes => {
+                            if ( !h2hRes ) {
+                                const h2h = new H2H({
+                                    type: 'h2h',
+                                    odds_home: siteObj.odds.h2h[0],
+                                    odds_draw: siteObj.odds.h2h[1],
+                                    odds_away: siteObj.odds.h2h[2],
+                                    match_id: matchResult.id,
+                                    site_id: siteID
+                                });
+                
+                                return h2h.save();
                             }
                         })
 
