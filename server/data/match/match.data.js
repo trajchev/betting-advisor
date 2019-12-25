@@ -10,6 +10,7 @@ const Odd = models.Odd;
 const Team = models.Team;
 const Site = models.Site;
 const Totals = models.Totals;
+const Spreads = models.Spreads;
 
 const pullMatchesOdds = (sport, region, oddsType) => {
     axios.get(`${process.env.API_URL}odds`, {
@@ -57,7 +58,7 @@ const pullMatchesOdds = (sport, region, oddsType) => {
 };
 
 const getMatchesOdds = () => {
-    const matchesPath = path.join(__dirname, '/totalsEPL.json')
+    const matchesPath = path.join(__dirname, '/spreadsEPL.json')
 
     const rawMatches = fs.readFileSync(matchesPath, error => {
         if (error) {
@@ -158,7 +159,25 @@ const getMatchesOdds = () => {
                             })
                         } else if (type === 'spreads') {
 
-                            
+                            Spreads.findOne({where: {
+                                match_id: matchResult.id,
+                                site_id: siteID
+                            }})
+                            .then(spreadsRes => {
+                                if ( !spreadsRes ) {
+                                    const spread = new Spreads({
+                                        type: 'spreads',
+                                        odds_home: siteObj.odds.spreads.odds[0],
+                                        odds_away: siteObj.odds.spreads.odds[1],
+                                        points_home: siteObj.odds.spreads.points[0] * 1,
+                                        points_away: siteObj.odds.spreads.points[1] * 1,
+                                        match_id: matchResult.id,
+                                        site_id: siteID
+                                    });
+                    
+                                    return spread.save();
+                                }
+                            })
 
                         }
 
@@ -189,6 +208,28 @@ const getMatchesOdds = () => {
                                 return total.save();
                             }
                         })
+                    } else if (type === 'spreads') {
+
+                        Spreads.findOne({where: {
+                            match_id: matchResult.id,
+                            site_id: siteID
+                        }})
+                        .then(spreadsRes => {
+                            if ( !spreadsRes ) {
+                                const spread = new Spreads({
+                                    type: 'spreads',
+                                    odds_home: siteObj.odds.spreads.odds[0],
+                                    odds_away: siteObj.odds.spreads.odds[1],
+                                    points_home: siteObj.odds.spreads.points[0] * 1,
+                                    points_away: siteObj.odds.spreads.points[1] * 1,
+                                    match_id: matchResult.id,
+                                    site_id: siteID
+                                });
+                
+                                return spread.save();
+                            }
+                        })
+
                     }
                 })
                 .catch(err => {

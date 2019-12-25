@@ -5,6 +5,8 @@ const User = require('./user/user.model');
 const SavedMatch = require('./savedmatch/savedmatch.model');
 const Site = require('./site/site.model');
 const Totals = require('./odd/totals.model');
+const Spreads = require('./odd/spreads.model');
+
 const Team = require('./team/team.model');
 
 // Defining the relationships
@@ -19,6 +21,8 @@ Team.belongsTo(Sport, {foreignKey: 'sport_key', targetKey: 'key'});
 Odd.belongsTo(Site, {foreignKey: 'site_id', targetKey: 'id'});
 Totals.belongsTo(Match, {foreignKey: 'match_id', targetKey: 'id'});
 Totals.belongsTo(Site, {foreignKey: 'site_id', targetKey: 'id'});
+Spreads.belongsTo(Match, {foreignKey: 'match_id', targetKey: 'id'});
+Spreads.belongsTo(Site, {foreignKey: 'site_id', targetKey: 'id'});
 SavedMatch.belongsTo(Match, {foreignKey: 'match_id', targetKey: 'id'});
 SavedMatch.belongsTo(User, {foreignKey: 'user_id', targetKey: 'id'});
 
@@ -30,6 +34,7 @@ module.exports = {
     Odd,
     Site,
     Totals,
+    Spreads,
     User,
     SavedMatch
 };
