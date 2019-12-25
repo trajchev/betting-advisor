@@ -15,7 +15,7 @@ const sequelize = new Sequelize(
             idle: 10000
         },
         // disable logging
-        logging: false    
+        // logging: false    
     }
 );
 

@@ -4,6 +4,7 @@ const catchAsync = require('./catchAsync');
 const Totals = models.Totals;
 const Spreads = models.Spreads;
 const H2H = models.H2H;
+const Team = models.Team;
 
 const checkSaveTotals = catchAsync(async ( siteObj, matchResult, siteID ) => {
 
@@ -75,10 +76,41 @@ const checkSaveH2H = catchAsync( async ( siteObj, matchResult, siteID) => {
 
 });
 
+const checkSaveTeam = matchObj => {
+
+    matchObj.teams.forEach(teamName => {
+
+        Team.findOne({
+            where: {
+                name: teamName
+            }
+        })
+        .then(teamRes => {
+            if (!teamRes) {
+                const team = new Team({
+                    name: teamName,
+                    sport_name: matchObj.sport_nice.replace(/[^0-9a-z- ]/gi, ''),
+                    sport_key: matchObj.sport_key
+                });
+
+                return team.save();
+            }
+
+            return teamRes;
+        })
+        .catch(err => {
+            console.log('Error status', err);
+            return new Error(err);
+        });
+    });
+
+};
+
 module.exports = {
 
     checkSaveTotals,
     checkSaveSpreads,
-    checkSaveH2H
+    checkSaveH2H,
+    checkSaveTeam
 
 }
