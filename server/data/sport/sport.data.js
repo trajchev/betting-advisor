@@ -54,29 +54,25 @@ const getSports = () => {
     const sports = JSON.parse(rawSports);
 
     sports.data.forEach(sportObj => {
-        Sport.findOne({where: {key: sportObj.key}})
-        .then(sportResult => {
-            if (!sportResult) {
-
-                const sport = new Sport({
-                    key: sportObj.key,
-                    active: sportObj.active || false,
-                    group: sportObj.group,
-                    details: sportObj.details.replace(/[^0-9a-z- ]/gi, ''),
-                    title: sportObj.title,
-                });
-
-                return sport.save();
-
+        Sport.findOrCreate({where: {
+            key: sportObj.key,
+            active: sportObj.active || false,
+            group: sportObj.group,
+            details: sportObj.details.replace(/[^0-9a-z- ]/gi, ''),
+            title: sportObj.title,
+        }})
+        .then(([sport, created]) => {
+            if (created) {
+                console.log('SPORT Created');
             }
         })
         .catch(err => {
             console.log('Error status', err);
             return new Error(err);
         });
+        
     });
-
-    // console.log(sports.data);
+    
 };
 
 module.exports = { pullSports, getSports };
