@@ -1,5 +1,6 @@
 const user = require('./user/user.route');
 const league = require('./league/league.route');
 const match = require('./match/match.route');
+const site = require('./site/site.route');
 
-module.exports =  { user, league, match };
+module.exports =  { user, league, match, site };

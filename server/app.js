@@ -16,6 +16,7 @@ const BAError = require('./utils/BAError');
 const userRoutes = routes.user;
 const leagueRoutes = routes.league;
 const matchRoutes = routes.match;
+const siteRoutes = routes.site;
 const cronJob = require('./utils/cron');
 
 const app = express();
@@ -88,6 +89,7 @@ app.enable('trust proxy');
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/leagues', leagueRoutes);
 app.use('/api/v1/matches', matchRoutes);
+app.use('/api/v1/sites', siteRoutes);
 
 app.all('*', (req, res, next) => {
     next(new BAError(`Can't find ${req.originalUrl} on this server!`, 404));
