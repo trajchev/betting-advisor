@@ -11,6 +11,6 @@ router.use(authController.protect);
 
 router.get('/', teamController.getTeams);
 router.get('/:id', teamController.getTeam);
-router.patch('/:id', teamController.updateTeam);
+router.patch('/:id', teamController.uploadTeamLogo, teamController.updateTeam);
 
 module.exports = router;

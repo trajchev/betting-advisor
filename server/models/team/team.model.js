@@ -25,6 +25,10 @@ Team.init({
     sport_key: {
         type: Sequilize.STRING,
         allowNull: false,
+    },
+    logo: {
+        type: Sequilize.STRING,
+        defaultValue: 'team_logo.jpg'
     }
 }, {underscored: true, sequelize, modelName: 'team'});
 
