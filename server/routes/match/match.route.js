@@ -15,13 +15,19 @@ router.route('/')
     .post(saveMatchController);
 
 router.route('/:id')
+    .get(matchController.getMatch)
     .delete(deleteMatchController);
+
+router.route('/:id/h2h')
+    .get(matchController.getMatchH2H);
+
+router.route('/:id/spreads')
+    .get(matchController.getMatchSpreads);
+
+router.route('/:id/totals')
+    .get(matchController.getMatchTotals);
 
 router.route('/:league')
     .get(matchController.getMatches);
-
-// :id is the match id
-router.route('/:league/:id')
-    .get(matchController.getMatch)
 
 module.exports = router;

@@ -21,6 +21,10 @@ Site.init({
         type: Sequilize.STRING,
         allowNull: false,
         unique: true
+    },
+    region: {
+        type: Sequilize.STRING,
+        defaultValue: 'uk'
     }
 }, {underscored: true, sequelize, modelName: 'site'});
 
