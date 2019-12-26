@@ -3,9 +3,9 @@ const factory = require('../handlers/handlerFactory');
 
 const getMatches = factory.getAll(models.Match);
 const getMatch = factory.getOneAssoc(models.Match, models.H2H, 'h2hs');
-const getMatchH2H = factory.getOneAssoc(models.Match, models.H2H, 'h2hs');
-const getMatchSpreads = factory.getOneAssoc(models.Match, models.Spreads, 'spreads');
-const getMatchTotals = factory.getOneAssoc(models.Match, models.Totals, 'totals');
+const getMatchH2H = factory.getOneAssocSite(models.Match, models.H2H, 'h2hs');
+const getMatchSpreads = factory.getOneAssocSite(models.Match, models.Spreads, 'spreads');
+const getMatchTotals = factory.getOneAssocSite(models.Match, models.Totals, 'totals');
 
 module.exports = {
     getMatches,

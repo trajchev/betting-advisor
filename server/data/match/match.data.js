@@ -54,7 +54,7 @@ const Site = models.Site;
 // };
 
 const getMatchesOdds = () => {
-    const matchesPath = path.join(__dirname, '/spreadsEPL.json')
+    const matchesPath = path.join(__dirname, '/h2hEPL.json')
     const rawMatches = fs.readFileSync(matchesPath, (error, data) => {
         if (error) {
             return new Error(error);
@@ -103,7 +103,7 @@ const getMatchesOdds = () => {
                         const site = new Site({
                             key: siteObj.site_key,
                             name: siteObj.site_nice,
-                            region: 'uk'
+                            region: 'au'
                         });
     
                         const savedSite = site.save();

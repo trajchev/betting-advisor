@@ -18,13 +18,13 @@ router.route('/:id')
     .get(matchController.getMatch)
     .delete(deleteMatchController);
 
-router.route('/:id/h2h')
+router.route('/:id/h2h/:region?')
     .get(matchController.getMatchH2H);
 
-router.route('/:id/spreads')
+router.route('/:id/spreads/:region?')
     .get(matchController.getMatchSpreads);
 
-router.route('/:id/totals')
+router.route('/:id/totals/:region?')
     .get(matchController.getMatchTotals);
 
 router.route('/:league')
