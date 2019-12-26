@@ -3,14 +3,12 @@ const express = require('express');
 const controllers = require('../../controllers/controllers');
 
 const authController = controllers.auth;
-const siteController = controllers.site;
+const teamController = controllers.team;
 
 const router = express.Router();
 
 router.use(authController.protect);
 
-router.get('/', siteController.getSites);
-router.get('/:id', siteController.getSite);
-router.patch('/:id', siteController.updateSite);
+router.get('/', teamController.getTeams);
 
 module.exports = router;
