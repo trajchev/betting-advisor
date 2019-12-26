@@ -10,5 +10,7 @@ const router = express.Router();
 router.use(authController.protect);
 
 router.get('/', teamController.getTeams);
+router.get('/:id', teamController.getTeam);
+router.patch('/:id', teamController.updateTeam);
 
 module.exports = router;
