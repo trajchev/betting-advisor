@@ -14,20 +14,20 @@ router.use(authController.protect);
 router.route('/')
     .post(saveMatchController);
 
-router.route('/:id')
+router.route('/:league')
+    .get(matchController.getMatches);
+
+router.route('/:league/:id')
     .get(matchController.getMatch)
     .delete(deleteMatchController);
 
-router.route('/:id/h2h/:region?')
+router.route('/:league/:id/h2h/:region?')
     .get(matchController.getMatchH2H);
 
-router.route('/:id/spreads/:region?')
+router.route('/:league/:id/spreads/:region?')
     .get(matchController.getMatchSpreads);
 
-router.route('/:id/totals/:region?')
+router.route('/:league/:id/totals/:region?')
     .get(matchController.getMatchTotals);
-
-router.route('/:league')
-    .get(matchController.getMatches);
 
 module.exports = router;

@@ -43,9 +43,9 @@ export class LeagueService {
       );
   }
 
-  fetchMatch(sportKey: string, id: number): Observable<any> {
+  fetchMatch(sportKey: string, id: number, oddType: string): Observable<any> {
     return this.http
-      .get(`${environment.apiUrl}/matches/${sportKey}/${id}`)
+      .get(`${environment.apiUrl}/matches/${sportKey}/${id}/${oddType}`)
       .pipe(
         catchError(error => {
           return [];
