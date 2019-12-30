@@ -87,7 +87,7 @@ const login = catchAsync(async (req, res, next) => {
     }
 
     // 2. Check if user exists & password is correct
-    const user = await User.findOne({where: {email}});
+    const user = await User.findOne({where: {email, active: true}});
 
     if (!user || !(await user.correctPassword(password, user.password))) {
         return next(new BAError('Incorrect email or password', 401));

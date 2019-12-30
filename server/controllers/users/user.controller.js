@@ -54,9 +54,26 @@ const updateUser = factory.updateOne(User);
 
 const getAllUsers = factory.getAll(User);
 
-const deleteUser = factory.deleteOne(User);
+const deleteUser = catchAsync(async (req, res, next) => {
+
+    const user = await User.findOne ({where: {id: req.params.id}});
+
+    if ( user ) {
+
+        // Don't delete the user, just deactivate it
+        user.update({'active': false});
+
+    }
+
+    res.status(200).json({
+        status: 'success',
+        message: `${user.username} deactivated`
+    });
+
+});
 
 const updateMe = catchAsync(async (req, res, next) => {
+
     // 1. Create error if user posts pass data
     if (req.body.password || req.body.passwordConfirm) {
         return next(new BAError('This route is not for password updates', 400));
@@ -74,6 +91,7 @@ const updateMe = catchAsync(async (req, res, next) => {
             user: updateUser
         }
     });
+    
 });
 
 const getDashboardData = catchAsync(async (req, res, next) => {
