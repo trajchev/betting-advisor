@@ -99,8 +99,11 @@ const checkSaveTeam = matchObj => {
             return teamRes;
         })
         .catch(err => {
-            console.log('Error status', err);
-            return new Error(err);
+            // console.log('Error status', err);
+
+            if (err.code !== 'ER_DUP_ENTRY') {
+                return new Error(err);
+            }
         });
     });
 

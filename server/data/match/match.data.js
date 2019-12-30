@@ -54,7 +54,7 @@ const Site = models.Site;
 // };
 
 const getMatchesOdds = () => {
-    const matchesPath = path.join(__dirname, '/h2hEPL.json')
+    const matchesPath = path.join(__dirname, '/totalsEPL.json')
     const rawMatches = fs.readFileSync(matchesPath, (error, data) => {
         if (error) {
             return new Error(error);

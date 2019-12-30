@@ -8,7 +8,7 @@ import * as moment from 'moment';
 export class MsToDatePipe implements PipeTransform {
 
   transform(value: string, args?: any): any {
-    return moment(parseInt(value) * 1000).format('H:mm # DD-MM-YYYY');
+    return moment(parseInt(value) * 1000).format('H:mm, DD.MM.YYYY');
   }
 
 }
