@@ -1,6 +1,8 @@
 const catchAsync = require('../../utils/catchAsync');
 const BAError = require('../../utils/BAError');
-const Site = require('../../models/models').Site;
+const models = require('../../models/models');
+
+const Site = models.Site;
 
 const deleteOne = Model => catchAsync(async (req, res, next) => {
 
@@ -77,7 +79,8 @@ const getOne = Model => catchAsync(async (req, res, next) => {
 
     if (doc.password) {
         const photo = doc.photo;
-        doc.password = '';
+        doc.password = undefined;
+        doc.passwordConfirm = undefined;
         doc.photo = `http://localhost:3300/img/users/${photo}`;
     }
 
@@ -100,7 +103,7 @@ const getOneAssoc = (Model, AssocModel, assocAlias) => catchAsync( async(req, re
 
 });
 
-const getOneAssocSite = (Model, AssocModel, assocAlias) => catchAsync( async(req, res, next) => {
+const getAssocSite = (Model, AssocModel, assocAlias) => catchAsync( async(req, res, next) => {
 
     let regionCondition = {};
 
@@ -143,14 +146,16 @@ const getAll = Model => catchAsync(async (req, res, next) => {
 
     // console.log(docs);
 
-    docs.forEach(singleDoc => {
-        if (singleDoc.password) {
-            singleDoc.password = undefined;
-            singleDoc.passwordConfirm = undefined;
-            singleDoc.passwordResetToken = undefined;
-            singleDoc.passwordResetExpires = undefined;
-        }
-    });
+    if (docs[0].password) {
+        docs.forEach(singleDoc => {
+            if (singleDoc.password) {
+                singleDoc.password = undefined;
+                singleDoc.passwordConfirm = undefined;
+                singleDoc.passwordResetToken = undefined;
+                singleDoc.passwordResetExpires = undefined;
+            }
+        });
+    }
 
     res.status(200).json({
         status: 'success',
@@ -169,7 +174,7 @@ module.exports = {
     createOneAssoc,
     getOne,
     getOneAssoc,
-    getOneAssocSite,
+    getAssocSite,
     getAll,
     updateOne,
     deleteOne,

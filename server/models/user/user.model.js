@@ -66,9 +66,6 @@ User.init({
         passwordResetToken: {
             type: Sequilize.STRING
         },
-        passwordResetToken: {
-            type: Sequilize.STRING
-        },
         passwordResetExpires: {
             type: Sequilize.DATE
         },

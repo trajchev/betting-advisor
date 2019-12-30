@@ -8,6 +8,7 @@ const models = require('../../models/models');
 const User = models.User;
 const Match = models.Match;
 const SavedMatch = models.SavedMatch;
+const Recruits = models.Recruits;
 
 // Multer setup
 const multerStorage = multer.diskStorage({
@@ -99,6 +100,17 @@ const getDashboardData = catchAsync(async (req, res, next) => {
         }]
     });
 
+    const myRecruits = await Recruits.findAll({order: [
+            ['createdAt', 'DESC'],
+        ],
+        attributes: ['createdAt'],
+        include: [{
+            model: User,
+            where: { active: true },
+            attributes: ['username', 'photo', 'role', 'active']
+        }]
+    });
+
     if (user.password) {
         const photo = user.photo;
         user.password = '';
@@ -110,6 +122,7 @@ const getDashboardData = catchAsync(async (req, res, next) => {
         user,
         numberOfTickets: occurences,
         tickets: myTickets,
+        recruits: myRecruits
     });
 });
 

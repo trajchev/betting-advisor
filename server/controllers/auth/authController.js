@@ -7,9 +7,14 @@ const BAError = require('../../utils/BAError');
 const Email = require('../../utils/Email');
 const models = require('../../models/models');
 const User = models.User;
+const Recruits = models.Recruits;
 
 const signToken = id => {
     return jwt.sign({ id: id, exp: Math.floor(Date.now() / 1000) + (60 * 60)}, process.env.JWT_SECRET);
+};
+
+const signTokenRecruit = email => {
+    return jwt.sign({ email }, process.env.JWT_SECRET);
 };
 
 const createSendToken = (user, statusCode, req, res) => {
@@ -41,12 +46,28 @@ const createSendToken = (user, statusCode, req, res) => {
 
 const signup = catchAsync(async (req, res, next) => {
 
+    console.log(req.params.recruiter);
+
     const newUser = await User.create({
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
         passwordConfirm: req.body.passwordConfirm
     });
+
+    User.findOne({where: {username: req.params.recruiter}})
+    .then(catchAsync( async  user => {
+
+        if ( user ) {
+
+            const recruit = await Recruits.create({
+                recruiterId: user.id,
+                recruitId: newUser.id
+            });
+
+        }
+        
+    }));
 
     const url = `${req.protocol}://${req.get('host')}/me`;
 

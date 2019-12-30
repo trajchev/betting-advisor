@@ -7,6 +7,7 @@ const Site = require('./site/site.model');
 const Totals = require('./odd/totals.model');
 const Spreads = require('./odd/spreads.model');
 const H2H = require('./odd/h2h.model');
+const Recruits = require('./recruits/recruits.model');
 
 // Defining the relationships
 Sport.hasMany(Match);
@@ -15,6 +16,8 @@ Match.belongsTo(Sport, {foreignKey: 'sport_key', targetKey: 'key'});
 SavedMatch.belongsTo(Match, {foreignKey: 'match_id', targetKey: 'id'});
 SavedMatch.belongsTo(User, {foreignKey: 'user_id', targetKey: 'id'});
 Team.belongsTo(Sport, {foreignKey: 'sport_key', targetKey: 'key'});
+Recruits.belongsTo(User, {foreignKey: 'recruiterId', targetKey: 'id'})
+Recruits.belongsTo(User, {foreignKey: 'recruitId', targetKey: 'id'})
 
 // Odd types relationships
 Match.hasMany(Totals);
@@ -39,5 +42,6 @@ module.exports = {
     H2H,
     Spreads,
     User,
-    SavedMatch
+    SavedMatch,
+    Recruits
 };
