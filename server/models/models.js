@@ -8,6 +8,7 @@ const Totals = require('./odd/totals.model');
 const Spreads = require('./odd/spreads.model');
 const H2H = require('./odd/h2h.model');
 const Recruits = require('./recruits/recruits.model');
+const FAQ = require('./faq/faq.model');
 
 // Defining the relationships
 Sport.hasMany(Match);
@@ -39,6 +40,7 @@ module.exports = {
     Match,
     Site,
     Totals,
+    FAQ,
     H2H,
     Spreads,
     User,

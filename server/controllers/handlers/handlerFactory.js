@@ -44,10 +44,9 @@ const createOne = Model => catchAsync(async (req, res, next) => {
 
     res.status(201).json({
         status: 'success',
-        data: {
-            data: doc
-        }
+        message: 'Document created successfully'
     });
+
 });
 
 const createOneAssoc = Model => catchAsync(async (req, res, next) => {
@@ -67,7 +66,6 @@ const createOneAssoc = Model => catchAsync(async (req, res, next) => {
             data: doc
         }
     });
-
 
 })
 
@@ -124,6 +122,17 @@ const getAssocSite = (Model, AssocModel, assocAlias) => catchAsync( async(req, r
 
 });
 
+const getAllPublic = Model => catchAsync(async (req, res, next) => {
+
+    const docs = await Model.findAll();
+
+    res.status(200).json({
+        status: 'success',
+        data: docs
+    });
+
+});
+
 const getAll = Model => catchAsync(async (req, res, next) => {
 
     let limit, page = 1, offset;
@@ -176,6 +185,7 @@ module.exports = {
     getOneAssoc,
     getAssocSite,
     getAll,
+    getAllPublic,
     updateOne,
     deleteOne,
 }
