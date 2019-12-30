@@ -13,10 +13,6 @@ const signToken = id => {
     return jwt.sign({ id: id, exp: Math.floor(Date.now() / 1000) + (60 * 60)}, process.env.JWT_SECRET);
 };
 
-const signTokenRecruit = email => {
-    return jwt.sign({ email }, process.env.JWT_SECRET);
-};
-
 const createSendToken = (user, statusCode, req, res) => {
 
     const token = signToken(user.id);
@@ -46,8 +42,6 @@ const createSendToken = (user, statusCode, req, res) => {
 
 const signup = catchAsync(async (req, res, next) => {
 
-    console.log(req.params.recruiter);
-
     const newUser = await User.create({
         username: req.body.username,
         email: req.body.email,
@@ -55,28 +49,35 @@ const signup = catchAsync(async (req, res, next) => {
         passwordConfirm: req.body.passwordConfirm
     });
 
-    User.findOne({where: {username: req.params.recruiter}})
-    .then(catchAsync( async  user => {
+    // Check if we have a referral
+    if (req.params.recruiter) {
+    const user = await User.findOne({where: {username: req.params.recruiter}})
 
         if ( user ) {
 
+            // If we have a referral, save the relationship
             const recruit = await Recruits.create({
                 recruiterId: user.id,
                 recruitId: newUser.id
             });
 
         }
-        
-    }));
 
+    };
+
+
+    // The link to the user profile
     const url = `${req.protocol}://${req.get('host')}/me`;
 
+    // Send the welcome email
     await new Email(newUser, url).sendWelcome();
 
+    // Gen&Send token to user to authenticate
     createSendToken(newUser, 201, req, res);
+
 });
 
-const login = catchAsync(async (req, res,next) => {
+const login = catchAsync(async (req, res, next) => {
 
     const {email, password} = await req.body;
 
@@ -84,6 +85,7 @@ const login = catchAsync(async (req, res,next) => {
     if (!email || !password) {
         return next(new BAError('Please provide email and password', 400));
     }
+
     // 2. Check if user exists & password is correct
     const user = await User.findOne({where: {email}});
 
@@ -93,16 +95,20 @@ const login = catchAsync(async (req, res,next) => {
 
     // 3. If everything is OK send token to client
     createSendToken(user, 200, req, res);
+
 });
 
 const logout = (req, res) => {
 
+    // Modify cookie to log user out
     res.cookie('jwt', 'loggedout', {
         expires: new Date(Date.now() + 1000),
         httpOnly: true
     });
 
+    // Inform user they're logged out
     res.status(200).json({ status: 'success' });
+
 };
 
 const protect = catchAsync( async (req, res, next) => {
@@ -141,9 +147,11 @@ const protect = catchAsync( async (req, res, next) => {
     req.user = currentUser;
     res.locals.user = currentUser;
     next();
+
 });
 
 const restrictTo = (...roles) => {
+
     return (req, res, next) => {
         // roles is an array
         if(!roles.includes(req.user.role)) {
@@ -152,14 +160,18 @@ const restrictTo = (...roles) => {
 
         next();
     }
+
 }
 
 const forgotPassword = catchAsync(async (req, res, next) => {
+
     // 1. Get user based on posted email
     const user = await User.findOne({where: {email: req.body.email}});
+
     if (!user) {
         return next(new BAError('There is no user with that email address', 404))
     }
+
     // 2. Generate random token
     const resetToken = user.createPasswordResetToken();
     await user.save();
@@ -175,13 +187,17 @@ const forgotPassword = catchAsync(async (req, res, next) => {
             status: 'success',
             message: 'Token sent to email!'
         });
+
     } catch (err) {
+
         user.passwordResetToken = undefined;
         user.passwordResetExpires = undefined;
         await user.save();
 
         return next(new BAError('There was an error sending email, try later', 500));
+
     }
+
 });
 
 const resetPassword = catchAsync(async (req, res, next) => {
@@ -197,8 +213,11 @@ const resetPassword = catchAsync(async (req, res, next) => {
             status: 'fail',
             message: 'Token is invalid or expired'
         });
+
         return next(new BAError('Token is invalid or expired', 400));
+
     }
+
     user.password = req.body.password
     user.passwordConfirm = req.body.passwordConfirm
 
@@ -213,6 +232,7 @@ const resetPassword = catchAsync(async (req, res, next) => {
 });
 
 const updatePassword = catchAsync(async (req, res, next) => {
+
     // 1. Get user from collection
     const user = await User.findOne({where: {id: req.user.id}});
 
@@ -220,6 +240,7 @@ const updatePassword = catchAsync(async (req, res, next) => {
     if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {
         return next(new BAError('Your current password is wrong', 401))
     }
+
     // 3. If pass is correct update password
     user.password = req.body.password;
     user.passwordConfirm = req.body.passwordConfirm;
@@ -227,9 +248,11 @@ const updatePassword = catchAsync(async (req, res, next) => {
 
     // 4. Log user In, send JWT
     createSendToken(user, 201, res);
+
 });
 
 module.exports = {
+
     signup,
     login,
     logout,
@@ -238,4 +261,5 @@ module.exports = {
     forgotPassword,
     resetPassword,
     updatePassword
+    
 };
