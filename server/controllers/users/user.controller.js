@@ -91,7 +91,7 @@ const updateMe = catchAsync(async (req, res, next) => {
             user: updateUser
         }
     });
-    
+
 });
 
 const getDashboardData = catchAsync(async (req, res, next) => {
@@ -142,6 +142,27 @@ const getDashboardData = catchAsync(async (req, res, next) => {
         tickets: myTickets,
         recruits: myRecruits
     });
+});
+
+const getAdminDashboardData = catchAsync(async (req, res, next) => {
+
+    res.status(200).json({
+        status: 'success',
+        message: 'Welcome to admin dashboard'
+    });
+
+});
+
+const getAdminTickets = catchAsync(async (req, res, next) => {
+
+    const docs = SavedMatch.findAll({include: Match});
+
+    res.status(200).json({
+        status: 'success',
+        message: 'Welcome to admin dashboard',
+        data: docs
+    });
+
 });
 
 const getMe = (req, res, next) => {
@@ -211,5 +232,7 @@ module.exports = {
     getMe,
     uploadUserPhoto,
     getMyTickets,
-    getDashboardData
+    getDashboardData,
+    getAdminDashboardData,
+    getAdminTickets
 };

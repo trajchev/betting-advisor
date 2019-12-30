@@ -31,6 +31,9 @@ router.route('/:id')
 router.use(authController.restrictTo('admin'));
 
 router.route('/')
-    .get(userController.getAllUsers);
+    .get(userController.getAllUsers)
+
+router.get('/me/admin', userController.getAdminDashboardData);
+router.get('/me/tickets', userController.getAdminTickets);
 
 module.exports = router;
