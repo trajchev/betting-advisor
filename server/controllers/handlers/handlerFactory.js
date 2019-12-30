@@ -139,17 +139,28 @@ const getAll = Model => catchAsync(async (req, res, next) => {
     if (req.params.league) { filter.sport_key = req.params.league };
 
     const occurences = await Model.count({where: filter});
-    const doc = await Model.findAll({limit, offset, where: filter});
+    const docs = await Model.findAll({limit, offset, where: filter});
+
+    // console.log(docs);
+
+    docs.forEach(singleDoc => {
+        if (singleDoc.password) {
+            singleDoc.password = undefined;
+            singleDoc.passwordConfirm = undefined;
+            singleDoc.passwordResetToken = undefined;
+            singleDoc.passwordResetExpires = undefined;
+        }
+    });
 
     res.status(200).json({
         status: 'success',
         stats: {
             records: occurences,
             perpage: limit,
-            current: doc.length,
+            current: docs.length,
             offset: offset
         },
-        data: doc
+        data: docs
     });
 });
 
