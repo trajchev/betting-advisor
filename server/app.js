@@ -19,6 +19,7 @@ const matchRoutes = routes.match;
 const siteRoutes = routes.site;
 const teamRoutes = routes.team;
 const faqRoutes = routes.faq;
+const homeRoutes = routes.home;
 const cronJob = require('./utils/cron');
 
 const app = express();
@@ -94,6 +95,7 @@ app.use('/api/v1/matches', matchRoutes);
 app.use('/api/v1/sites', siteRoutes);
 app.use('/api/v1/teams', teamRoutes);
 app.use('/api/v1/faq', faqRoutes);
+app.use('/api/v1/home', homeRoutes);
 
 app.all('*', (req, res, next) => {
     next(new BAError(`Can't find ${req.originalUrl} on this server!`, 404));

@@ -7,8 +7,6 @@ const faqControllers = controllers.faq;
 
 const router = express.Router();
 
-
-
 router.get('/', faqControllers.getFAQs);
 
 router.use(authController.protect);
