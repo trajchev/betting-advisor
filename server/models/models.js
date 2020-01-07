@@ -10,10 +10,14 @@ const H2H = require('./odd/h2h.model');
 const Recruits = require('./recruits/recruits.model');
 const FAQ = require('./faq/faq.model');
 const Ticket = require('./ticket/ticket.model');
+const Match2Ticket = require('./match2ticket/match2ticket.model');
 
 // Defining the relationships
 Sport.hasMany(Match);
 User.hasMany(Ticket);
+Match2Ticket.belongsTo(User, {foreignKey: 'user_id', targetKey: 'id'});
+Match2Ticket.belongsTo(Ticket, {foreignKey: 'ticket_id', targetKey: 'id'});
+Match2Ticket.hasMany(SavedMatch);
 Ticket.belongsTo(User, {foreignKey: 'user_id', targetKey: 'id'});
 Sport.hasMany(Team);
 Match.belongsTo(Sport, {foreignKey: 'sport_key', targetKey: 'key'});
@@ -49,5 +53,6 @@ module.exports = {
     User,
     SavedMatch,
     Recruits,
-    Ticket
+    Ticket,
+    Match2Ticket
 };
