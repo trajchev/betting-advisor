@@ -1,4 +1,4 @@
-// const factory = require('../handlers/handlerFactory');
+const factory = require('../handlers/handlerFactory');
 const Ticket = require('../../models/models').Ticket;
 const catchAsync = require('../../utils/catchAsync');
 
@@ -17,10 +17,13 @@ const createTicket = catchAsync(async (req, res, next) => {
         data: ticket
     });
 
-})
+});
+
+const deleteTicket = factory.deleteOne(Ticket);
 
 module.exports = {
 
-    createTicket
+    createTicket,
+    deleteTicket
 
 };
