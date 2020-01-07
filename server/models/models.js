@@ -18,6 +18,7 @@ User.hasMany(Ticket);
 Match2Ticket.belongsTo(User, {foreignKey: 'user_id', targetKey: 'id'});
 Match2Ticket.belongsTo(Ticket, {foreignKey: 'ticket_id', targetKey: 'id'});
 Match2Ticket.hasMany(SavedMatch);
+Ticket.hasMany(Match2Ticket);
 Ticket.belongsTo(User, {foreignKey: 'user_id', targetKey: 'id'});
 Sport.hasMany(Team);
 Match.belongsTo(Sport, {foreignKey: 'sport_key', targetKey: 'key'});

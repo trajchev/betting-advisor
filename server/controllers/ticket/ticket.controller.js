@@ -1,6 +1,9 @@
 const factory = require('../handlers/handlerFactory');
-const Ticket = require('../../models/models').Ticket;
+const models = require('../../models/models');
 const catchAsync = require('../../utils/catchAsync');
+
+const Ticket = models.Ticket;
+const Match2Ticket = models.Match2Ticket;
 
 const createTicket = catchAsync(async (req, res, next) => {
 
@@ -20,7 +23,7 @@ const createTicket = catchAsync(async (req, res, next) => {
 });
 
 const deleteTicket = factory.deleteOne(Ticket);
-const getTicket = factory.getOne(Ticket);
+const getTicket = factory.getOneAssoc(Ticket, Match2Ticket, 'match2tickets');
 const getTickets = factory.getAll(Ticket);
 const updateTicket = factory.updateOne(Ticket);
 
