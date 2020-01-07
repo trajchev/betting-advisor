@@ -20,10 +20,16 @@ const createTicket = catchAsync(async (req, res, next) => {
 });
 
 const deleteTicket = factory.deleteOne(Ticket);
+const getTicket = factory.getOne(Ticket);
+const getTickets = factory.getAll(Ticket);
+const updateTicket = factory.updateOne(Ticket);
 
 module.exports = {
 
     createTicket,
-    deleteTicket
+    deleteTicket,
+    getTicket,
+    getTickets,
+    updateTicket
 
 };
