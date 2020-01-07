@@ -11,10 +11,7 @@ router.get('/', faqControllers.getFAQs);
 
 router.use(authController.protect);
 router.use(authController.restrictTo('admin'));
-
-
 router.post('/', faqControllers.createFAQ);
-
 router.route('/:id')
     .get(faqControllers.getFAQ)
     .patch(faqControllers.updateFAQ)

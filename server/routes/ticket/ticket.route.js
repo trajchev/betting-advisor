@@ -10,13 +10,16 @@ const router = express.Router({mergeParams: true});
 
 router.use(authController.protect);
 
-router.get('/', ticketController.getTickets);
-router.get('/:id', ticketController.getTicket);
+router.route('/')
+    .get(ticketController.getTickets)
+    .post(ticketController.createTicket)
+    
+router.route('/:id')
+    .get(ticketController.getTicket)
+    .patch(ticketController.updateTicket)
+    .delete(ticketController.deleteTicket)
+
 router.post('/match', match2ticketController.match2ticket);
 router.delete('/match/:id', match2ticketController.removeMatchFromTicket);
-router.patch('/:id', ticketController.updateTicket);
-router.post('/', ticketController.createTicket);
-
-router.delete('/:id', ticketController.deleteTicket);
 
 module.exports = router;

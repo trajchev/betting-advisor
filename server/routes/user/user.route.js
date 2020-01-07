@@ -1,8 +1,6 @@
 const express = require('express');
 
 const controllers = require('../../controllers/controllers');
-
-// const User = models.User;
 const userController = controllers.user;
 const authController = controllers.auth;
 
