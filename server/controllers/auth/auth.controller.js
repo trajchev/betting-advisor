@@ -46,7 +46,7 @@ const signup = catchAsync(async (req, res, next) => {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        passwordConfirm: req.body.passwordConfirm
+        password_confirm: req.body.password_confirm
     });
 
     // Check if we have a referral
@@ -57,8 +57,8 @@ const signup = catchAsync(async (req, res, next) => {
 
             // If we have a referral, save the relationship
             const recruit = await Recruits.create({
-                recruiterId: user.id,
-                recruitId: newUser.id
+                recruiter_id: user.id,
+                recruit_id: newUser.id
             });
 
         }
@@ -190,8 +190,8 @@ const forgotPassword = catchAsync(async (req, res, next) => {
 
     } catch (err) {
 
-        user.passwordResetToken = undefined;
-        user.passwordResetExpires = undefined;
+        user.password_reset_token = undefined;
+        user.password_reset_expires = undefined;
         await user.save();
 
         return next(new BAError('There was an error sending email, try later', 500));
@@ -204,10 +204,10 @@ const resetPassword = catchAsync(async (req, res, next) => {
 
     // 1. Get user based on token
     const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
-    const user = await User.findOne({where: {passwordResetToken: hashedToken}});
+    const user = await User.findOne({where: {password_reset_token: hashedToken}});
 
     // 2. If token has not expired set the new password
-    if (!user || !user.passwordResetToken) {
+    if (!user || !user.password_reset_token) {
 
         res.json({
             status: 'fail',
@@ -219,11 +219,11 @@ const resetPassword = catchAsync(async (req, res, next) => {
     }
 
     user.password = req.body.password
-    user.passwordConfirm = req.body.passwordConfirm
+    user.password_confirm = req.body.password_confirm
 
     // 3. Update changedPasswordAt
-    user.passwordResetToken = null;
-    user.passwordResetExpires = null;
+    user.password_reset_token = null;
+    user.password_reset_expires = null;
     await user.save();
 
     // 4. Log the user in, sent JWT
@@ -237,13 +237,13 @@ const updatePassword = catchAsync(async (req, res, next) => {
     const user = await User.findOne({where: {id: req.user.id}});
 
     // 2. Check if posted pass is correct
-    if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {
+    if (!(await user.correctPassword(req.body.password_current, user.password))) {
         return next(new BAError('Your current password is wrong', 401))
     }
 
     // 3. If pass is correct update password
     user.password = req.body.password;
-    user.passwordConfirm = req.body.passwordConfirm;
+    user.password_confirm = req.body.password_confirm;
     await user.save();
 
     // 4. Log user In, send JWT
@@ -253,13 +253,13 @@ const updatePassword = catchAsync(async (req, res, next) => {
 
 module.exports = {
 
-    signup,
     login,
     logout,
+    signup,
     protect,
     restrictTo,
-    forgotPassword,
     resetPassword,
-    updatePassword
-    
+    updatePassword,
+    forgotPassword,
+
 };

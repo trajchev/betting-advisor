@@ -32,15 +32,18 @@ const updateOne = Model => catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        data: {
-            data: doc
-        }
+        data: doc
     });
+
 });
 
 const createOne = Model => catchAsync(async (req, res, next) => {
 
-    const doc = new Model(req.body).save();
+    const doc = await Model(req.body).save();
+
+    if ( !doc ) {
+        return next(new BAError('The document could not be created', 404));
+    }
 
     res.status(201).json({
         status: 'success',
@@ -49,12 +52,9 @@ const createOne = Model => catchAsync(async (req, res, next) => {
 
 });
 
-const createOneAssoc = Model => catchAsync(async (req, res, next) => {
+const createUserAsset = Model => catchAsync(async (req, res, next) => {
 
-    const userId = +req.user.id;
-    const docId = +req.body.docId;
-
-    const doc = await Model.create({userId, matchId: docId});
+    const doc = await new Model({user_id: +req.user.id,  ...req.body}).save();
 
     if (!doc) {
         return next(new BAError('The document could not be created', 404));
@@ -62,12 +62,10 @@ const createOneAssoc = Model => catchAsync(async (req, res, next) => {
 
     res.status(201).json({
         status: 'success',
-        data: {
-            data: doc
-        }
+        data: doc
     });
 
-})
+});
 
 const getOne = Model => catchAsync(async (req, res, next) => {
 
@@ -159,9 +157,9 @@ const getAll = Model => catchAsync(async (req, res, next) => {
         docs.forEach(singleDoc => {
             if (singleDoc.password) {
                 singleDoc.password = undefined;
-                singleDoc.passwordConfirm = undefined;
-                singleDoc.passwordResetToken = undefined;
-                singleDoc.passwordResetExpires = undefined;
+                singleDoc.password_confirm = undefined;
+                singleDoc.password_reset_token = undefined;
+                singleDoc.password_reset_expires = undefined;
             }
         });
     }
@@ -180,7 +178,6 @@ const getAll = Model => catchAsync(async (req, res, next) => {
 
 module.exports = {
     createOne,
-    createOneAssoc,
     getOne,
     getOneAssoc,
     getAssocSite,
@@ -188,4 +185,5 @@ module.exports = {
     getAllPublic,
     updateOne,
     deleteOne,
+    createUserAsset
 }

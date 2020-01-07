@@ -46,12 +46,8 @@ const filterObj = (obj, ...allowedFields) => {
 }
 
 const uploadUserPhoto = upload.single('photo');
-
 const getUser = factory.getOne(User);
-
-// Do not update password with this
 const updateUser = factory.updateOne(User);
-
 const getAllUsers = factory.getAll(User);
 
 const deleteUser = catchAsync(async (req, res, next) => {
