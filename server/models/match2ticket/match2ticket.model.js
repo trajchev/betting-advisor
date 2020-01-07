@@ -13,7 +13,7 @@ Match2Ticket.init({
         type: Sequilize.INTEGER,
         allowNull: false,
     },
-    saved_match_id: {
+    match_id: {
         type: Sequilize.INTEGER,
         allowNull: false,
     },

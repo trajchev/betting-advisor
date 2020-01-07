@@ -12,7 +12,7 @@ const match2ticket = catchAsync(async (req, res, next) => {
     const match2ticket = await Match2Ticket.create({
         user_id, 
         ticket_id: req.body.ticket_id, 
-        saved_match_id: req.body.saved_match_id
+        match_id: req.body.match_id
     });
 
     if (!match2ticket) {

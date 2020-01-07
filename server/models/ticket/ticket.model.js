@@ -14,7 +14,7 @@ Ticket.init({
     },
     title: {
         type: Sequilize.STRING,
-        defaultValue: Date.now().toString()
+        defaultValue: 'Ticket ' + Date.now().toString()
     },
     user_id: {
         type: Sequilize.INTEGER,
