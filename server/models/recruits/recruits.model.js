@@ -5,11 +5,11 @@ const sequelize = require('../../utils/db');
 class Recruits extends Sequilize.Model {}
 // Create the match model using the sequelize package
 Recruits.init({
-    recruiterId: {
+    recruiter_id: {
         type: Sequilize.INTEGER,
         allowNull: false,
     },
-    recruitId: {
+    recruit_id: {
         type: Sequilize.INTEGER,
         unique: true,
         allowNull: false,
