@@ -1,21 +1,22 @@
-<div class="w3-container w3-quarter">
-  <div *ngIf="user.photo" class="profile-image-container">
-    <img [src]="user.photo" [alt]="user.username">
+<div class="card-col">
+  <div class="w3-container w3-half">
+    <div *ngIf="user.photo" class="profile-image-container">
+      <img [src]="user.photo" [alt]="user.username">
+    </div>
+    <div class="w3-card card">
+      <p>Username <span class="w3-text-white">{{user.username}}</span></p>
+      <p>Email <span class="w3-text-white">{{user.email}}</span></p>
+      <p>Password <span class="w3-text-white">***</span></p>
+      <p>Joined <span class="w3-text-white">{{user.createdAt | date : short}}</span></p>
+      <p>Updated <span class="w3-text-white">{{user.updatedAt | date : short}}</span></p>
+    </div>
+    <a mat-stroked-button class="width-full" color="primary" (click)="openDialog()">Edit</a>
   </div>
-  <div class="w3-card card">
-    <p>Username <span class="w3-text-white">{{user.username}}</span></p>
-    <p>Email <span class="w3-text-white">{{user.email}}</span></p>
-    <p>Password <span class="w3-text-white">***</span></p>
-    <p>Joined <span class="w3-text-white">{{user.createdAt | date : short}}</span></p>
-    <p>Updated <span class="w3-text-white">{{user.updatedAt | date : short}}</span></p>
-  </div>
-  <a mat-stroked-button class="width-full" color="primary">Edit</a>
-</div>
-<div class="w3-container w3-quarter card-col" *ngIf="tickets">
-  <h2 class="h5 w3-center">Latest Tickets</h2>
-
-  <app-ticket *ngFor="let ticket of tickets" [ticket]="ticket"></app-ticket>
+  <div class="w3-container w3-half" *ngIf="tickets">
+    <h2 class="h5 w3-center">Latest Tickets</h2>
   
-  <a mat-stroked-button class="width-full" routerLink="/tickets" color="primary">See All</a>
+    <app-ticket *ngFor="let ticket of tickets" [ticket]="ticket"></app-ticket>
+    
+    <a mat-stroked-button class="width-full" routerLink="/tickets" color="primary">See All</a>
+  </div>
 </div>
-<div class="w3-container w3-quarter"></div>

@@ -17,6 +17,8 @@ import { TicketComponent } from './tickets/ticket/ticket.component';
 import { MatchComponent } from './match/match.component';
 import { MsToDatePipe } from '../pipes/ms-to-date.pipe';
 import { UserRoutingModule } from './user-routing.module';
+import { InfoModalComponent } from './info-modal/info-modal.component';
+import { EditComponent } from './user/edit/edit.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +32,9 @@ import { UserRoutingModule } from './user-routing.module';
         TicketsComponent,
         TicketComponent,
         MatchComponent,
-        MsToDatePipe
+        MsToDatePipe,
+        InfoModalComponent,
+        EditComponent
     ],
     imports: [
         UserRoutingModule,
@@ -39,6 +43,10 @@ import { UserRoutingModule } from './user-routing.module';
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+    ],
+    entryComponents: [
+        InfoModalComponent,
+        EditComponent
     ]
 })
 export class UserModule { }

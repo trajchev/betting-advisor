@@ -16,6 +16,11 @@ const BAError = require('./utils/BAError');
 const userRoutes = routes.user;
 const leagueRoutes = routes.league;
 const matchRoutes = routes.match;
+const siteRoutes = routes.site;
+const teamRoutes = routes.team;
+const faqRoutes = routes.faq;
+const homeRoutes = routes.home;
+const ticketRoutes = routes.ticket;
 const cronJob = require('./utils/cron');
 
 const app = express();
@@ -55,7 +60,7 @@ app.enable('trust proxy');
     // Prevent XSS
     app.use(xss());
 
-    // Preven parameter pollution
+    // Prevent parameter pollution
     app.use(
         hpp({
             whitelist: [
@@ -80,14 +85,19 @@ app.enable('trust proxy');
     });
 
     // Execute defined cron jobs
-    cronJob.sports;
-    cronJob.matches;
-    // cronJob.matches;
+    // cronJob.getSports;
+    // cronJob.getMatches();
+    // cronJob.getSports();
 
 // 2. ROUTES
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/leagues', leagueRoutes);
 app.use('/api/v1/matches', matchRoutes);
+app.use('/api/v1/sites', siteRoutes);
+app.use('/api/v1/teams', teamRoutes);
+app.use('/api/v1/faq', faqRoutes);
+app.use('/api/v1/home', homeRoutes);
+app.use('/api/v1/tickets', ticketRoutes);
 
 app.all('*', (req, res, next) => {
     next(new BAError(`Can't find ${req.originalUrl} on this server!`, 404));

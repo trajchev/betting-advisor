@@ -1,5 +1,8 @@
 const axios = require('axios');
 
+const fs = require('fs');
+const path = require('path');
+
 const models = require('../../models/models');
 
 const Sport = models.Sport;
@@ -19,9 +22,9 @@ const pullSports = () => {
 
                     const sport = new Sport({
                         key: dataObj.key,
-                        active: dataObj.active,
+                        active: dataObj.active || false,
                         group: dataObj.group,
-                        details: dataObj.details,
+                        details: escape(dataObj.details),
                         title: dataObj.title,
                     });
 
@@ -30,14 +33,46 @@ const pullSports = () => {
                 }
             })
             .catch(err => {
-                console.log('Error status', err.response.status);
+                console.log('Error status', err);
             });
         })
     
     })
     .catch(err => {
-        console.log('Error status', err.response.status);
+        console.log('Error status', err);
     });
 };
 
-module.exports = pullSports;
+const getSports = () => {
+    const sportsPath = path.join(__dirname, '/sports.json')
+    const rawSports = fs.readFileSync(sportsPath, (error, data) => {
+        if (error) {
+            return new Error(error);
+        }
+    });
+
+    const sports = JSON.parse(rawSports);
+
+    sports.data.forEach(sportObj => {
+        Sport.findOrCreate({where: {
+            key: sportObj.key,
+            active: sportObj.active || false,
+            group: sportObj.group,
+            details: sportObj.details.replace(/[^0-9a-z- ]/gi, ''),
+            title: sportObj.title,
+        }})
+        .then(([sport, created]) => {
+            if (created) {
+                console.log('SPORT Created');
+            }
+        })
+        .catch(err => {
+            console.log('Error status', err);
+            return new Error(err);
+        });
+        
+    });
+    
+};
+
+module.exports = { pullSports, getSports };

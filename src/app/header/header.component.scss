@@ -1,10 +1,12 @@
 mat-toolbar {
     border-bottom: 1px solid #36507f;
-    background: linear-gradient(#0d1c26, #101829) no-repeat;
+    // background: linear-gradient(#0d1c26, #101829) no-repeat;
+    background-color: #101829;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    z-index: 99;
 }
 
 .fill-space {

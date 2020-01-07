@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
+import { SavedGame } from './league/league-match/saved-match.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,16 @@ export class LeagueService {
       );
   }
 
+  fetchSportsOfGroup(group: string): Observable<any> {
+    return this.http
+      .get(`${environment.apiUrl}/leagues/${group}`)
+      .pipe(
+        catchError(error => {
+          return [];
+        })
+      );
+  }
+
   fetchMatches(sportKey: string): Observable<any> {
     return this.http
       .get(`${environment.apiUrl}/matches/${sportKey}`)
@@ -32,9 +43,9 @@ export class LeagueService {
       );
   }
 
-  fetchMatch(sportKey: string, id: number): Observable<any> {
+  fetchMatch(sportKey: string, id: number, oddType: string): Observable<any> {
     return this.http
-      .get(`${environment.apiUrl}/matches/${sportKey}/${id}`)
+      .get(`${environment.apiUrl}/matches/${sportKey}/${id}/${oddType}`)
       .pipe(
         catchError(error => {
           return [];
@@ -43,24 +54,11 @@ export class LeagueService {
   }
 
   addToTickets(matchId: number) {
-    const match = {matchId: matchId};
-    this.http.post<{message: string; matchId: string}>(`${environment.apiUrl}/matches/`, match)
-    .subscribe(
-      (response) => {
-        // console.log(response);
-      }
-    );
+    const match = {docId: matchId};
+    return this.http.post<SavedGame>(`${environment.apiUrl}/matches/`, match);
   }
 
-  // Error handler
-  handleError(error) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    window.alert(errorMessage);
-    return throwError(errorMessage);
+  deleteTicket(id: number) {
+    return this.http.delete(`${environment.apiUrl}/matches/${id}`);
   }
 }

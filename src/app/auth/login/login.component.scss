@@ -18,6 +18,13 @@ mat-spinner {
 
 mat-form-field {
     width: 100%;
+    mat-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        fill: #777;
+        cursor: pointer;
+    }
 }
 
 button {

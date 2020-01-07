@@ -2,18 +2,21 @@ const Sequilize = require('sequelize');
 
 const sequelize = require('../../utils/db');
 
-class SavedMatch extends Sequilize.Model {}
+class Match2Ticket extends Sequilize.Model {}
 // Create the match model using the sequelize package
-SavedMatch.init({
-    userId: {
+Match2Ticket.init({
+    user_id: {
         type: Sequilize.INTEGER,
         allowNull: false,
     },
-    matchId: {
+    ticket_id: {
         type: Sequilize.INTEGER,
-        unique: true,
         allowNull: false,
     },
-}, {sequelize, underscored: true, modelName: 'savedMatch'});
+    match_id: {
+        type: Sequilize.INTEGER,
+        allowNull: false,
+    },
+}, {sequelize, underscored: true, modelName: 'match2ticket'});
 
-module.exports = SavedMatch;
+module.exports = Match2Ticket;

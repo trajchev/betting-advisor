@@ -1,0 +1,805 @@
+{
+    "success": true,
+    "data": [
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Brighton and Hove Albion",
+                "Crystal Palace"
+            ],
+            "commence_time": 1576525500,
+            "home_team": "Crystal Palace",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.144,
+                                5.45
+                            ],
+                            "points": [
+                                "1.5",
+                                "-1.5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.55248,
+                                2.71
+                            ],
+                            "points": [
+                                "0.5",
+                                "-0.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 2
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Arsenal",
+                "Everton"
+            ],
+            "commence_time": 1576931400,
+            "home_team": "Everton",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.2,
+                                4.44
+                            ],
+                            "points": [
+                                "1.5",
+                                "-1.5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                2.13,
+                                1.813
+                            ],
+                            "points": [
+                                "0.0",
+                                "0.0"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 2
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Crystal Palace",
+                "Newcastle United"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Newcastle United",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.136,
+                                5.65
+                            ],
+                            "points": [
+                                "1.5",
+                                "-1.5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                2.06,
+                                1.87719
+                            ],
+                            "points": [
+                                "0",
+                                "0"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 2
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Aston Villa",
+                "Southampton"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Aston Villa",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                4.2,
+                                1.22
+                            ],
+                            "points": [
+                                "-1.5",
+                                "1.5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.76335,
+                                2.2
+                            ],
+                            "points": [
+                                "0",
+                                "0"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 2
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Bournemouth",
+                "Burnley"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Bournemouth",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                4.2,
+                                1.22
+                            ],
+                            "points": [
+                                "-1.5",
+                                "1.5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.66225,
+                                2.36
+                            ],
+                            "points": [
+                                "0",
+                                "0"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 2
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Brighton and Hove Albion",
+                "Sheffield United"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Brighton and Hove Albion",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                4.54,
+                                1.19
+                            ],
+                            "points": [
+                                "-1.5",
+                                "1.5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.66225,
+                                2.36
+                            ],
+                            "points": [
+                                "0",
+                                "0"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 2
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Norwich City",
+                "Wolverhampton Wanderers"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Norwich City",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.31,
+                                3.38
+                            ],
+                            "points": [
+                                "1.5",
+                                "-1.5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.95238,
+                                1.98039
+                            ],
+                            "points": [
+                                "0.5",
+                                "-0.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 2
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Leicester City",
+                "Manchester City"
+            ],
+            "commence_time": 1576949400,
+            "home_team": "Manchester City",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.84,
+                                2.11
+                            ],
+                            "points": [
+                                "1.5",
+                                "-1.5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                2,
+                                1.37313
+                            ],
+                            "points": [
+                                "1",
+                                "-1"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 2
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Manchester United",
+                "Watford"
+            ],
+            "commence_time": 1577023200,
+            "home_team": "Watford",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                3.26,
+                                1.36
+                            ],
+                            "points": [
+                                "-1.5",
+                                "1.5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.82644,
+                                2.12
+                            ],
+                            "points": [
+                                "-0.5",
+                                "0.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 2
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Chelsea",
+                "Tottenham Hotspur"
+            ],
+            "commence_time": 1577032200,
+            "home_team": "Tottenham Hotspur",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.2,
+                                4.44
+                            ],
+                            "points": [
+                                "1.5",
+                                "-1.5"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "matchbook",
+                    "site_nice": "Matchbook",
+                    "last_update": 1576501095,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                2.09,
+                                1.84033
+                            ],
+                            "points": [
+                                "0.0",
+                                "0.0"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 2
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Brighton and Hove Albion",
+                "Tottenham Hotspur"
+            ],
+            "commence_time": 1577363400,
+            "home_team": "Tottenham Hotspur",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.71,
+                                2.31
+                            ],
+                            "points": [
+                                "1.5",
+                                "-1.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Crystal Palace",
+                "West Ham United"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Crystal Palace",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                3.78,
+                                1.26
+                            ],
+                            "points": [
+                                "-1.5",
+                                "1.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Aston Villa",
+                "Norwich City"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Aston Villa",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                3.38,
+                                1.31
+                            ],
+                            "points": [
+                                "-1.5",
+                                "1.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Chelsea",
+                "Southampton"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Chelsea",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                2,
+                                1.93
+                            ],
+                            "points": [
+                                "-1.5",
+                                "1.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Arsenal",
+                "Bournemouth"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Bournemouth",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                3.32,
+                                1.35
+                            ],
+                            "points": [
+                                "-1.5",
+                                "1.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Burnley",
+                "Everton"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Everton",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.42,
+                                2.96
+                            ],
+                            "points": [
+                                "1.5",
+                                "-1.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Sheffield United",
+                "Watford"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Sheffield United",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                3.66,
+                                1.3
+                            ],
+                            "points": [
+                                "-1.5",
+                                "1.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Manchester United",
+                "Newcastle United"
+            ],
+            "commence_time": 1577381400,
+            "home_team": "Manchester United",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                2.09,
+                                1.86
+                            ],
+                            "points": [
+                                "-1.5",
+                                "1.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Leicester City",
+                "Liverpool"
+            ],
+            "commence_time": 1577390400,
+            "home_team": "Leicester City",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.24,
+                                3.96
+                            ],
+                            "points": [
+                                "1.5",
+                                "-1.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Manchester City",
+                "Wolverhampton Wanderers"
+            ],
+            "commence_time": 1577475900,
+            "home_team": "Wolverhampton Wanderers",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                2.15,
+                                1.81
+                            ],
+                            "points": [
+                                "-1.5",
+                                "1.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Arsenal",
+                "Chelsea"
+            ],
+            "commence_time": 1577628000,
+            "home_team": "Arsenal",
+            "sites": [
+                {
+                    "site_key": "onexbet",
+                    "site_nice": "1xBet",
+                    "last_update": 1576501194,
+                    "odds": {
+                        "spreads": {
+                            "odds": [
+                                1.185,
+                                4.6
+                            ],
+                            "points": [
+                                "1.5",
+                                "-1.5"
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 1
+        }
+    ]
+}

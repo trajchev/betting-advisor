@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { AuthService } from '../auth.service';
 import { Subscription } from 'rxjs';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -15,22 +17,26 @@ export class LoginComponent implements OnInit, OnDestroy {
   isLoading = false;
   private authStatusSub: Subscription;
 
+  private hide = true;
+
+  private authCredentialsOK = true;
+
   // create the form using reactive forms
   loginUserForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
   });
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) { 
+    iconRegistry.addSvgIcon(
+      'visibility',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/images/icons/visibility.svg'));
+   }
 
   ngOnInit() {
     this.authStatusSub = this.authService.getAuthStatusListener().subscribe(authStatus => {
-      this.isLoading = false;
+      this.isLoading = authStatus;
     });
-  }
-
-  ngOnDestroy() {
-    this.authStatusSub.unsubscribe();
   }
 
   onUserLogin() {
@@ -43,7 +49,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
     this.isLoading = true;
     this.authService.login(email, password);
+    this.authCredentialsOK = this.authService.authCredentialsOK;
     this.loginUserForm.reset();
+  }
+
+  ngOnDestroy() {
+    this.authStatusSub.unsubscribe();
   }
 
 }

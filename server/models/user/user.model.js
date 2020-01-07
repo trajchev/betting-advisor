@@ -60,16 +60,13 @@ User.init({
                 } 
             }
         },
-        passwordConfirm: {
+        password_confirm: {
             type: Sequilize.STRING
         },
-        passwordResetToken: {
+        password_reset_token: {
             type: Sequilize.STRING
         },
-        passwordResetToken: {
-            type: Sequilize.STRING
-        },
-        passwordResetExpires: {
+        password_reset_expires: {
             type: Sequilize.DATE
         },
         active: {
@@ -85,9 +82,9 @@ User.init({
 
 User.addHook('beforeSave', async (user, options) => {
 
-    if (user.password === user.passwordConfirm) {
+    if (user.password === user.password_onfirm) {
         user.password = await bcrypt.hash(user.password, 10);
-        user.passwordConfirm = true;
+        user.password_confirm = true;
     } else {
         return new BAError('Password and password confirm do not match', 401);
     }
@@ -96,7 +93,7 @@ User.addHook('beforeSave', async (user, options) => {
 
 User.addHook('beforeSave', user => {
 
-    user.passwordChangedAt = Date.now() - 1000;
+    user.password_changedAt = Date.now() - 1000;
     
 });
 
@@ -118,8 +115,8 @@ User.prototype.changedPassAfter = function(JWTTimestamp) {
 User.prototype.createPasswordResetToken = function() {
 
     const resetToken = crypto.randomBytes(32).toString('hex');
-    this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
-    this.passwordResetExpires = Date.now() + process.env.PASSWORD_RESET_EXPIRES_IN;
+    this.password_reset_token = crypto.createHash('sha256').update(resetToken).digest('hex');
+    this.password_reset_expires = Date.now() + process.env.PASSWORD_RESET_EXPIRES_IN * 1;
     return resetToken;
 
 }

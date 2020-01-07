@@ -1,0 +1,25 @@
+.w3-container {
+    background-image: url('../../assets/images/backgrounds/dice-mobile.jpg');
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center center;
+    background-size: contain;
+}
+
+.home-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(16, 24, 41, .7);
+}
+
+@media screen and ( min-width: 768px) {
+
+    .w3-container {
+        background-image: url('../../assets/images/backgrounds/dice.jpg');
+        background-size: cover;
+    }
+    
+}

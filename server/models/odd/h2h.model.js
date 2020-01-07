@@ -1,9 +1,9 @@
 const Sequilize = require('sequelize');
 const sequelize = require('../../utils/db');
 
-class Odd extends Sequilize.Model {}
+class H2H extends Sequilize.Model {}
 // Create the sport model using the sequelize package
-Odd.init(
+H2H.init(
     {
         id: {
             type: Sequilize.INTEGER,
@@ -16,15 +16,15 @@ Odd.init(
             type: Sequilize.STRING,
             allowNull: false,
         },
-        home_team: {
+        odds_home: {
             type: Sequilize.DOUBLE(10, 2),
             allowNull: false,
         },
-        draw: {
+        odds_draw: {
             type: Sequilize.DOUBLE(10, 2),
             allowNull: false,
         },
-        away_team: {
+        odds_away: {
             type: Sequilize.DOUBLE(10, 2),
             allowNull: false,
         },
@@ -32,7 +32,11 @@ Odd.init(
             type: Sequilize.INTEGER,
             allowNull: false,
         },
+        site_id: {
+            type: Sequilize.INTEGER,
+            allowNull: false
+        }
     },
-{underscored: true, sequelize, modelName: 'odd'});
+{underscored: true, freezeTableName: true, sequelize, modelName: 'h2h'});
 
-module.exports = Odd;
+module.exports = H2H;

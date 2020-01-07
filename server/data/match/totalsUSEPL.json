@@ -1,0 +1,2335 @@
+{
+    "success": true,
+    "data": [
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Brighton and Hove Albion",
+                "Crystal Palace"
+            ],
+            "commence_time": 1576525500,
+            "home_team": "Crystal Palace",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.826,
+                                1.926
+                            ],
+                            "points": [
+                                2.3,
+                                2.3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.15,
+                                1.714286
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.86957,
+                                1.95238
+                            ],
+                            "points": [
+                                2.25,
+                                2.25
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.86957,
+                                1.95238
+                            ],
+                            "points": [
+                                2.25,
+                                2.25
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "gtbets",
+                    "site_nice": "GTbets",
+                    "last_update": 1576501109,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.11,
+                                1.741
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bookmaker",
+                    "site_nice": "Bookmaker",
+                    "last_update": 1576501017,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.862,
+                                1.962
+                            ],
+                            "points": [
+                                2.25,
+                                2.25
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 6
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Arsenal",
+                "Everton"
+            ],
+            "commence_time": 1576931400,
+            "home_team": "Everton",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.893,
+                                1.855
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.952381,
+                                1.87
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.98039,
+                                1.84746
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.98039,
+                                1.84746
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "gtbets",
+                    "site_nice": "GTbets",
+                    "last_update": 1576501109,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.588,
+                                2.38
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bookmaker",
+                    "site_nice": "Bookmaker",
+                    "last_update": 1576501017,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.926,
+                                1.877
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 6
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Crystal Palace",
+                "Newcastle United"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Newcastle United",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.763,
+                                2
+                            ],
+                            "points": [
+                                2,
+                                2
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.83333,
+                                2
+                            ],
+                            "points": [
+                                2,
+                                2
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.83333,
+                                2
+                            ],
+                            "points": [
+                                2,
+                                2
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.8,
+                                2.05
+                            ],
+                            "points": [
+                                2,
+                                2
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "gtbets",
+                    "site_nice": "GTbets",
+                    "last_update": 1576501109,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.44,
+                                1.568
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 5
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Aston Villa",
+                "Southampton"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Aston Villa",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.99,
+                                1.763
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.83333,
+                                2
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.83333,
+                                2
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.05,
+                                1.77
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "gtbets",
+                    "site_nice": "GTbets",
+                    "last_update": 1576501109,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.641,
+                                2.26
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bookmaker",
+                    "site_nice": "Bookmaker",
+                    "last_update": 1576501017,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.8,
+                                2.03
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 6
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Bournemouth",
+                "Burnley"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Bournemouth",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.813,
+                                1.943
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.87719,
+                                1.9434
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.87719,
+                                1.9434
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.833333,
+                                2
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "gtbets",
+                    "site_nice": "GTbets",
+                    "last_update": 1576501109,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.862,
+                                1.952
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bookmaker",
+                    "site_nice": "Bookmaker",
+                    "last_update": 1576501017,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.84,
+                                1.98
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 6
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Brighton and Hove Albion",
+                "Sheffield United"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Brighton and Hove Albion",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.855,
+                                1.893
+                            ],
+                            "points": [
+                                2.3,
+                                2.3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.90909,
+                                1.90909
+                            ],
+                            "points": [
+                                2.25,
+                                2.25
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.90909,
+                                1.90909
+                            ],
+                            "points": [
+                                2.25,
+                                2.25
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.2,
+                                1.69
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "gtbets",
+                    "site_nice": "GTbets",
+                    "last_update": 1576501109,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.21,
+                                1.69
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 5
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Norwich City",
+                "Wolverhampton Wanderers"
+            ],
+            "commence_time": 1576940400,
+            "home_team": "Norwich City",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.901,
+                                1.84
+                            ],
+                            "points": [
+                                2.8,
+                                2.8
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.98039,
+                                1.84746
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.98039,
+                                1.84746
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.77,
+                                2.05
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "gtbets",
+                    "site_nice": "GTbets",
+                    "last_update": 1576501109,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.752,
+                                2.08
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bookmaker",
+                    "site_nice": "Bookmaker",
+                    "last_update": 1576501017,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.943,
+                                1.87
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 6
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Leicester City",
+                "Manchester City"
+            ],
+            "commence_time": 1576949400,
+            "home_team": "Manchester City",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.926,
+                                1.826
+                            ],
+                            "points": [
+                                3.3,
+                                3.3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.741,
+                                2.1
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2,
+                                1.83333
+                            ],
+                            "points": [
+                                3.25,
+                                3.25
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2,
+                                1.83333
+                            ],
+                            "points": [
+                                3.25,
+                                3.25
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "gtbets",
+                    "site_nice": "GTbets",
+                    "last_update": 1576501109,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.19,
+                                1.676
+                            ],
+                            "points": [
+                                3.5,
+                                3.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bookmaker",
+                    "site_nice": "Bookmaker",
+                    "last_update": 1576501017,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.962,
+                                1.847
+                            ],
+                            "points": [
+                                3.25,
+                                3.25
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 6
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Manchester United",
+                "Watford"
+            ],
+            "commence_time": 1577023200,
+            "home_team": "Watford",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.781,
+                                1.971
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.83333,
+                                2
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.83333,
+                                2
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.8,
+                                2
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "gtbets",
+                    "site_nice": "GTbets",
+                    "last_update": 1576501109,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.8,
+                                2
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bookmaker",
+                    "site_nice": "Bookmaker",
+                    "last_update": 1576501017,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.813,
+                                2.01
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 6
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Chelsea",
+                "Tottenham Hotspur"
+            ],
+            "commence_time": 1577032200,
+            "home_team": "Tottenham Hotspur",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.901,
+                                1.84
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.93458,
+                                1.88496
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.93458,
+                                1.88496
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.952381,
+                                1.87
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "gtbets",
+                    "site_nice": "GTbets",
+                    "last_update": 1576501109,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.592,
+                                2.4
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bookmaker",
+                    "site_nice": "Bookmaker",
+                    "last_update": 1576501017,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.926,
+                                1.877
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 6
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Brighton and Hove Albion",
+                "Tottenham Hotspur"
+            ],
+            "commence_time": 1577363400,
+            "home_team": "Tottenham Hotspur",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.877,
+                                1.84
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2,
+                                1.833333
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.95238,
+                                1.86957
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.95238,
+                                1.86957
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Crystal Palace",
+                "West Ham United"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Crystal Palace",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.8,
+                                1.917
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.87,
+                                1.952381
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.9009,
+                                1.91743
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.9009,
+                                1.91743
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Aston Villa",
+                "Norwich City"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Aston Villa",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.794,
+                                1.926
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.833333,
+                                2
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.86957,
+                                1.95238
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.86957,
+                                1.95238
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Chelsea",
+                "Southampton"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Chelsea",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.893,
+                                1.826
+                            ],
+                            "points": [
+                                3.3,
+                                3.3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.714286,
+                                2.1
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.98039,
+                                1.84746
+                            ],
+                            "points": [
+                                3.25,
+                                3.25
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.98039,
+                                1.84746
+                            ],
+                            "points": [
+                                3.25,
+                                3.25
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Arsenal",
+                "Bournemouth"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Bournemouth",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.935,
+                                1.781
+                            ],
+                            "points": [
+                                3.3,
+                                3.3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.77,
+                                2.05
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.06,
+                                1.79365
+                            ],
+                            "points": [
+                                3.25,
+                                3.25
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.06,
+                                1.79365
+                            ],
+                            "points": [
+                                3.25,
+                                3.25
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Burnley",
+                "Everton"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Everton",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.943,
+                                1.775
+                            ],
+                            "points": [
+                                2.8,
+                                2.8
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.8,
+                                2.05
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.02,
+                                1.81967
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.02,
+                                1.81967
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Sheffield United",
+                "Watford"
+            ],
+            "commence_time": 1577372400,
+            "home_team": "Sheffield United",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.763,
+                                1.952
+                            ],
+                            "points": [
+                                2.3,
+                                2.3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.05,
+                                1.741
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.12,
+                                1.75758
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.12,
+                                1.75758
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Manchester United",
+                "Newcastle United"
+            ],
+            "commence_time": 1577381400,
+            "home_team": "Manchester United",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.794,
+                                1.926
+                            ],
+                            "points": [
+                                2.8,
+                                2.8
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.1,
+                                1.714286
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.9009,
+                                1.91743
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.9009,
+                                1.91743
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Leicester City",
+                "Liverpool"
+            ],
+            "commence_time": 1577390400,
+            "home_team": "Leicester City",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.826,
+                                1.885
+                            ],
+                            "points": [
+                                2.8,
+                                2.8
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.69,
+                                2.15
+                            ],
+                            "points": [
+                                2.5,
+                                2.5
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.90909,
+                                1.90909
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.90909,
+                                1.90909
+                            ],
+                            "points": [
+                                2.75,
+                                2.75
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Manchester City",
+                "Wolverhampton Wanderers"
+            ],
+            "commence_time": 1577475900,
+            "home_team": "Wolverhampton Wanderers",
+            "sites": [
+                {
+                    "site_key": "mybookieag",
+                    "site_nice": "MyBookie.ag",
+                    "last_update": 1576501215,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                1.935,
+                                1.781
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "bovada",
+                    "site_nice": "Bovada",
+                    "last_update": 1576501377,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.05,
+                                1.8
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "betonlineag",
+                    "site_nice": "BetOnline.ag",
+                    "last_update": 1576501090,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.02,
+                                1.81967
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                },
+                {
+                    "site_key": "lowvig",
+                    "site_nice": "LowVig.ag",
+                    "last_update": 1576501029,
+                    "odds": {
+                        "totals": {
+                            "position": [
+                                "over",
+                                "under"
+                            ],
+                            "odds": [
+                                2.02,
+                                1.81967
+                            ],
+                            "points": [
+                                3,
+                                3
+                            ]
+                        }
+                    }
+                }
+            ],
+            "sites_count": 4
+        },
+        {
+            "sport_key": "soccer_epl",
+            "sport_nice": "EPL",
+            "teams": [
+                "Arsenal",
+                "Chelsea"
+            ],
+            "commence_time": 1577628000,
+            "home_team": "Arsenal",
+            "sites": [],
+            "sites_count": 0
+        }
+    ]
+}

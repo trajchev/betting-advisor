@@ -5,6 +5,8 @@ import { Subject } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 import { Auth } from './auth.model';
+import { ForgotPasswordResponse } from './forgot-password/forgot-password.model';
+import { ResetPasswordResponse } from './reset-password/reset-password.model';
 
 // get the API url
 const BACKEND_URL = environment.apiUrl;
@@ -57,12 +59,13 @@ export class AuthService {
   private isAuthenticated = false;
   private token: string;
   private tokenTimer: any;
+  authCredentialsOK: boolean;
 
   private authStatusListener = new Subject<boolean>();
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  // Retieve the token
+  // Retrieve the token
   getToken() {
     return this.token;
   }
@@ -118,9 +121,18 @@ export class AuthService {
           }
         },
         error => {
+          this.authCredentialsOK = false;
           this.authStatusListener.next(false);
         }
       );
+  }
+
+  forgotPassword(email: string) {
+    return this.http.post<ForgotPasswordResponse>(`${BACKEND_URL}/users/forgotPassword`, {email});
+  }
+
+  resetPassword(token: string, password: string, passwordConfirm: string) {
+    return this.http.patch<ResetPasswordResponse>(`${BACKEND_URL}/users/resetPassword/${token}`, {password, passwordConfirm});
   }
 
   // Clear auth data when expiration date/time runs out (1 hour)
