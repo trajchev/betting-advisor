@@ -12,7 +12,8 @@ router.use(authController.protect);
 
 router.get('/', ticketController.getTickets);
 router.get('/:id', ticketController.getTicket);
-router.post('/save-match', match2ticketController.match2ticket);
+router.post('/match', match2ticketController.match2ticket);
+router.delete('/match/:id', match2ticketController.removeMatchFromTicket);
 router.patch('/:id', ticketController.updateTicket);
 router.post('/', ticketController.createTicket);
 

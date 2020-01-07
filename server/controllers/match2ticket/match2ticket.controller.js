@@ -1,4 +1,5 @@
 const catchAsync = require('../../utils/catchAsync');
+const factory = require('../handlers/handlerFactory');
 const BAError = require('../../utils/BAError');
 const models = require('../../models/models');
 
@@ -25,8 +26,11 @@ const match2ticket = catchAsync(async (req, res, next) => {
 
 });
 
+const removeMatchFromTicket = factory.deleteOne(Match2Ticket);
+
 module.exports = {
 
-    match2ticket
+    match2ticket,
+    removeMatchFromTicket
 
 }
