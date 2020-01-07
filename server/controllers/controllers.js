@@ -8,5 +8,6 @@ const faq = require('./faq/faq.controller');
 const home = require('./home/home.controller');
 const saveMatch = require('./savedmatch/savedmatch.controller').saveMatch;
 const deleteMatch = require('./savedmatch/savedmatch.controller').deleteMatch;
+const ticket = require('./ticket/ticket.controller');
 
-module.exports = { league, match, user, auth, saveMatch, deleteMatch, site, team, faq, home};
+module.exports = { league, match, user, auth, saveMatch, deleteMatch, site, team, faq, home, ticket};

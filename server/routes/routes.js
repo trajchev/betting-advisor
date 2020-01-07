@@ -5,5 +5,6 @@ const site = require('./site/site.route');
 const team = require('./team/team.route');
 const faq = require('./faq/faq.route');
 const home = require('./home/home.route');
+const ticket = require('./ticket/ticket.route');
 
-module.exports =  { user, league, match, site, team, faq, home };
+module.exports =  { user, league, match, site, team, faq, home, ticket };
