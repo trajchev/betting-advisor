@@ -6,7 +6,8 @@
     "start": "nodemon ./server.js",
     "start:dev": "nodemon server.js",
     "start:prod": "NODE_ENV=production node server.js",
-    "test:server": "mocha './server/**/**/*.test.js'",
+    "test:server": "mocha './server/**/*.test.js' --recursive",
+    "test:dev": "cross-env NODE_ENV=development mocha './server/**/*.test.js' --recursive",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -57,7 +58,7 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.13.9",
+    "@angular-devkit/build-angular": "^0.803.23",
     "@angular/cli": "~7.1.4",
     "@angular/compiler-cli": "^7.2.15",
     "@angular/language-service": "~7.1.0",
@@ -66,6 +67,7 @@
     "@types/node": "~8.9.4",
     "chai": "^4.2.0",
     "codelyzer": "~4.5.0",
+    "cross-env": "^6.0.3",
     "debug": "^4.1.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
