@@ -2,7 +2,7 @@ const chai = require('chai');
 const sinon = require('sinon');
 const expect = chai.expect;
 
-const models = require('../../models/models');
+const models = require('../models/models');
 const factory = require('./handlerFactory');
 
 describe( 'Handler Factory', () => {
@@ -41,26 +41,6 @@ describe( 'Handler Factory', () => {
         it('Should create a doc from a model', async () => {
 
             let result = await factory.createOneAssoc(models.Site);
-            expect(result).to.exist;
-            expect(result).to.have.lengthOf(3);
-
-        });
-    });
-
-    context('Test getting public docs', () => {
-        it('Should get docs that are public', async () => {
-
-            let result = await factory.getAllPublic(models.Site);
-            expect(result).to.exist;
-            expect(result).to.have.lengthOf(3);
-
-        });
-    });
-
-    context('Test getting associated sites', () => {
-        it('Should get associated sites', async () => {
-
-            let result = await factory.getAssocSite(models.Match, models.H2H, 'h2hs');
             expect(result).to.exist;
             expect(result).to.have.lengthOf(3);
 

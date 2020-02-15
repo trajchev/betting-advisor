@@ -2,7 +2,7 @@ const multer = require('multer');
 
 const catchAsync = require('../../utils/catchAsync');
 const BAError = require('../../utils/BAError');
-const factory = require('../handlers/handlerFactory');
+const factory = require('../../helpers/helper');
 const models = require('../../models/models');
 
 const User = models.User;

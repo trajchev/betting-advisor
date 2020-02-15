@@ -1,8 +1,5 @@
-const catchAsync = require('../../utils/catchAsync');
-const BAError = require('../../utils/BAError');
-const models = require('../../models/models');
-
-const Site = models.Site;
+const catchAsync = require('../utils/catchAsync');
+const BAError = require('../utils/BAError');
 
 const deleteOne = Model => catchAsync(async (req, res, next) => {
 
@@ -101,38 +98,6 @@ const getOneAssoc = (Model, AssocModel, assocAlias) => catchAsync( async(req, re
 
 });
 
-const getAssocSite = (Model, AssocModel, assocAlias) => catchAsync( async(req, res, next) => {
-
-    let regionCondition = {};
-
-    if (req.params.region) {
-        regionCondition = {
-            region: req.params.region
-        }
-    }
-
-    const doc = await Model.findOne({ where: { id: req.params.id }, include: [{model: AssocModel, as: assocAlias, include: [{model: Site, where: regionCondition, attributes: ['name', 'region']}]}]});
-
-    if (!doc) { return next(new BAError('No Document found with that id', 404));}
-
-    res.status(200).json({
-        status: 'success',
-        data: doc
-    });
-
-});
-
-const getAllPublic = Model => catchAsync(async (req, res, next) => {
-
-    const docs = await Model.findAll();
-
-    res.status(200).json({
-        status: 'success',
-        data: docs
-    });
-
-});
-
 const getAll = Model => catchAsync(async (req, res, next) => {
 
     let limit, page = 1, offset;
@@ -183,9 +148,7 @@ module.exports = {
     createOneAssoc,
     getOne,
     getOneAssoc,
-    getAssocSite,
     getAll,
-    getAllPublic,
     updateOne,
     deleteOne,
 }

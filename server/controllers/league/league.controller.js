@@ -1,5 +1,5 @@
 const models = require('../../models/models');
-const factory = require('../handlers/handlerFactory');
+const factory = require('../../helpers/helper');
 
 const getLeagues = factory.getAll(models.Sport);
 

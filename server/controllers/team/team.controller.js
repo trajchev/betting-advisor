@@ -2,7 +2,7 @@ const multer = require('multer');
 
 const BAError = require('../../utils/BAError');
 const models = require('../../models/models');
-const factory = require('../handlers/handlerFactory');
+const factory = require('../../helpers/helper');
 
 // Multer setup for team logo
 const multerStorage = multer.diskStorage({

@@ -1,4 +1,4 @@
-const factory = require('../handlers/handlerFactory');
+const factory = require('../../helpers/helper');
 const models = require('../../models/models');
 const catchAsync = require('../../utils/catchAsync');
 
