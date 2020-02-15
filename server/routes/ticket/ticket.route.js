@@ -1,14 +1,14 @@
 const express = require('express');
 
+const auth = require('../../auth/auth');
 const controllers = require('../../controllers/controllers');
 
-const authController = controllers.auth;
 const ticketController = controllers.ticket;
 const match2ticketController = controllers.match2ticket;
 
 const router = express.Router({mergeParams: true});
 
-router.use(authController.protect);
+router.use(auth.protect);
 
 router.get('/', ticketController.getTickets);
 router.get('/:id', ticketController.getTicket);

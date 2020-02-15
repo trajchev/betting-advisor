@@ -1,13 +1,13 @@
 const express = require('express');
 
 const controllers = require('../../controllers/controllers');
+const auth = require('../../auth/auth');
 
-const authController = controllers.auth;
 const leagueController = controllers.league;
 
 const router = express.Router();
 
-router.use(authController.protect);
+router.use(auth.protect);
 
 router.get('/', leagueController.getLeagues);
 router.get('/:group', leagueController.getLeagues);

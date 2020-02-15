@@ -1,13 +1,13 @@
 const express = require('express');
 
+const auth = require('../../auth/auth');
 const controllers = require('../../controllers/controllers');
 
-const authController = controllers.auth;
 const siteController = controllers.site;
 
 const router = express.Router();
 
-router.use(authController.protect);
+router.use(auth.protect);
 
 router.get('/', siteController.getSites);
 router.get('/:id', siteController.getSite);

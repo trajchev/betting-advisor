@@ -1,15 +1,15 @@
 const express = require('express');
 
+const auth = require('../../auth/auth');
 const controllers = require('../../controllers/controllers');
 
-const authController = controllers.auth;
 const matchController = controllers.match;
 const saveMatchController = controllers.saveMatch;
 const deleteMatchController = controllers.deleteMatch;
 
 const router = express.Router({mergeParams: true});
 
-router.use(authController.protect);
+router.use(auth.protect);
 
 router.route('/')
     .post(saveMatchController);
