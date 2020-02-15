@@ -1,3 +1,5 @@
+const BAError = require('../../utils/BAError');
+
 const restrictTo = (...roles) => {
 
     return (req, res, next) => {

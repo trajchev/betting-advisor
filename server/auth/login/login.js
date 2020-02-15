@@ -1,6 +1,7 @@
 const catchAsync = require('../../utils/catchAsync');
 const BAError = require('../../utils/BAError');
 const models = require('../../models/models');
+const createSendToken = require('../utils/createSendToken');
 
 const User = models.User;
 
